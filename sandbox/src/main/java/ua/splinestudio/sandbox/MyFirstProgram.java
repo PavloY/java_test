@@ -6,22 +6,19 @@ public class MyFirstProgram {
         hello("World");
         hello("Oleh");
         hello("Lesha");
-        double a = 5;
-        double b = 8;
-        System.out.println("Square " + a + " = " + area(a));
-        System.out.println("Square " + a + " = " + area(a,b));
+
+
+        Square s = new Square(5);
+    //вместо area(s) меняем s.area()
+        System.out.println("Square " + s.l + " = " + s.area());
+
+        Rectangle r = new Rectangle(4,6);
+
+        System.out.println("Square " + r.a + " = " + r.area());
     }
 
     public static void hello( String hello){
         System.out.println("Hello, " + hello + "!");
-    }
-
-    public static double area(double l){
-        return l*l;
-
-    }
-    public static double area(double a, double b){
-        return a * b;
     }
 }
 

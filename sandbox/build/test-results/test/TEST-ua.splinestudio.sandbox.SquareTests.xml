@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.splinestudio.sandbox.SquareTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-12T14:51:40" hostname="WIN-H3K2C979116" time="0.014">
+  <properties/>
+  <testcase name="testArea" classname="ua.splinestudio.sandbox.SquareTests" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,4 +1,4 @@
-package ua.splinestudio.addressbook;
+package ua.splinestudio.addressbook.tests;
 
 import org.testng.annotations.Test;
 
@@ -7,10 +7,10 @@ public class GroupDeletionTests extends TestBase {
   @Test
   public void testGroupDeletion() throws Exception {
 
-    gotoGroupCreation();
-    selectGroup();
-    deleteSelectedGroups();
-    returnToGroupPage();
+    app.gotoGroupCreation();
+    app.selectGroup();
+    app.deleteSelectedGroups();
+    app.returnToGroupPage();
   }
 
 }

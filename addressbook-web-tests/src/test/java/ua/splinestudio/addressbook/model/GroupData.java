@@ -1,4 +1,4 @@
-package ua.splinestudio.addressbook;
+package ua.splinestudio.addressbook.model;
 
 public class GroupData {
     private final String name;

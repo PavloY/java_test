@@ -5,7 +5,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import ua.splinestudio.addressbook.model.GroupData;
 
 public class GroupHelper {
-    FirefoxDriver driver;
+   private FirefoxDriver driver;
+
+    public GroupHelper(FirefoxDriver driver) {
+        this.driver=driver;
+    }
 
     public void returnToGroupPage() {
         driver.findElement(By.linkText("group page")).click();

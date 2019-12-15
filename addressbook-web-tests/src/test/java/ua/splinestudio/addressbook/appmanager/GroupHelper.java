@@ -1,12 +1,13 @@
 package ua.splinestudio.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ua.splinestudio.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase{
 
-    public GroupHelper(FirefoxDriver driver) {
+    public GroupHelper(WebDriver driver) {
         super(driver);
     }
 

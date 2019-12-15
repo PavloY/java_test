@@ -2,10 +2,11 @@ package ua.splinestudio.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 
 public class NavigationHelper extends HelperBase{
 
-    public NavigationHelper(FirefoxDriver driver) {
+    public NavigationHelper(WebDriver driver) {
         super(driver);
     }
 

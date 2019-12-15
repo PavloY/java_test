@@ -1,16 +1,26 @@
 package ua.splinestudio.addressbook.appmanager;
 
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.*;
+
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-    FirefoxDriver driver;
+    WebDriver driver;
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
+    private String browser;
 
-    private static boolean isAlertPresent(FirefoxDriver driver) {
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
+
+    private static boolean isAlertPresent(WebDriver driver) {
         try {
             driver.switchTo().alert();
             return true;
@@ -20,7 +30,14 @@ public class ApplicationManager {
     }
 
     public void init() {
-       driver = new FirefoxDriver();
+        if (browser == BrowserType.FIREFOX) {
+        driver = new FirefoxDriver();
+        } else if (browser == BrowserType.CHROME) {
+            driver = new ChromeDriver();
+        } else if (browser == BrowserType.IE) {
+            driver = new InternetExplorerDriver();
+        }
+
        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
        driver.get("http://localhost/addressbook/");
        groupHelper = new GroupHelper(driver);

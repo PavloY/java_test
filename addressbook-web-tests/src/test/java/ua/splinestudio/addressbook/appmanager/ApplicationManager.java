@@ -2,7 +2,6 @@ package ua.splinestudio.addressbook.appmanager;
 
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {

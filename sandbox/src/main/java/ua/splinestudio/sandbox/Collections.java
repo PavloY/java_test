@@ -1,6 +1,7 @@
 package ua.splinestudio.sandbox;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Collections {
@@ -12,14 +13,16 @@ public class Collections {
             System.out.println(langs[i]);
 
  */
-        List<String> languages = new ArrayList<String >();
-        languages.add("Java");
-        languages.add("C#");
-        languages.add("Python");
+   //     List<String> languages = new ArrayList<String>();
+        List<String> languages = Arrays.asList("Java" , "C#" , "Python" , "PHP");
 
-        for (String l : langs) {
+        for (String l : languages) {
             System.out.println(l);
-
         }
+
+        for (int i =0; i<languages.size(); i++) {
+            System.out.println(languages.get(i));
+        }
+
     }
 }

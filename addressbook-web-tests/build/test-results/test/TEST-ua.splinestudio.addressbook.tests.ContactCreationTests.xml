@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.splinestudio.addressbook.tests.ContactCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-21T18:02:40" hostname="WIN-2KK8D6ESTAE" time="2.686">
+<testsuite name="ua.splinestudio.addressbook.tests.ContactCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-21T19:12:30" hostname="WIN-2KK8D6ESTAE" time="2.714">
   <properties/>
-  <testcase name="testContactCreationTests" classname="ua.splinestudio.addressbook.tests.ContactCreationTests" time="2.686"/>
+  <testcase name="testContactCreationTests" classname="ua.splinestudio.addressbook.tests.ContactCreationTests" time="2.714"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

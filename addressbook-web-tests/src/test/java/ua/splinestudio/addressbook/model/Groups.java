@@ -1,0 +1,39 @@
+package ua.splinestudio.addressbook.model;
+
+import com.google.common.collect.ForwardingSet;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Groups extends ForwardingSet<GroupData> {
+    //создаем обьект которому будет делегироваться наши методы
+
+    private Set<GroupData> delegate;
+
+    public Groups(Groups groups) {
+       this.delegate = new HashSet<GroupData>(groups.delegate);
+    }
+
+    public Groups() {
+        this.delegate = new HashSet<GroupData>();
+    }
+
+    @Override
+    protected Set<GroupData> delegate() {
+    //метод должен возвращать этот обьект
+        return delegate;
+    }
+    //добавляем свои методы
+    public Groups withAdded (GroupData group){
+    Groups groups = new Groups(this);
+    groups.add(group);
+    return groups;
+    }
+
+    public Groups withOut (GroupData group){
+        Groups groups = new Groups(this);
+        groups.remove(group);
+        return groups;
+    }
+
+}

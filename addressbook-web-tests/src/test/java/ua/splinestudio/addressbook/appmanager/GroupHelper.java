@@ -42,6 +42,10 @@ public class GroupHelper extends HelperBase{
         driver.findElements(By.name("selected[]")).get(index).click();
     }
 
+    public void selectGroupById(int id) {
+        driver.findElement(By.cssSelector("input[value='" + id + "']")).click();
+    }
+
     public void initGroupModification() {
         click(By.name("edit"));
     }
@@ -72,6 +76,12 @@ public class GroupHelper extends HelperBase{
         returnToGroupPage();
     }
 
+    public void delete(GroupData group) {
+        selectGroupById(group.getId());
+        deleteSelectedGroups();
+        returnToGroupPage();
+    }
+
 
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
@@ -91,10 +101,8 @@ public class GroupHelper extends HelperBase{
         }
         return groups;
     }
-        //меняем тип возвращаемого значения
+
     public Set<GroupData> all() {
-        //создаем множества элементов типа GroupData
-        //HashSet реализация множества
         Set<GroupData> groups = new HashSet<GroupData>();
         List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
         for(WebElement element : elements){
@@ -104,5 +112,6 @@ public class GroupHelper extends HelperBase{
         }
         return groups;
     }
+
 
 }

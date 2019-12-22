@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import ua.splinestudio.addressbook.model.GroupData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GroupHelper extends HelperBase{
 
@@ -89,4 +91,18 @@ public class GroupHelper extends HelperBase{
         }
         return groups;
     }
+        //меняем тип возвращаемого значения
+    public Set<GroupData> all() {
+        //создаем множества элементов типа GroupData
+        //HashSet реализация множества
+        Set<GroupData> groups = new HashSet<GroupData>();
+        List<WebElement> elements = driver.findElements(By.cssSelector("span.group"));
+        for(WebElement element : elements){
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            groups.add(new GroupData().withId(id).withName(name));
+        }
+        return groups;
+    }
+
 }

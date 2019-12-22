@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.splinestudio.addressbook.tests.GroupModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-21T21:34:43" hostname="WIN-2KK8D6ESTAE" time="1.812">
-  <properties/>
-  <testcase name="testGroupModification" classname="ua.splinestudio.addressbook.tests.GroupModificationTests" time="1.812"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

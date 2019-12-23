@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ua.splinestudio.addressbook.model.GroupData;
 import ua.splinestudio.addressbook.model.Groups;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase{
 
@@ -100,6 +97,4 @@ public class GroupHelper extends HelperBase{
         }
         return new Groups(groupCache);
     }
-
-
 }

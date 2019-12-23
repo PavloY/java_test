@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Groups extends ForwardingSet<GroupData> {
-    //создаем обьект которому будет делегироваться наши методы
+
 
     private Set<GroupData> delegate;
 

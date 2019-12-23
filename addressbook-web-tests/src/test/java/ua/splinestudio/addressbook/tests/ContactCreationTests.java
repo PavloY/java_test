@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import ua.splinestudio.addressbook.model.ContactData;
 
 import java.io.File;
-
+/*
 public class ContactCreationTests extends TestBase{
 
         @Test(enabled = false)
@@ -24,6 +24,8 @@ public class ContactCreationTests extends TestBase{
             app.contact().goToHomePage();
         }
 
+
+
       @Test(enabled = false)
       public void testCurrentDir(){
           File currentDir = new File(".");
@@ -34,3 +36,4 @@ public class ContactCreationTests extends TestBase{
       }
 
 }
+*/

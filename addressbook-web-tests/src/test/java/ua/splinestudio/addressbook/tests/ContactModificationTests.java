@@ -2,7 +2,7 @@ package ua.splinestudio.addressbook.tests;
 
 import org.testng.annotations.Test;
 import ua.splinestudio.addressbook.model.ContactData;
-
+/*
 public class ContactModificationTests extends TestBase{
 
     @Test
@@ -21,3 +21,4 @@ public class ContactModificationTests extends TestBase{
         app.goTo().gotoHomePage();
     }
 }
+*/

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ua.splinestudio.addressbook.model.ContactData;
+
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -16,11 +18,8 @@ public class ContactHelper extends HelperBase{
 
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
-        type(By.name("middlename"), contactData.getMiddlename());
         type(By.name("lastname"), contactData.getLastname());
-        type(By.name("address"), contactData.getAddress());
-        type(By.name("email"), contactData.getEmail());
-        type(By.name("home"), contactData.getHome());
+
   
         if(creation) {
             new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
@@ -41,12 +40,6 @@ public class ContactHelper extends HelperBase{
         click(By.xpath("//img[@alt='Edit']"));
     }
 
-    public void initContactModificationById(int id) {
-        WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']", id)));
-        WebElement row = checkbox.findElement(By.xpath("./../.."));
-        List<WebElement> cells = row.findElements(By.tagName("td"));
-        cells.get(7).findElement(By.tagName("a")).clear();
-    }
 
     public void submitContactModifycation() {
         click(By.xpath("(//input[@name='update'])[2]"));
@@ -54,11 +47,18 @@ public class ContactHelper extends HelperBase{
 
     public Set<ContactData> all(){
         Set<ContactData> contacts = new HashSet<ContactData>();
-        List<WebElement> rows = driver.findElements(By.name())
+        List<WebElement> rows = driver.findElements(By.name("entry"));
+        for (WebElement row : rows) {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("value"));
+            String lastname = cells.get(1).getText();
+            String firstname = cells.get(2).getText();
+            String[] phones = cells.get(5).getText().split("\n");
+            contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
+                    .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+        }
+        return contacts;
     }
-
-
-
 
     public ContactData infoFromEditForm(ContactData contact) {
         initContactModificationById(contact.getId());
@@ -71,4 +71,14 @@ public class ContactHelper extends HelperBase{
         return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
                 .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
     }
+
+    public void initContactModificationById(int id) {
+        WebElement checkbox = driver.findElement(By.cssSelector(String.format("input[value='%s']", id)));
+        WebElement row = checkbox.findElement(By.xpath("./../.."));
+        List<WebElement> cells = row.findElements(By.tagName("td"));
+        cells.get(7).findElement(By.tagName("a")).click();
+    }
+
+
 }
+

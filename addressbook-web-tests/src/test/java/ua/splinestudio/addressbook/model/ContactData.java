@@ -11,6 +11,7 @@ public class ContactData {
     private String mobilePhone;
     private String workPhone;
     private String allPhones;
+    private File photo;
 
     public String getAllPhones() {
         return allPhones;
@@ -21,7 +22,7 @@ public class ContactData {
         return this;
     }
 
-    public ContactData setPhoto(File photo) {
+    public ContactData withPhoto(File photo) {
         this.photo = photo;
         return this;
     }
@@ -29,9 +30,6 @@ public class ContactData {
     public File getPhoto() {
         return photo;
     }
-
-    private File photo;
-
 
     public int getId() {return id;}
 

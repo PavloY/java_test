@@ -19,24 +19,25 @@ public class ContactHelper extends HelperBase{
     public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
+        attach(By.name("photo"), contactData.getPhoto());
 
-  
-        if(creation) {
-            new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        if (creation) {
+            if (contactData.getGroup() != null) {
+                new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+            }
         } else {
-            Assert.assertFalse(isElementPresent(By.name("new_group")));
+                Assert.assertFalse(isElementPresent(By.name("new_group")));
         }
-    }
 
-    public void submit() {
+    }
+    public void submitContactCreation() {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
 
-    public void goToHomePage() {
-        click(By.linkText("home page"));
+    public void returnToHomePage() {click(By.linkText("home page"));
     }
 
-    public void initContactModification() {
+        public void initContactModification() {
         click(By.xpath("//img[@alt='Edit']"));
     }
 

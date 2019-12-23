@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.splinestudio.addressbook.tests.ContactPhoneTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-23T21:01:56" hostname="WIN-2KK8D6ESTAE" time="0.724">
-  <properties/>
-  <testcase name="testContactPhone" classname="ua.splinestudio.addressbook.tests.ContactPhoneTests" time="0.724"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

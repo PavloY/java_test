@@ -1,8 +1,11 @@
 package ua.splinestudio.addressbook.model;
 
-import java.util.Objects;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+@XStreamAlias("group")
 public class GroupData {
+    @XStreamOmitField
     private int id = Integer.MAX_VALUE;
     private String name;
     private String header;

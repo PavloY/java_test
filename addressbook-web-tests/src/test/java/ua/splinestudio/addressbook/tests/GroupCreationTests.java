@@ -22,21 +22,23 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class GroupCreationTests extends TestBase{
 
     @DataProvider
-    public Iterator<Object[]> validGpoups() throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
-        String json = "";
-        String line = reader.readLine();
-        while (line !=null) {
-          json += line;
-          line = reader.readLine();
-        }
-        Gson gson = new Gson();
-        List<GroupData> groups = gson.fromJson(json,new TypeToken<List<GroupData>>(){}.getType());
-        return groups.stream().map((g)-> new Object[] {g}).collect(Collectors.toList()).iterator();
+    public Iterator<Object[]> validGpoupsFromJson() throws IOException {
+       try (BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")))) {
+         String json = "";
+         String line = reader.readLine();
+         while (line != null) {
+           json += line;
+           line = reader.readLine();
+         }
+         Gson gson = new Gson();
+         List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>() {
+         }.getType());
+         return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
+       }
     }
 
   @DataProvider
-  public Iterator<Object[]> validGpoupsFromJson() throws IOException {
+  public Iterator<Object[]> validGpoups() throws IOException {
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
     String xml = "";
     String line = reader.readLine();

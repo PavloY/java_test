@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.splinestudio.addressbook.tests.ContactCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-25T08:01:29" hostname="WIN-H3K2C979116" time="1.053">
+  <properties/>
+  <testcase name="testContactCreationTests" classname="ua.splinestudio.addressbook.tests.ContactCreationTests" time="1.053"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -7,9 +7,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
+    private final Properties properties;
     WebDriver driver;
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
@@ -19,18 +25,13 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
     }
 
-    private static boolean isAlertPresent(WebDriver driver) {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
+    public void init() throws IOException {
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
-    public void init() {
         if (browser.equals(BrowserType.FIREFOX)) {
         driver = new FirefoxDriver();
         } else if (browser.equals(BrowserType.CHROME)) {
@@ -40,12 +41,14 @@ public class ApplicationManager {
         }
 
        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-       driver.get("http://localhost/addressbook/");
+       driver.get(properties.getProperty("web.baseUrl"));
+    //    driver.get("http://localhost/addressbook/");
        groupHelper = new GroupHelper(driver);
        navigationHelper = new NavigationHelper(driver);
        sessionHelper = new SessionHelper(driver);
        contactHelper = new ContactHelper(driver);
-       sessionHelper.login("admin", "secret");
+       sessionHelper.login(properties.getProperty("web.adminLogin"),properties.getProperty("web.adminPassword"));
+       //sessionHelper.login("admin", "secret");
     }
 
     public void stop() {

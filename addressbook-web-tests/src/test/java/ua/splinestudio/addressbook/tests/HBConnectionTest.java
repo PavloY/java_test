@@ -8,7 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ua.splinestudio.addressbook.model.ContactData;
-import ua.splinestudio.addressbook.model.GroupData;
+
 import java.util.List;
 
 public class HBConnectionTest {

@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
-public class GroupModificationTestsDB extends TestBase {
+public class GroupModificationTestsDb extends TestBase {
 
     @BeforeMethod
     private void ensurePreconditions() {
@@ -29,5 +29,6 @@ public class GroupModificationTestsDB extends TestBase {
         assertEquals(app.group().count(), before.size());
         Groups after = app.db().groups();
         assertThat(after, equalTo(before.withOut(modifiedGroup).withAdded(group)));
+        verifyGroupListInUI();
     }
 }

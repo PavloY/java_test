@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.splinestudio.addressbook.tests.HBConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-26T09:45:10" hostname="WIN-2KK8D6ESTAE" time="0.884">
+  <properties/>
+  <testcase name="testHBConnection" classname="ua.splinestudio.addressbook.tests.HBConnectionTest" time="0.884"/>
+  <system-out><![CDATA[11:45:07.732 [Test worker] WARN  org.hibernate.orm.deprecation - HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+11:45:08.646 [Test worker] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+Hibernate: select c1_0.id, c1_0.deprecated, c1_0.firstname, c1_0.home, c1_0.lastname, c1_0.mobile, c1_0.photo, c1_0.work from addressbook as c1_0 where c1_0.deprecated = ?
+ua.splinestudio.addressbook.model.ContactData@6e770324
+ua.splinestudio.addressbook.model.ContactData@335aa03e
+ua.splinestudio.addressbook.model.ContactData@25c41142
+ua.splinestudio.addressbook.model.ContactData@3a1990d0
+ua.splinestudio.addressbook.model.ContactData@3eb382f7
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

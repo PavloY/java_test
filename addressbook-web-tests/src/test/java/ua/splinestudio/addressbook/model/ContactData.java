@@ -1,17 +1,53 @@
 package ua.splinestudio.addressbook.model;
 
-import java.io.File;
+import com.sun.istack.NotNull;
+import javafx.application.Application;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
+import java.io.File;
+import java.time.LocalDate;
+
+
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+
+    @Id
+    @Column(name="id")
     private int id;
+
+    @Column(name="firstname")
     private String firstname;
+
+    @Column(name="lastname")
     private String lastname;
+
+    @Transient
     private String group;
+
+    @Column(name="home")
+    @Type(type = "text")
     private String homePhone;
+
+    @Column(name="mobile")
+    @Type(type = "text")
     private String mobilePhone;
+
+    @Column(name="work")
+    @Type(type = "text")
     private String workPhone;
+
+    @Transient
     private String allPhones;
-    private File photo;
+
+    @Column(name="photo")
+    @Type(type = "text")
+    private String photo;
+
+    @Column(name = "deprecated", columnDefinition = "DATETIME")
+    private String deprecated;
+
 
     public String getAllPhones() {
         return allPhones;
@@ -23,12 +59,12 @@ public class ContactData {
     }
 
     public ContactData withPhoto(File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
     public File getPhoto() {
-        return photo;
+        return new File(photo);
     }
 
     public int getId() {return id;}

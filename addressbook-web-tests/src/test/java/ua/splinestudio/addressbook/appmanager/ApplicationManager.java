@@ -2,6 +2,7 @@ package ua.splinestudio.addressbook.appmanager;
 
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -47,6 +48,7 @@ public class ApplicationManager {
       }  else {
           DesiredCapabilities capabilities = new DesiredCapabilities();
           capabilities.setBrowserName(browser);
+          capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
           driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
       }
        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);

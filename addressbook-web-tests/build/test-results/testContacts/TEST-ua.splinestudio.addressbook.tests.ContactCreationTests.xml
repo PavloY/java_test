@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.splinestudio.addressbook.tests.ContactCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-25T13:04:09" hostname="WIN-H3K2C979116" time="1.707">
-  <properties/>
-  <testcase name="testContactCreationTests" classname="ua.splinestudio.addressbook.tests.ContactCreationTests" time="1.707"/>
-  <system-out><![CDATA[15:04:09.118 [Test worker] INFO  u.s.addressbook.tests.TestBase - Start test testContactCreationTestswith parameters[]
-15:04:10.832 [Test worker] INFO  u.s.addressbook.tests.TestBase - Stop test testContactCreationTests
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

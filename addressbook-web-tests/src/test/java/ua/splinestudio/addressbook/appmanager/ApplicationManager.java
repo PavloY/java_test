@@ -1,5 +1,6 @@
 package ua.splinestudio.addressbook.appmanager;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,6 +12,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -34,15 +36,19 @@ public class ApplicationManager {
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
 
         dbHelper = new DbHelper();
-
-        if (browser.equals(BrowserType.FIREFOX)) {
-        driver = new FirefoxDriver();
-        } else if (browser.equals(BrowserType.CHROME)) {
-            driver = new ChromeDriver();
-        } else if (browser.equals(BrowserType.IE)) {
-            driver = new InternetExplorerDriver();
-        }
-
+      if("".equals(properties.getProperty("selenium.server"))){
+          if (browser.equals(BrowserType.FIREFOX)) {
+              driver = new FirefoxDriver();
+          } else if (browser.equals(BrowserType.CHROME)) {
+              driver = new ChromeDriver();
+          } else if (browser.equals(BrowserType.IE)) {
+              driver = new InternetExplorerDriver();
+          }
+      }  else {
+          DesiredCapabilities capabilities = new DesiredCapabilities();
+          capabilities.setBrowserName(browser);
+          driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
+      }
        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
        driver.get(properties.getProperty("web.baseUrl"));
     //    driver.get("http://localhost/addressbook/");

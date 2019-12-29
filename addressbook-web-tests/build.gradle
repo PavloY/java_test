@@ -21,7 +21,7 @@ dependencies {
     implementation 'mysql:mysql-connector-java:8.0.18'
     implementation 'org.hibernate.orm:hibernate-core:6.0.0.Alpha4'
     agent "org.aspectj:aspectjweaver:1.9.5"
-    testCompile 'ru.yandex.qatools.allure:allure-testng-adaptor:1.5.4'
+    testImplementation 'ru.yandex.qatools.allure:allure-testng-adaptor:1.5.4'
 
     agent 'org.aspectj:aspectjweaver:1.8.10'
     compile 'org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.2-2'
@@ -29,6 +29,10 @@ dependencies {
     testCompile 'org.testng:testng:6.10'
     testCompile 'io.qameta.allure:allure-testng:2.0-BETA6'
     testCompile 'io.github.bonigarcia:webdrivermanager:1.6.2'
+
+    implementation 'org.robotframework:robotframework:3.1.2'
+    implementation 'info.cukes:cucumber-java:1.2.6'
+    implementation 'info.cukes:cucumber-testng:1.2.6'
     }
 
 task testGroups(type: Test) {

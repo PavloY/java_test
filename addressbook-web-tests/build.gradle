@@ -33,6 +33,9 @@ dependencies {
     implementation 'org.robotframework:robotframework:3.1.2'
     implementation 'info.cukes:cucumber-java:1.2.6'
     implementation 'info.cukes:cucumber-testng:1.2.6'
+
+
+
     }
 
 task testGroups(type: Test) {
@@ -64,6 +67,20 @@ task testContacts(type: Test) {
         systemProperty 'target', "${target}"
     }
 }
+task testBdd(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-bddgroups.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('platform')){
+        systemProperty 'platform', "${platform}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
 
 testGroups.doFirst {
     jvmArgs "-javaagent:${configurations.agent.singleFile}"
@@ -71,7 +88,11 @@ testGroups.doFirst {
 testContacts.doFirst {
     jvmArgs "-javaagent:${configurations.agent.singleFile}"
 }
+testBdd.doFirst {
+    jvmArgs "-javaagent:${configurations.agent.singleFile}"
+}
 
 test {
     useTestNG()
+    scanForTestClasses = false
 }

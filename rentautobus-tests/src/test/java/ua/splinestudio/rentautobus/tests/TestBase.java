@@ -1,25 +1,21 @@
 package ua.splinestudio.rentautobus.tests;
 
-import org.openqa.selenium.remote.BrowserType;
-import org.testng.ITestContext;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import ua.splinestudio.rentautobus.appmanager.ApplicationManager;
-
 
 public class TestBase {
 
-  protected static final ApplicationManager app
-          = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME ));
+    protected final ApplicationManager app = new ApplicationManager();
 
-  @BeforeSuite
-  public void setUp(ITestContext context) throws Exception {
-    app.init();
-    context.setAttribute("app",app);
-  }
+    @BeforeMethod
+    public void setUp() throws Exception {
+        app.init();
+    }
 
-  @AfterSuite(alwaysRun = true)
-  public void tearDown() {
-    app.stop();
-  }
+    @AfterMethod
+    public void tearDown() {
+        app.stop();
+    }
 
 }

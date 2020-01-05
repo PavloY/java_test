@@ -2,7 +2,6 @@ package ua.splinestudio.addressbook.tests;
 
 import org.testng.annotations.Test;
 import ua.splinestudio.addressbook.model.ContactData;
-
 import java.io.File;
 
 public class ContactCreationTests extends TestBase{
@@ -13,7 +12,8 @@ public class ContactCreationTests extends TestBase{
             File photo = new File("src/test/resources/spst.png");
             //app.contact().initContactCreation();
             app.contact().fillContactForm(
-                    new ContactData().withFirstname("test_name").withLastname("test_lastname").withPhoto(photo),true);
+                    new ContactData().withFirstname("test_name")
+                            .withLastname("test_lastname").withPhoto(photo),true);
             app.contact().submitContactCreation();
             app.contact().returnToHomePage();
         }

@@ -1,6 +1,7 @@
 package ua.splinestudio.rentautobus.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -9,9 +10,9 @@ import java.util.NoSuchElementException;
 
 public class ElementHelper {
     private WebDriverWait wait;
-    private FirefoxDriver driver;
+    private WebDriver driver;
 
-    public ElementHelper(FirefoxDriver driver, WebDriverWait wait) {
+    public ElementHelper(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
         this.wait = wait;
     }

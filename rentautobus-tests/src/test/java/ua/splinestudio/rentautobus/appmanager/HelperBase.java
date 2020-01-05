@@ -1,12 +1,13 @@
 package ua.splinestudio.rentautobus.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+
 
 public class HelperBase {
-    protected FirefoxDriver driver;
+    protected WebDriver driver;
 
-    public HelperBase(FirefoxDriver driver) {
+    public HelperBase(WebDriver driver) {
         this.driver = driver;
     }
 

@@ -1,12 +1,13 @@
 package ua.splinestudio.rentautobus.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ua.splinestudio.rentautobus.model.TripData;
 
 public class TripHelper extends HelperBase {
 
-    public TripHelper(FirefoxDriver driver) {
+    public TripHelper(WebDriver driver) {
         super(driver);
     }
 

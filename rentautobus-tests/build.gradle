@@ -10,9 +10,9 @@ dependencies {
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
     }
 
-task testBus(type: Test) {
+task testTraveler(type: Test) {
     useTestNG {
-        suites 'src/test/resources/testng.xml'
+        suites 'src/test/resources/testng/testng-traveler.xml'
     }
     if (project.hasProperty('browser')){
         systemProperty 'browser', "${browser}"

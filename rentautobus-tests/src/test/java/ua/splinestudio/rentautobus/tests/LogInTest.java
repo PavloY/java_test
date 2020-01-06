@@ -13,6 +13,7 @@ public class LogInTest extends TestBase{
         app.getSessionHelper().logIn("dev@splinestudio.com", "12345678");
         app.getElementHelper().waitElementExpected("//button[@onclick='sign_in()']");
         assertTrue(app.getElementHelper().isElementPresent(By.id("dashboard_link")));
+
     }
 
 }

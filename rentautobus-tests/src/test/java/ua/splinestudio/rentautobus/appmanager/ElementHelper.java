@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.NoSuchElementException;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.stalenessOf;
+
 public class ElementHelper {
     private WebDriverWait wait;
     private WebDriver driver;
@@ -31,6 +33,8 @@ public class ElementHelper {
     }
 
     public void waitElementExpected(String locator) {
-        wait.until(ExpectedConditions.stalenessOf(driver.findElement(By.xpath(locator))));
+        wait.until(stalenessOf(driver.findElement(By.xpath(locator))));
     }
+
+
 }

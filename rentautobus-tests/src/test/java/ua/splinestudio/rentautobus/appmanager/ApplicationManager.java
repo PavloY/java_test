@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -24,15 +26,20 @@ public class ApplicationManager {
 
 
     public void init() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY,"eager");
+
         if (browser.equals(BrowserType.FIREFOX)) {
-            driver = new FirefoxDriver();
+            driver = new FirefoxDriver(capabilities);
         } else if (browser.equals(BrowserType.CHROME)) {
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(capabilities);
         } else if (browser.equals(BrowserType.IE)) {
-            driver = new InternetExplorerDriver();
+            driver = new InternetExplorerDriver(capabilities);
         }
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 5);
+
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 60);
+
         tripHelper = new TripHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);

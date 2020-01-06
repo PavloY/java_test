@@ -9,11 +9,17 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     WebDriver driver;
     WebDriverWait wait;
+ //   private final Properties properties;
+    public Properties properties;
     private String browser;
     private ElementHelper elementHelper;
     private SessionHelper sessionHelper;
@@ -22,10 +28,14 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
     }
 
 
-    public void init() {
+    public void init() throws IOException {
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(new File(String.format("src/test/resources/properties/%s.properties", target))));
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY,"eager");
 
@@ -40,11 +50,14 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 60);
 
+        driver.get(properties.getProperty("web.baseUrl"));
+
         tripHelper = new TripHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         elementHelper = new ElementHelper(driver, wait);
-        driver.get("http://rab.dev19.splinestudio.com/");
+        driver.get(properties.getProperty("web.baseUrl"));
+        //driver.get("http://rab.dev19.splinestudio.com/");
     }
 
     public void stop() {

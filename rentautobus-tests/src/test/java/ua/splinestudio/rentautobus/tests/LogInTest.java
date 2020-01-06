@@ -10,7 +10,8 @@ public class LogInTest extends TestBase{
 
     @Test
     public void testBusCompanyLoginIn() {
-        app.getSessionHelper().logIn("dev@splinestudio.com", "12345678");
+        app.getSessionHelper().logIn(app.properties.getProperty("web.travelerLogin")
+                , app.properties.getProperty("web.travelerPassword"));
         app.getElementHelper().waitElementExpected("//button[@onclick='sign_in()']");
         assertTrue(app.getElementHelper().isElementPresent(By.id("dashboard_link")));
 

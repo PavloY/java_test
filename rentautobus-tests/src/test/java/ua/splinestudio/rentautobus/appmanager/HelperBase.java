@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.Keys;
 
+import java.io.File;
+
 public class HelperBase {
     protected WebDriver driver;
 
@@ -26,6 +28,14 @@ public class HelperBase {
         driver.findElement(locator).sendKeys(text);
     }
 
+    protected void fillingDate(By locator, String text) {
+        driver.findElement(locator).click();
+        driver.findElement(locator).sendKeys("selenium" + Keys.ARROW_RIGHT);
+        driver.findElement(locator).sendKeys("selenium" + Keys.ARROW_RIGHT);
+        driver.findElement(locator).sendKeys("selenium" + Keys.ARROW_RIGHT);
+        driver.findElement(locator).sendKeys(text);
+    }
+
     protected void fillTime(By locator, String text) {
         driver.findElement(locator).click();
         driver.findElement(locator).sendKeys("selenium" + Keys.DELETE);
@@ -33,4 +43,21 @@ public class HelperBase {
         driver.findElement(locator).sendKeys("selenium" + Keys.ENTER);
     }
 
+    public void fillGroupTrip(By locator, String text) {
+        driver.findElement(locator).click();
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+
+    }
+    public void fillAboutTrip(By locator, String text) {
+        driver.findElement(locator).click();
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+    }
+
+    public void attach(By locator, File file) {
+       driver.findElement(locator).sendKeys(file.getAbsolutePath());
+
+
+    }
 }

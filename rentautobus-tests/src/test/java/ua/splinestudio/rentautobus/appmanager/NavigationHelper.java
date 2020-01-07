@@ -16,4 +16,8 @@ public class NavigationHelper extends HelperBase{
     public void clickOneWayTrip() { click(By.id("one_way"));}
 
     public void gotoHomePage() { click(By.linkText("Home"));}
+
+    public void gotoNextPageClick(String locator) {
+        click(By.xpath(locator));}
+
 }

@@ -36,5 +36,9 @@ public class ElementHelper {
         wait.until(stalenessOf(driver.findElement(By.xpath(locator))));
     }
 
+    public void cleaned(String element) {
+        element.replaceAll("\\s","").replaceAll("[-()]","");
+
+    }
 
 }

@@ -1,5 +1,7 @@
 package ua.splinestudio.rentautobus.appmanager;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -18,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     WebDriver driver;
     WebDriverWait wait;
- //   private final Properties properties;
+
     public Properties properties;
     private String browser;
     private ElementHelper elementHelper;
@@ -37,7 +39,7 @@ public class ApplicationManager {
         properties.load(new FileReader(new File(String.format("src/test/resources/properties/%s.properties", target))));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY,"eager");
+        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
 
         if (browser.equals(BrowserType.FIREFOX)) {
             driver = new FirefoxDriver(capabilities);
@@ -49,15 +51,13 @@ public class ApplicationManager {
 
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 60);
-
         driver.get(properties.getProperty("web.baseUrl"));
 
         tripHelper = new TripHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         elementHelper = new ElementHelper(driver, wait);
-        driver.get(properties.getProperty("web.baseUrl"));
-        //driver.get("http://rab.dev19.splinestudio.com/");
+
     }
 
     public void stop() {

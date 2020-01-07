@@ -4,11 +4,20 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    agent
+}
+
 dependencies {
     implementation 'org.testng:testng:7.0.0'
     implementation 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-3'
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
     implementation 'ch.qos.logback:logback-classic:1.3.0-alpha5'
+
+
+
+    implementation 'info.cukes:cucumber-java:1.2.6'
+    implementation 'info.cukes:cucumber-testng:1.2.6'
     }
 
 task testTraveler(type: Test) {
@@ -26,6 +35,10 @@ task testTraveler(type: Test) {
     }
 }
 
+
+
+
 test {
     useTestNG()
+    scanForTestClasses = false
 }

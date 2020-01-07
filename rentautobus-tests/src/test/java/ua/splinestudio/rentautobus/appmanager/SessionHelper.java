@@ -19,4 +19,16 @@ public class SessionHelper extends HelperBase {
         driver.findElement(By.id("password")).sendKeys(password);
         click(By.xpath("//button[@onclick='sign_in()']"));
     }
+
+    public void clicklogIn() {
+        click(By.id("dLabel"));}
+
+    public void filllogIn(String login, String pass) {
+        driver.findElement(By.id("email")).click();
+        driver.findElement(By.id("email")).clear();
+        driver.findElement(By.id("email")).sendKeys(login);
+        driver.findElement(By.id("password")).click();
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys(pass);
+        click(By.xpath("//button[@onclick='sign_in()']"));}
 }

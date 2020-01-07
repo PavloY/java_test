@@ -17,7 +17,6 @@ public class TripHelper extends HelperBase {
         click(By.id("one_way"));
         filling(By.id("from_date"), tripData.getDate());
         click(By.id("one_way"));
-        //filling(By.id("from_time-hour"), tripData.getTime());
         fillTime(By.id("from_time-hour"), tripData.getTime());
         click(By.id("one_way"));
     }

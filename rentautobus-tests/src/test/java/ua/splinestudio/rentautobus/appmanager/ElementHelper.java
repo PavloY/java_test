@@ -1,6 +1,7 @@
 package ua.splinestudio.rentautobus.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -38,5 +39,17 @@ public class ElementHelper {
         element.replaceAll("\\s","").replaceAll("[-()]","");
 
     }
+    public void setDatepicker(WebDriver driver, String cssSelector, String date) {
+        new WebDriverWait(driver, 30000).until(
+                (WebDriver d) -> d.findElement(By.cssSelector(cssSelector)).isDisplayed());
+        JavascriptExecutor.class.cast(driver).executeScript(
+                String.format("$('%s').datepicker('setDate', '%s')", cssSelector, date));
+    }
+    public void fillDate() {
+      //  driver.get("http://jqueryui.com/datepicker/");
+        driver.switchTo().frame(driver.findElement(By.id("from_date")));
+        setDatepicker(driver, "#datepicker", "05/05/2020");
+    }
+
 
 }

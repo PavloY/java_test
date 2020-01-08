@@ -30,11 +30,9 @@ public class HelperBase {
 
     protected void fillingDate(By locator, String text) {
         driver.findElement(locator).click();
-        driver.findElement(locator).sendKeys("selenium" + Keys.ARROW_RIGHT);
-        driver.findElement(locator).sendKeys("selenium" + Keys.ARROW_RIGHT);
-        driver.findElement(locator).sendKeys("selenium" + Keys.ARROW_RIGHT);
-        driver.findElement(locator).sendKeys(text);
-    }
+        driver.findElement(locator).clear();
+         driver.findElement(locator).sendKeys(text);
+     }
 
     protected void fillTime(By locator, String text) {
         driver.findElement(locator).click();
@@ -73,4 +71,6 @@ public class HelperBase {
     public void fillTerms(By locator) {
         driver.findElement(locator).click();
     }
+
+
 }

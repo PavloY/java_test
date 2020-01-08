@@ -14,8 +14,6 @@ public class LogInTest extends TestBase{
                 , app.properties.getProperty("web.travelerPassword"));
         app.getElementHelper().waitElementExpected("//button[@onclick='sign_in()']");
         assertTrue(app.getElementHelper().isElementPresent(By.id("dashboard_link")));
-
     }
-
 }
 

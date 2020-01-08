@@ -2,8 +2,6 @@ package ua.splinestudio.rentautobus.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.NoSuchElementException;
@@ -28,8 +26,8 @@ public class ElementHelper {
         }
     }
 
-    public void waitElementShow(String locator) {
-        wait.until(d -> d.findElement(By.xpath(locator)));
+    public void waitElementShow(By locator) {
+        wait.until(d -> d.findElement(locator));
     }
 
     public void waitElementExpected(String locator) {

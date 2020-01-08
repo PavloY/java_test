@@ -57,7 +57,20 @@ public class HelperBase {
 
     public void attach(By locator, File file) {
        driver.findElement(locator).sendKeys(file.getAbsolutePath());
+    }
 
+    public void fillPhoneId(By locator) {
+        driver.findElement(locator).click();
+        driver.findElement(locator).sendKeys("selenium" + Keys.END);
+        driver.findElement(locator).click();
+        driver.findElement(locator).sendKeys("selenium" + Keys.END);
+    }
 
+    public void fillPhone(By locator) {
+        driver.findElement(locator).click();
+    }
+
+    public void fillTerms(By locator) {
+        driver.findElement(locator).click();
     }
 }

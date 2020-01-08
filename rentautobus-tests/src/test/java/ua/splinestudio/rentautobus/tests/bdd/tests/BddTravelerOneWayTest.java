@@ -53,8 +53,8 @@ public class BddTravelerOneWayTest {
 
     @Then("^user clicks on button and navigates to next page$")
     public void assertResults() {
-        app.getNavigationHelper().gotoNextPage("//button[@onclick='get_next_page()']");
-        app.getElementHelper().waitElementShow("/html/body/div[4]/div[1]/span[2]");
+        app.getNavigationHelper().gotoNextPage(By.xpath("//button[@onclick='get_next_page()']"));
+        app.getElementHelper().waitElementShow(By.xpath("/html/body/div[4]/div[1]/span[2]"));
     }
 
 }

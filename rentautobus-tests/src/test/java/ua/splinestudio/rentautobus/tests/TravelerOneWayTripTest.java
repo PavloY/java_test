@@ -25,15 +25,15 @@ public class TravelerOneWayTripTest extends TestBase{
                 , "Kiev, Ukraine"
                 , "20-20-2020"
                 , "12:45"));
-        app.getNavigationHelper().gotoNextPage("//button[@onclick='get_next_page()']");
-        app.getElementHelper().waitElementShow("/html/body/div[4]/div[1]/span[2]");
+        app.getNavigationHelper().gotoNextPage(By.xpath("//button[@onclick='get_next_page()']"));
+        app.getElementHelper().waitElementShow(By.xpath("/html/body/div[4]/div[1]/span[2]"));
         app.getNavigationHelper().clickOneWayTrip();
         app.getTripHelper().fillOneWayTripForm(new TripData(
                 "Dnipro, Dnipropetrovsk Oblast, Ukraine"
                 , "Kiev, Ukraine"
                 , "20-20-2020"
                 , "12:45"));
-        app.getNavigationHelper().gotoNextPageClick("//*[@id='next-page']");
+        app.getNavigationHelper().gotoNextPageClick(By.xpath("//*[@id='next-page']"));
 
         String from = new String("["+"Dnipro, Dnipropetrovsk Oblast, Ukraine"+"]");
         String fromWeb = new String(String.valueOf(app.getTripHelper()
@@ -49,7 +49,12 @@ public class TravelerOneWayTripTest extends TestBase{
         app.getTripHelper().fillAboutTrip(By.id("details"), "test about the group");
         File pdf = new File("src/test/resources/files/spst.pdf");
         app.getTripHelper().attach(By.id("file"),pdf);
-        app.getElementHelper().waitElementExpected("//button[@onclick='sign_in()']");
+        app.getNavigationHelper().gotoNextPageClick(By.id("upload"));
+        app.getElementHelper().waitElementShow(By.id("phone"));
+        app.getTripHelper().fillPhoneId(By.id("id-phone"));
+        app.getTripHelper().fillPhone(By.id("phone"));
+        app.getTripHelper().fillTerms(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='*'])[4]/following::label[1]"));
+
     }
 }
 

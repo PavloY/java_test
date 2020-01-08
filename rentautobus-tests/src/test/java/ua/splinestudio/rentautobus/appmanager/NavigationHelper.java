@@ -2,7 +2,6 @@ package ua.splinestudio.rentautobus.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class NavigationHelper extends HelperBase{
 
@@ -10,14 +9,14 @@ public class NavigationHelper extends HelperBase{
         super(driver);
     }
 
-    public void gotoNextPage(String locator) {
-        doubleСlick(By.xpath(locator));}
+    public void gotoNextPage(By locator) {
+        doubleСlick(locator);}
 
     public void clickOneWayTrip() { click(By.id("one_way"));}
 
     public void gotoHomePage() { click(By.linkText("Home"));}
 
-    public void gotoNextPageClick(String locator) {
-        click(By.xpath(locator));}
+    public void gotoNextPageClick(By locator) {
+        click(locator);}
 
 }

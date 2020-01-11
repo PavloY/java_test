@@ -25,7 +25,8 @@ public class TravelerOneWayTripTest extends TestBase{
                 , "Kiev, Ukraine"
                 , "20-20-2020"
                 , "12:45"));
-        app.getNavigationHelper().gotoNextPage(By.xpath("//button[@onclick='get_next_page()']"));
+        // app.getNavigationHelper().gotoNextPage(By.xpath("//button[@onclick='get_next_page()']"));
+        app.getNavigationHelper().gotoNextPage(By.xpath("//*[@id='next-page']"));
         app.getElementHelper().waitElementShow(By.xpath("/html/body/div[4]/div[1]/span[2]"));
         app.getNavigationHelper().clickOneWayTrip();
         app.getTripHelper().fillOneWayTripForm(new TripData(

@@ -24,5 +24,23 @@ public class Collections {
             System.out.println(languages.get(i));
         }
 
+        //инициализация масива
+        String[] names= new String[3];
+
+        //инициализация переменной
+        int a = 10;
+
+        //%s - строка
+        //%d - целое число
+        String str = "My name is %s! I am %d years old!";
+        int age = 30;
+        String name = "Ivan";
+        System.out.println(str);
+        System.out.println(String.format(str, name, age));
+
+
+
+
+
     }
 }

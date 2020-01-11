@@ -27,14 +27,12 @@ public class DateTest {
 
     @Test
     public void testDate() {
-
-        /*WebDriver driver = new FirefoxDriver();
+        /*
+        WebDriver driver = new FirefoxDriver();
         driver.get("https://jqueryui.com/datepicker/");
         driver.switchTo().frame(driver.findElement(By.cssSelector("iframe.demo-frame")));
         setDatepicker(driver, "#datepicker", "02/20/2002");
-
          */
-
         WebDriver driver = new FirefoxDriver();
         driver.get("http://rab.dev19.splinestudio.com/en/");
         driver.switchTo().frame(driver.findElement(By.cssSelector("#from_date")));

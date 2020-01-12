@@ -35,9 +35,6 @@ task testTraveler(type: Test) {
     }
 }
 
-
-
-
 test {
     useTestNG()
     scanForTestClasses = false

@@ -1,19 +1,25 @@
 package ua.splinestudio.rentautobus.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import ua.splinestudio.rentautobus.appmanager.HelperBase;
 
 
-public class HomePage {
-private WebDriver driver;
+//public class HomePage {
+//private WebDriver driver;
+//    public HomePage(WebDriver driver) {
+//      this.driver = driver;
+//    }
 
-    public HomePage(WebDriver driver) {
-      this.driver = driver;
-    }
+public class HomePage extends HelperBase {
+
+  public HomePage(WebDriver driver) {
+        super(driver);
+        }
 
   private By forBusinessButton = By.linkText("FOR BUSINESS");
-  private By signUpButton = By.id("dLabel");
-  private By emailAddressField = By.id("email");
-  private By passwordField = By.id("password");
+  private By signUpButton = By.xpath("//button[@id='dLabel']");
+  private By emailAddressField = By.xpath("//input[@id='email']");
+  private By passwordField = By.xpath("//input[@id='password']");
   private By signUpButtonConfirmation = By.xpath("//button[@onclick='sign_in()']");
   private By returnTripButton = By.id("return_trip");
   private By oneWayButton = By.id("one_way");
@@ -115,9 +121,27 @@ private WebDriver driver;
     return this;
   }
 
-  public GetTransportQuotePage setContinueButton(String continueBut){
-    driver.findElement(continueButton).sendKeys(continueBut);
+  public GetTransportQuotePage clickContinueButton(){
+    driver.findElement(continueButton).click();
     return new GetTransportQuotePage(driver);
   }
+
+  public HomePage signIn(String emailAddress, String password) {
+    this.clickSignUpButton();
+    this.setEmailAddress(emailAddress);
+    this.setPasswordField(password);
+    this.clickSignUpButtonConfirmation();
+    return this;
+  }
+  public GetTransportQuotePage setOneWayTrip(String from, String to, String date, String time ){
+    this.clickOneWayButton();
+    this.setFromField(from);
+    this.setToField(to);
+    this.setFromDateField(date);
+    this.setFromTimeField(time);
+    this.clickContinueButton();
+    return new GetTransportQuotePage(driver);
+  }
+
 
   }

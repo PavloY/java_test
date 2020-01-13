@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ua.splinestudio.rentautobus.pages.HomePage;
 
 import java.io.File;
 import java.io.FileReader;
@@ -27,6 +28,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private TripHelper tripHelper;
+    private HomePage homePage;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -57,6 +59,7 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         elementHelper = new ElementHelper(driver, wait);
+        homePage = new HomePage(driver);
 
     }
 
@@ -79,4 +82,9 @@ public class ApplicationManager {
     public ElementHelper getElementHelper() {
         return elementHelper;
     }
+
+    public HomePage getHomePage() {
+        return homePage;
+    }
+
 }

@@ -23,7 +23,7 @@ import java.util.Arrays;
         ,plugin = {"pretty", "html:build/cucumber-report"}
         )
 public class RunBddTests extends AbstractTestNGCucumberTests {
-
+/*
         Logger logger = LoggerFactory.getLogger(TestBase.class);
 
         protected static ApplicationManager app
@@ -39,4 +39,6 @@ public class RunBddTests extends AbstractTestNGCucumberTests {
         public void logTestStop(Method  m){
                 logger.info("Stop test "+ m.getName());
         }
+
+ */
 }

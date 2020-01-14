@@ -1,26 +1,32 @@
 package ua.splinestudio.rentautobus.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import ua.splinestudio.rentautobus.appmanager.HelperBase;
 
 
-//public class HomePage {
-//private WebDriver driver;
-//    public HomePage(WebDriver driver) {
-//      this.driver = driver;
-//    }
-
-public class HomePage extends HelperBase {
-
-  public HomePage(WebDriver driver) {
-        super(driver);
-        }
+public class HomePage {
+private WebDriver driver;
+    public HomePage(WebDriver driver) {
+      this.driver = driver;
+    }
 
   private By forBusinessButton = By.linkText("FOR BUSINESS");
-  private By signUpButton = By.xpath("//button[@id='dLabel']");
-  private By emailAddressField = By.xpath("//input[@id='email']");
-  private By passwordField = By.xpath("//input[@id='password']");
-  private By signUpButtonConfirmation = By.xpath("//button[@onclick='sign_in()']");
+
+  @FindBy(xpath = "//button[@id='dLabel']")
+  private WebElement signUpButton;
+
+  @FindBy(xpath = "//input[@id='email']")
+  private WebElement emailAddressField;
+
+  @FindBy(xpath = "//input[@id='password']")
+  private WebElement passwordField;
+
+  @FindBy(xpath = "//button[@onclick='sign_in()']")
+  private WebElement signUpButtonConfirmation;
+
+
   private By returnTripButton = By.id("return_trip");
   private By oneWayButton = By.id("one_way");
   private By multiStopsButton = By.id("multi_trip");
@@ -43,21 +49,21 @@ public class HomePage extends HelperBase {
   }
 
   public void clickSignUpButton() {
-      driver.findElement(signUpButton).click();
+      signUpButton.click();
   }
 
   public HomePage setPasswordField(String password){
-      driver.findElement(passwordField).sendKeys(password);
+      passwordField.sendKeys(password);
       return this;
   }
 
-  public HomePage setEmailAddress(String emailAddress){
-    driver.findElement(emailAddressField).sendKeys(emailAddress);
-    return this;
+  public GetTransportQuotePage setEmailAddress(String emailAddress){
+    emailAddressField.sendKeys(emailAddress);
+    return new GetTransportQuotePage(driver);
   }
 
   public void clickSignUpButtonConfirmation() {
-    driver.findElement(signUpButtonConfirmation).click();
+    signUpButtonConfirmation.click();
   }
 
   public void clickReturnTripButton() {

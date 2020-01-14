@@ -17,13 +17,11 @@ dependencies {
     implementation 'info.cukes:cucumber-java:1.2.6'
     implementation 'info.cukes:cucumber-testng:1.2.6'
 
-    implementation 'net.serenity-bdd:serenity-gradle-plugin:2.0.91'
-    implementation 'net.serenity-bdd:serenity-core:2.0.91'
-    implementation 'net.serenity-bdd:serenity-test-utils:2.0.91'
-    implementation 'net.serenity-bdd:serenity-testng:2.0.90'
-    implementation 'org.slf4j:slf4j-simple:2.0.0-alpha1'
-    implementation 'org.assertj:assertj-core:3.14.0'
-
+//    implementation 'net.serenity-bdd:serenity-gradle-plugin:2.0.91'
+//    implementation 'net.serenity-bdd:serenity-core:2.0.91'
+//    implementation 'net.serenity-bdd:serenity-test-utils:2.0.91'
+//    implementation 'org.slf4j:slf4j-simple:2.0.0-alpha1'
+//    implementation 'org.assertj:assertj-core:3.14.0'
 }
 
 task testTraveler(type: Test) {

@@ -9,6 +9,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ua.splinestudio.rentautobus.pages.HomePage;
 
@@ -59,7 +60,8 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         elementHelper = new ElementHelper(driver, wait);
-        homePage = new HomePage(driver);
+        //homePage = new HomePage(driver);
+        homePage = PageFactory.initElements(driver, HomePage.class);
 
     }
 

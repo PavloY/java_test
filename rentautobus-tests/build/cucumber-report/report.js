@@ -55,11 +55,11 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 7413362700,
+  "duration": 6614452000,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6724811600,
+  "duration": 5957841200,
   "status": "passed"
 });
 formatter.scenario({
@@ -93,7 +93,7 @@ formatter.match({
   "location": "BddLogInTest.clickSignIn()"
 });
 formatter.result({
-  "duration": 676470700,
+  "duration": 514220500,
   "status": "passed"
 });
 formatter.match({
@@ -110,22 +110,22 @@ formatter.match({
   "location": "BddLogInTest.fillForm(String,String)"
 });
 formatter.result({
-  "duration": 861774000,
+  "duration": 1115000600,
   "status": "passed"
 });
 formatter.match({
   "location": "BddLogInTest.assertResults()"
 });
 formatter.result({
-  "duration": 3720477700,
+  "duration": 1291828900,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1561560400,
+  "duration": 1816439000,
   "status": "passed"
 });
 formatter.after({
-  "duration": 2368297200,
+  "duration": 1639787600,
   "status": "passed"
 });
 formatter.uri("bdd_tests/BddTravelerOneWayTest.feature");
@@ -137,11 +137,11 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 5321505400,
+  "duration": 5109339400,
   "status": "passed"
 });
 formatter.before({
-  "duration": 6759498700,
+  "duration": 6806955000,
   "status": "passed"
 });
 formatter.scenario({
@@ -176,36 +176,37 @@ formatter.match({
   "location": "BddTravelerOneWayTest.fillSignIn()"
 });
 formatter.result({
-  "duration": 3332649900,
+  "duration": 2553039800,
   "status": "passed"
 });
 formatter.match({
   "location": "BddTravelerOneWayTest.waitElementExpected()"
 });
 formatter.result({
-  "duration": 1116387400,
+  "duration": 1301126500,
   "status": "passed"
 });
 formatter.match({
   "location": "BddTravelerOneWayTest.assertResult()"
 });
 formatter.result({
-  "duration": 2565973600,
+  "duration": 3535871300,
   "status": "passed"
 });
 formatter.match({
   "location": "BddTravelerOneWayTest.assertResults()"
 });
 formatter.result({
-  "duration": 888560300,
+  "duration": 3552242100,
+  "error_message": "org.openqa.selenium.NoSuchElementException: Unable to locate element: //button[@onclick\u003d\u0027get_next_page()\u0027]\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00274.0.0-alpha-3\u0027, revision: \u00278c567de6dc\u0027\nSystem info: host: \u0027WIN-H3K2C979116\u0027, ip: \u0027192.168.31.20\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u00271.8.0_231\u0027\nDriver info: org.openqa.selenium.firefox.FirefoxDriver\nCapabilities {acceptInsecureCerts: false, browserName: firefox, browserVersion: 72.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20200107212822, moz:geckodriverVersion: 0.26.0, moz:headless: false, moz:processID: 15472, moz:profile: C:\\Users\\User\\AppData\\Local..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: eager, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, rotatable: false, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}\nSession ID: 7c3a8897-9527-4311-ad63-5603fc3ba7be\n*** Element info: {Using\u003dxpath, value\u003d//button[@onclick\u003d\u0027get_next_page()\u0027]}\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:191)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:125)\r\n\tat org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:52)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:161)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:576)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:327)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:445)\r\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:396)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)\r\n\tat ua.splinestudio.rentautobus.appmanager.HelperBase.doubleРЎlick(HelperBase.java:22)\r\n\tat ua.splinestudio.rentautobus.appmanager.NavigationHelper.gotoNextPage(NavigationHelper.java:13)\r\n\tat ua.splinestudio.rentautobus.tests.bdd.tests.BddTravelerOneWayTest.assertResults(BddTravelerOneWayTest.java:56)\r\n\tat ✽.Then user clicks on button and navigates to next page(bdd_tests/BddTravelerOneWayTest.feature:7)\r\n",
+  "status": "failed"
+});
+formatter.after({
+  "duration": 1368372700,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1882261900,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 1938699300,
+  "duration": 1824213000,
   "status": "passed"
 });
 });

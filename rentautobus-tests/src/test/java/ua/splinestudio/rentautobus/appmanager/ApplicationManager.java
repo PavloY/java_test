@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import ua.splinestudio.rentautobus.pages.GetTransportQuotePage;
 import ua.splinestudio.rentautobus.pages.HomePage;
 
 import java.io.File;
@@ -30,6 +31,7 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private TripHelper tripHelper;
     private HomePage homePage;
+    private  GetTransportQuotePage  getTransportQuotePage;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -62,7 +64,7 @@ public class ApplicationManager {
         elementHelper = new ElementHelper(driver, wait);
         //homePage = new HomePage(driver);
         homePage = PageFactory.initElements(driver, HomePage.class);
-
+        getTransportQuotePage = new GetTransportQuotePage(driver);
     }
 
     public void stop() {
@@ -87,6 +89,10 @@ public class ApplicationManager {
 
     public HomePage getHomePage() {
         return homePage;
+    }
+
+    public GetTransportQuotePage getTransportQuotePage() {
+        return getTransportQuotePage;
     }
 
 }

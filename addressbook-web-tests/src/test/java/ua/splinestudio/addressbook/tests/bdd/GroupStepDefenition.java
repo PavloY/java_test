@@ -5,8 +5,6 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.remote.BrowserType;
 import ua.splinestudio.addressbook.appmanager.ApplicationManager;
 import ua.splinestudio.addressbook.model.GroupData;

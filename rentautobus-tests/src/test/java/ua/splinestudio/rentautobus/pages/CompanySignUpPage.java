@@ -107,4 +107,8 @@ public class CompanySignUpPage {
     return getAllert().get(number -1).getText();
   }
 
+  public String getAllertText() {
+  return driver.findElement(allertByLabel).getText();
+}
+
 }

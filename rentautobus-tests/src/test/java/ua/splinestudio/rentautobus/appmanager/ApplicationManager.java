@@ -1,6 +1,7 @@
 package ua.splinestudio.rentautobus.appmanager;
 
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +10,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ua.splinestudio.rentautobus.pages.GetTransportQuotePage;
@@ -17,6 +19,7 @@ import ua.splinestudio.rentautobus.pages.HomePage;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -45,13 +48,19 @@ public class ApplicationManager {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
-
-        if (browser.equals(BrowserType.FIREFOX)) {
-            driver = new FirefoxDriver(capabilities);
-        } else if (browser.equals(BrowserType.CHROME)) {
-            driver = new ChromeDriver(capabilities);
-        } else if (browser.equals(BrowserType.IE)) {
-            driver = new InternetExplorerDriver(capabilities);
+        if("".equals(properties.getProperty("selenium.server"))){
+            if (browser.equals(BrowserType.FIREFOX)) {
+                driver = new FirefoxDriver(capabilities);
+            } else if (browser.equals(BrowserType.CHROME)) {
+                driver = new ChromeDriver(capabilities);
+            } else if (browser.equals(BrowserType.IE)) {
+                driver = new InternetExplorerDriver(capabilities);
+            }
+        }     else {
+       // DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName(browser);
+        capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
+        driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
         }
 
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);

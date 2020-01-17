@@ -47,7 +47,8 @@ public class ApplicationManager {
         properties.load(new FileReader(new File(String.format("src/test/resources/properties/%s.properties", target))));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
+ //       capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
+        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "caps");
         if("".equals(properties.getProperty("selenium.server"))){
             if (browser.equals(BrowserType.FIREFOX)) {
                 driver = new FirefoxDriver(capabilities);

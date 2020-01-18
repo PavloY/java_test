@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.splinestudio.addressbook.tests.GroupCreationTests" tests="3" skipped="1" failures="2" errors="0" timestamp="2019-12-29T21:16:57" hostname="WIN-2KK8D6ESTAE" time="9.743">
+<testsuite name="ua.splinestudio.addressbook.tests.GroupCreationTests" tests="3" skipped="1" failures="2" errors="0" timestamp="2020-01-17T13:19:52" hostname="WIN-H3K2C979116" time="7.618">
   <properties/>
-  <testcase name="setUp" classname="ua.splinestudio.addressbook.tests.GroupCreationTests" time="8.509">
+  <testcase name="setUp" classname="ua.splinestudio.addressbook.tests.GroupCreationTests" time="6.278">
     <failure message="org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]" type="org.hibernate.service.spi.ServiceException">org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275)
 	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)

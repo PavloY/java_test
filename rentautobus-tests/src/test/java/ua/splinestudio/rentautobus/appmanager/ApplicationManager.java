@@ -1,5 +1,6 @@
 package ua.splinestudio.rentautobus.appmanager;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
@@ -22,10 +23,20 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import static io.github.bonigarcia.wdm.DriverManagerType.CHROME;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ApplicationManager {
     WebDriver driver;
     WebDriverWait wait;
+
+
 
     public Properties properties;
     private String browser;
@@ -47,9 +58,10 @@ public class ApplicationManager {
         properties.load(new FileReader(new File(String.format("src/test/resources/properties/%s.properties", target))));
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
- //       capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
-        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "caps");
+        capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
+
         if("".equals(properties.getProperty("selenium.server"))){
+ //       if("".equals(properties.getProperty("webdriver.chrome.driver", "/path/to/binary/chromedriver"))){
             if (browser.equals(BrowserType.FIREFOX)) {
                 driver = new FirefoxDriver(capabilities);
             } else if (browser.equals(BrowserType.CHROME)) {

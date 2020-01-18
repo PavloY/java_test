@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ua.splinestudio.addressbook.tests.GroupDeletionTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2019-12-29T21:17:06" hostname="WIN-2KK8D6ESTAE" time="0.0">
+<testsuite name="ua.splinestudio.addressbook.tests.GroupDeletionTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-01-17T13:19:59" hostname="WIN-H3K2C979116" time="0.0">
   <properties/>
   <testcase name="testGroupDeletion" classname="ua.splinestudio.addressbook.tests.GroupDeletionTests" time="0.0">
     <skipped/>

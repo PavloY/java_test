@@ -1,0 +1,1 @@
+{"uuid":"02e78d64-31a9-4d57-a527-fedd2788edae","name":"ua.splinestudio.addressbook.tests.TestBase.logTestStart","description":"","start":1579267199754,"stop":1579267199754,"children":["86ccfac2-223d-4172-8c5e-6c79df9944eb"],"befores":[{"name":"logTestStart","stage":"finished","description":"","start":1579267199754,"stop":1579267199754}]}

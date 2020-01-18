@@ -18,6 +18,7 @@ public class TestBase {
 
     protected static final ApplicationManager app
             = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME ));
+//            = new ApplicationManager(System.getProperty("browser", "/path/to/binary/chromedriver" ));
 
     @BeforeSuite
     public void setUp() throws Exception {

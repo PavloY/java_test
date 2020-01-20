@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.splinestudio.rentautobus.tests.SignInTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-20T22:05:05" hostname="WIN-2KK8D6ESTAE" time="2.156">
+  <properties/>
+  <testcase name="testSignIn" classname="ua.splinestudio.rentautobus.tests.SignInTest" time="2.156"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

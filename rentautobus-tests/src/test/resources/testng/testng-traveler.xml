@@ -4,7 +4,7 @@
     <test name="Traveler" >
         <classes>
             <class name="ua.splinestudio.rentautobus.tests.LogInTest" />
-            <class name="ua.splinestudio.rentautobus.tests.TravelerOneWayTripTest" />
+            <class name="ua.splinestudio.rentautobus.tests.SignInTest" />
         </classes>
     </test>
 </suite>

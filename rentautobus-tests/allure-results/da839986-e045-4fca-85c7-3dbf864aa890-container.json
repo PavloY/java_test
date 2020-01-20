@@ -1,0 +1,1 @@
+{"uuid":"da839986-e045-4fca-85c7-3dbf864aa890","name":"Suite1","start":1579525242202,"stop":1579525321195,"children":["b67ba8e2-3762-40c6-89c5-3abf8423249b"],"befores":[{"name":"setUp","stage":"finished","description":"","start":1579525242373,"stop":1579525254858}],"afters":[{"name":"tearDown","stage":"finished","description":"","start":1579525319633,"stop":1579525321195}]}

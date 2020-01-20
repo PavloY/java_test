@@ -20,6 +20,7 @@ import ua.splinestudio.rentautobus.pages.HomePage;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -61,7 +62,7 @@ public class ApplicationManager {
         capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
 
         if("".equals(properties.getProperty("selenium.server"))){
- //       if("".equals(properties.getProperty("webdriver.chrome.driver", "/path/to/binary/chromedriver"))){
+
             if (browser.equals(BrowserType.FIREFOX)) {
                 driver = new FirefoxDriver(capabilities);
             } else if (browser.equals(BrowserType.CHROME)) {
@@ -70,10 +71,18 @@ public class ApplicationManager {
                 driver = new InternetExplorerDriver(capabilities);
             }
         }     else {
-       // DesiredCapabilities capabilities = new DesiredCapabilities();
+
+        capabilities.setBrowserName(browser);
+        capabilities.setVersion("");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+        driver =  new RemoteWebDriver(URI.create(properties.getProperty("selenium.server")).toURL(),capabilities);
+
+/*
         capabilities.setBrowserName(browser);
         capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
         driver = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
+*/
         }
 
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -84,7 +93,6 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         elementHelper = new ElementHelper(driver, wait);
-        //homePage = new HomePage(driver);
         homePage = PageFactory.initElements(driver, HomePage.class);
         getTransportQuotePage = new GetTransportQuotePage(driver);
     }

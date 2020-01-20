@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.splinestudio.rentautobus.tests.bdd.RunBddTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-01-20T17:31:26" hostname="WIN-2KK8D6ESTAE" time="54.567">
+  <properties/>
+  <testcase name="feature[0](LogIn)" classname="ua.splinestudio.rentautobus.tests.bdd.RunBddTests" time="29.847"/>
+  <testcase name="feature[1](SignIn)" classname="ua.splinestudio.rentautobus.tests.bdd.RunBddTests" time="24.459"/>
+  <system-out><![CDATA[Feature: LogIn
+
+  Scenario Outline: test login                         ?[90m# bdd_tests/BddLogInTest.feature:3?[0m
+    ?[36mGiven ?[0m?[36muser click button sign in?[0m
+    ?[36mWhen ?[0m?[36muser enters login <login> and password <pass>?[0m
+    ?[36mThen ?[0m?[36muser gets confirmation?[0m
+
+    Examples: 
+
+  Scenario Outline: test login                                        ?[90m# bdd_tests/BddLogInTest.feature:10?[0m
+    ?[32mGiven ?[0m?[32muser click button sign in?[0m                                   ?[90m# BddLogInTest.clickSignIn()?[0m
+    ?[32mWhen ?[0m?[32muser enters login ?[0m?[32m?[1mdev@splinestudio.com?[0m?[32m and password ?[0m?[32m?[1m12345678?[0m ?[90m# BddLogInTest.fillForm(String,String)?[0m
+    ?[32mThen ?[0m?[32muser gets confirmation?[0m                                       ?[90m# BddLogInTest.assertResults()?[0m
+Feature: SignIn
+
+  Scenario Outline: test SignIn                         ?[90m# bdd_tests/SignInTest.feature:3?[0m
+    ?[36mGiven ?[0m?[36muser click button SignIn on the home page?[0m
+    ?[36mWhen ?[0m?[36muser set login <login> and set password <pass>?[0m
+    ?[36mAnd ?[0m?[36muser click button sign in confirmation?[0m
+    ?[36mThen ?[0m?[36muser SignIn on the site?[0m
+
+    Examples: 
+
+  Scenario Outline: test SignIn                                        ?[90m# bdd_tests/SignInTest.feature:11?[0m
+    ?[32mGiven ?[0m?[32muser click button SignIn on the home page?[0m                    ?[90m# SignInTest.clickSignIn()?[0m
+    ?[32mWhen ?[0m?[32muser set login ?[0m?[32m?[1mdev@splinestudio.com?[0m?[32m and set password ?[0m?[32m?[1m12345678?[0m ?[90m# SignInTest.fillForm(String,String)?[0m
+    ?[32mAnd ?[0m?[32muser click button sign in confirmation?[0m                         ?[90m# SignInTest.clickSignInConfirmation()?[0m
+    ?[32mThen ?[0m?[32muser SignIn on the site?[0m                                       ?[90m# SignInTest.assertResults()?[0m
+]]></system-out>
+  <system-err><![CDATA[1579541489485	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\User\\AppData\\Local\\Temp\\rust_mozprofileKf2KqQ"
+1579541490102	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1579541490303	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1579541490303	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1579541490304	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1579541490304	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1579541496131	Marionette	INFO	Listening on port 62617
+янв 20, 2020 7:31:36 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1579541498296	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\User\\AppData\\Local\\Temp\\rust_mozprofilemVeBV0"
+1579541499159	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1579541499391	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1579541499391	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1579541499392	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1579541499392	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1579541506742	Marionette	INFO	Listening on port 62656
+янв 20, 2020 7:31:47 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1579541512819	Marionette	INFO	Stopped listening on port 62617
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1579541514735	Marionette	INFO	Stopped listening on port 62656
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1579541517628	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\User\\AppData\\Local\\Temp\\rust_mozprofileD3zP1q"
+1579541518730	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1579541518906	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1579541518906	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1579541518906	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1579541518906	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1579541524334	Marionette	INFO	Listening on port 62707
+янв 20, 2020 7:32:04 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1579541526348	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\User\\AppData\\Local\\Temp\\rust_mozprofileIPSqQo"
+1579541527072	addons.webextension.doh-rollout@mozilla.org	WARN	Loading extension 'doh-rollout@mozilla.org': Reading manifest: Invalid extension permission: networkStatus
+1579541527276	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1579541527277	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1579541527277	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1579541527277	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1579541534050	Marionette	INFO	Listening on port 62743
+янв 20, 2020 7:32:14 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+1579541536854	Marionette	INFO	Stopped listening on port 62707
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1579541539138	Marionette	INFO	Stopped listening on port 62743
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+]]></system-err>
+</testsuite>

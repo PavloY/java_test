@@ -8,4 +8,4 @@ Feature: SignIn
 
     Examples:
       | login                  | pass          |
-      | dev@splinestudio.com   | 12345678      |
+      | dev@splinestudio.com   | 1234567       |

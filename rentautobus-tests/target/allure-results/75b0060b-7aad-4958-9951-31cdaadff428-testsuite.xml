@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1579541485434" stop="1579541541600" version="1.5.4" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Gradle suite : Gradle test</name>
+    <title>Gradle suite : Gradle test</title>
+    <test-cases>
+        <test-case start="1579541486981" stop="1579541516781" status="passed">
+            <name>feature[LogIn]</name>
+            <description>Runs Cucumber Feature</description>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="testSuite" value="Gradle suite"/>
+                <label name="testGroup" value="Gradle test"/>
+                <label name="testClass" value="ua.splinestudio.rentautobus.tests.bdd.RunBddTests"/>
+                <label name="testMethod" value="feature"/>
+                <label name="host" value="WIN-2KK8D6ESTAE"/>
+                <label name="thread" value="6472@WIN-2KK8D6ESTAE.Test worker(11)"/>
+            </labels>
+        </test-case>
+        <test-case start="1579541517031" stop="1579541541490" status="passed">
+            <name>feature[SignIn]</name>
+            <description>Runs Cucumber Feature</description>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="testSuite" value="Gradle suite"/>
+                <label name="testGroup" value="Gradle test"/>
+                <label name="testClass" value="ua.splinestudio.rentautobus.tests.bdd.RunBddTests"/>
+                <label name="testMethod" value="feature"/>
+                <label name="host" value="WIN-2KK8D6ESTAE"/>
+                <label name="thread" value="6472@WIN-2KK8D6ESTAE.Test worker(11)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

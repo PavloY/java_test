@@ -55,11 +55,11 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 11778766800,
+  "duration": 10617338300,
   "status": "passed"
 });
 formatter.before({
-  "duration": 8523836900,
+  "duration": 11665109100,
   "status": "passed"
 });
 formatter.scenario({
@@ -93,7 +93,7 @@ formatter.match({
   "location": "BddLogInTest.clickSignIn()"
 });
 formatter.result({
-  "duration": 1095650300,
+  "duration": 673165000,
   "status": "passed"
 });
 formatter.match({
@@ -110,22 +110,22 @@ formatter.match({
   "location": "BddLogInTest.fillForm(String,String)"
 });
 formatter.result({
-  "duration": 955479400,
+  "duration": 1032932400,
   "status": "passed"
 });
 formatter.match({
   "location": "BddLogInTest.assertResults()"
 });
 formatter.result({
-  "duration": 1380877600,
+  "duration": 1701510900,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1741601700,
+  "duration": 1911328800,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1697491700,
+  "duration": 2031407800,
   "status": "passed"
 });
 formatter.uri("bdd_tests/SignInTest.feature");
@@ -190,11 +190,11 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 9998310300,
+  "duration": 8738124300,
   "status": "passed"
 });
 formatter.before({
-  "duration": 11031935100,
+  "duration": 10221616800,
   "status": "passed"
 });
 formatter.scenario({
@@ -233,7 +233,7 @@ formatter.match({
   "location": "SignInTest.clickSignIn()"
 });
 formatter.result({
-  "duration": 530564200,
+  "duration": 344549200,
   "status": "passed"
 });
 formatter.match({
@@ -250,29 +250,29 @@ formatter.match({
   "location": "SignInTest.fillForm(String,String)"
 });
 formatter.result({
-  "duration": 112590700,
+  "duration": 174040700,
   "status": "passed"
 });
 formatter.match({
   "location": "SignInTest.clickSignInConfirmation()"
 });
 formatter.result({
-  "duration": 272294700,
+  "duration": 303085300,
   "status": "passed"
 });
 formatter.match({
   "location": "SignInTest.assertResults()"
 });
 formatter.result({
-  "duration": 10970900,
+  "duration": 10935700,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1600251300,
+  "duration": 2285389000,
   "status": "passed"
 });
 formatter.after({
-  "duration": 1421273800,
+  "duration": 2351704400,
   "status": "passed"
 });
 });

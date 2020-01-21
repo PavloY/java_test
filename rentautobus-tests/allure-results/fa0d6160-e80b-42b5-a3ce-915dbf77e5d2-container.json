@@ -1,1 +1,0 @@
-{"uuid":"fa0d6160-e80b-42b5-a3ce-915dbf77e5d2","name":"ua.splinestudio.rentautobus.tests.TestBase.logTestStart","description":"","start":1579557905199,"stop":1579557905207,"children":["3fef64df-c308-4bda-92a0-7d68ee1ccf64"],"befores":[{"name":"logTestStart","stage":"finished","description":"","start":1579557905199,"stop":1579557905206}]}

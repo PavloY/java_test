@@ -1,1 +1,0 @@
-{"uuid":"9a0c8c8b-bd77-4de8-ba48-b7fcd073119d","name":"Gradle suite","start":1579557894581,"stop":1579557910583,"children":["c7819143-d1eb-46dc-b70b-5f64faf162f5"],"befores":[{"name":"setUp","stage":"finished","description":"","start":1579557894621,"stop":1579557905091}],"afters":[{"name":"tearDown","stage":"finished","description":"","start":1579557909282,"stop":1579557910582}]}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1579610554257" stop="1579610558279" version="1.5.4" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Gradle suite : Gradle test</name>
+    <title>Gradle suite : Gradle test</title>
+    <test-cases>
+        <test-case start="1579610554867" stop="1579610558263" status="passed">
+            <name>testSignIn</name>
+            <description></description>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="testSuite" value="Gradle suite"/>
+                <label name="testGroup" value="Gradle test"/>
+                <label name="testClass" value="ua.splinestudio.rentautobus.tests.SignInTest"/>
+                <label name="testMethod" value="testSignIn"/>
+                <label name="host" value="WIN-H3K2C979116"/>
+                <label name="thread" value="14168@WIN-H3K2C979116.Test worker(11)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

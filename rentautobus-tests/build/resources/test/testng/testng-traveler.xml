@@ -3,8 +3,7 @@
 <suite name="Suite1" verbose="1">
     <test name="Traveler" >
         <classes>
-            <class name="ua.splinestudio.rentautobus.tests.LogInTest" />
-            <class name="ua.splinestudio.rentautobus.tests.SignInTest" />
+             <class name="ua.splinestudio.rentautobus.tests.SignInTest" />
         </classes>
     </test>
 </suite>

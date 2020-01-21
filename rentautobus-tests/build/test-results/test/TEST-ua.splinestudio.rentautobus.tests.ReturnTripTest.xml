@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ua.splinestudio.rentautobus.tests.ReturnTripTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-21T16:09:10" hostname="WIN-H3K2C979116" time="17.279">
+  <properties/>
+  <testcase name="testReturnTrip" classname="ua.splinestudio.rentautobus.tests.ReturnTripTest" time="17.279"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

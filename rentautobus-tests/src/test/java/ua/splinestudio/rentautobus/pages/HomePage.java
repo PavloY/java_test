@@ -1,9 +1,10 @@
 package ua.splinestudio.rentautobus.pages;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ua.splinestudio.rentautobus.appmanager.HelperBase;
+
 
 
 public class HomePage {
@@ -40,7 +41,7 @@ private WebDriver driver;
   private By toFieldMultiStops = By.id("to0");
   private By fromDateMultiStops = By.id("from_date0");
   private By fromTimeMultiStops = By.id("from_time-hour0");
-  private By continueButton = By.id("next-page");
+  private By getFreeQuotesButton = By.xpath("//button[@id='next-page']");
 
 
   public CompanySignUpPage clickForBusinessButton(){
@@ -53,11 +54,15 @@ private WebDriver driver;
   }
 
   public HomePage setPasswordField(String password){
+      passwordField.click();
+      passwordField.clear();
       passwordField.sendKeys(password);
       return this;
   }
 
   public GetTransportQuotePage setEmailAddress(String emailAddress){
+    emailAddressField.click();
+    emailAddressField.clear();
     emailAddressField.sendKeys(emailAddress);
     return new GetTransportQuotePage(driver);
   }
@@ -78,31 +83,51 @@ private WebDriver driver;
   }
 
   public HomePage setFromField(String from){
+    driver.findElement(fromField).click();
+    driver.findElement(fromField).clear();
     driver.findElement(fromField).sendKeys(from);
     return this;
   }
 
   public HomePage setToField(String to){
+    driver.findElement(toField).click();
+    driver.findElement(toField).clear();
     driver.findElement(toField).sendKeys(to);
     return this;
   }
 
   public HomePage setFromDateField(String fromDate){
+    driver.findElement(fromDateField).click();
+    driver.findElement(fromDateField).clear();
+    driver.findElement(fromDateField).sendKeys("selenium" + Keys.ARROW_LEFT);
+    driver.findElement(fromDateField).sendKeys("selenium" + Keys.ARROW_LEFT);
+    driver.findElement(fromDateField).sendKeys("selenium" + Keys.ARROW_LEFT);
     driver.findElement(fromDateField).sendKeys(fromDate);
     return this;
   }
 
   public HomePage setToDateField(String toDate){
+    driver.findElement(toDateField).click();
+    driver.findElement(toDateField).clear();
+    driver.findElement(toDateField).sendKeys("selenium" + Keys.ARROW_LEFT);
+    driver.findElement(toDateField).sendKeys("selenium" + Keys.ARROW_LEFT);
+    driver.findElement(toDateField).sendKeys("selenium" + Keys.ARROW_LEFT);
     driver.findElement(toDateField).sendKeys(toDate);
     return this;
   }
 
   public HomePage setFromTimeField(String fromTime){
+    driver.findElement(fromTimeField).click();
+   // driver.findElement(fromTimeField).clear();
+    driver.findElement(fromTimeField).sendKeys("selenium" + Keys.DELETE);
     driver.findElement(fromTimeField).sendKeys(fromTime);
     return this;
   }
 
   public HomePage setToTimeField(String toTime){
+    driver.findElement(toTimeField).click();
+  //  driver.findElement(toTimeField).clear();
+    driver.findElement(toTimeField).sendKeys("selenium" + Keys.DELETE);
     driver.findElement(toTimeField).sendKeys(toTime);
     return this;
   }
@@ -127,8 +152,8 @@ private WebDriver driver;
     return this;
   }
 
-  public GetTransportQuotePage clickContinueButton(){
-    driver.findElement(continueButton).click();
+  public GetTransportQuotePage clickGetFreeQuotesButton(){
+    driver.findElement(getFreeQuotesButton).click();
     return new GetTransportQuotePage(driver);
   }
 
@@ -145,7 +170,7 @@ private WebDriver driver;
     this.setToField(to);
     this.setFromDateField(date);
     this.setFromTimeField(time);
-    this.clickContinueButton();
+    this.clickGetFreeQuotesButton();
     return new GetTransportQuotePage(driver);
   }
 

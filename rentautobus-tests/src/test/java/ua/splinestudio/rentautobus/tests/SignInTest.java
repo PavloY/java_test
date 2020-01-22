@@ -13,7 +13,7 @@ public class SignInTest extends TestBase{
     app.getHomePage().clickSignUpButton();
     app.getHomePage().setEmailAddress(app.properties.getProperty("web.travelerLogin"));
     app.getHomePage().setPasswordField(app.properties.getProperty("web.travelerPassword"));
-    app.getHomePage().clickSignUpButtonConfirmation();
+    //app.getHomePage().clickSignUpButtonConfirmation();
     assertTrue(app.getTransportQuotePage().isUserByTextVisible(app.properties.getProperty("web.travelerUser")));
 
   }

@@ -1,38 +1,29 @@
-import org.junit.After;
-import org.junit.Before;
+import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import rentautobus.pages.MainPage;
+import pages.MainPage;
+import steps.MainSteps;
 
-import java.util.concurrent.TimeUnit;
 
 public class SignUpTest {
-  private WebDriver driver;
-  private MainPage page;
 
-  @Before
-  public void setUp() {
-    driver = new FirefoxDriver();
-    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-    DesiredCapabilities capabilities = new DesiredCapabilities();
-    capabilities.setCapability(CapabilityType.PAGE_LOAD_STRATEGY, "eager");
-    driver.get("http://rab.dev19.splinestudio.com/");
-  }
+  @Steps
+  MainSteps steps;
+
+  @Managed
+  WebDriver driver;
+
 
   @Test
-  public void signUp() {
-    page.clickSignUpButton();
-    page.setEmailAddress("dev@splinestudio.com");
-    page.setEmailAddress("12345678");
-    page.clickSignUpButtonConfirmation();
+  public void testSignUp() {
+    steps.openMainPage().clickSignUpButton();
+    steps.setEmailAddress("dev@splinestudio.com");
+    steps.setEmailAddress("12345678");
+    steps.clickSignUpButtonConfirmation();
+    Assert.assertTrue(page.isElementVisible());
   }
-
-
-  @After
-  public void tearDown() {
-    driver.quit();
-    }
 }

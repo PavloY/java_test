@@ -1,0 +1,2140 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BUS</title>
+
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/static/bootstrap-4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/head.css">
+    <link rel="stylesheet" href="/static/css/font_size.css">
+    <link rel="stylesheet" href="/static/css/chat.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/css/css-stars.css">
+    <link rel="stylesheet" href="/static/css/autocomplete.css">
+    <link rel="stylesheet" href="/static/css/flag_drop.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/static/css/fotorama.css">
+    <link rel="stylesheet" href="/static/css/five-colums.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/media.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+    <script src="/static/js/moment.min.js"></script>
+    <script src="/static/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/static/js/fotorama.js"></script><style type="text/css"></style>
+    <script src="/static/js/pagination.js"></script>
+    <script src="/static/js/rate.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/jquery.barrating.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="container bg-white d-flex justify-content-between align-items-center">
+        <div class="btn-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="row-6 logo">
+            <a href="/en/" class="active">
+                <img src="/static/logo.png" class="w-50" alt="logo">
+            </a>
+        </div>
+        <div class="d-flex row-6 align-items-center">
+            <div class="btns ">
+                <a class="btn btn-outline-primary mr-2 btn-sm border-width-1" href="/en/company/signup/" role="button">
+                    FOR BUSINESS
+                </a>
+                <div class="dropdown">
+                    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-primary mr-2 btn-sm">
+                        SIGN IN
+                    </button>
+                    <div class="dropdown-menu px-4 py-3" aria-labelledby="dLabel">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <button onclick="sign_in()" class="btn btn-primary">Sign in</button>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item disabled" href="#">New around here? Sign up</a>
+                        <a class="dropdown-item disabled" href="#">Forgot password?</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="justify-content-end d-none">
+                <div class="d-flex align-items-center">
+                    <div>
+                        <img src="/static/letter.png" alt="" style="width: 22px;">
+                        <span class="badge badge-success badge-pill mr position-absolute t-11 ml--10">9</span>
+                    </div>
+                    <a class="m-3" href="">
+                        
+                            <img class="rounded-circle logo_image_user" src="/static/unknown-avatar.jpg" alt="">
+                        
+                    </a>
+                        
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn align-items-center d-flex">
+                    <img src="/static/flags/en.gif" alt="">
+                    <i class="fas fa-angle-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    
+                        <a href="#" id="it"><img src="/static/flags/it.gif" alt=""></a>
+                    
+                        <a href="#" id="es"><img src="/static/flags/es.gif" alt=""></a>
+                    
+                        <a href="#" id="nl"><img src="/static/flags/nl.gif" alt=""></a>
+                    
+                        <a href="#" id="de"><img src="/static/flags/de.gif" alt=""></a>
+                    
+                        <a href="#" id="ca"><img src="/static/flags/ca.gif" alt=""></a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<script>
+    function logout() {
+        localStorage.removeItem('jwt');
+        document.cookie = `token=;path=/`;
+        window.location.href = '/'
+    }
+
+    function sign_in() {
+        if ($(`#email`).val() && $(`#password`).val()) {
+            send_post(`/login/`, {
+                'email': $('#email')[0].value,
+                'password': $('#password')[0].value,
+            }, true, (response) => {
+                if (response.status === 1) {
+                    localStorage.setItem('jwt', response.token);
+                    localStorage.setItem('type', response.type);
+                    document.cookie = `token=${response.token}; path=/;`;
+                    window.location.href = response.url;
+                }
+            })
+        }
+    }
+
+
+    let current_lang = 'en';
+    $('.dropdown-content a').click(function () {
+        let new_url = window.location.pathname;
+        new_url = new_url.replace(current_lang, this.id);
+        window.location = new_url;
+    });
+
+    $('.btn-menu').click( function(){
+        $(this).toggleClass('active');
+        $('.bg-primary .nav').toggleClass('open-nav');
+        $('body').toggleClass('is-open');
+    });
+</script>
+
+<div class="bg-primary">
+    <ul class="nav container">
+        <li class="nav-item">
+            <a class="nav-link active" href="/en/">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/en/get-transport-quote/">Get Transport Quote!</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/en/countries/">Countries</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Trips &amp; Info</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/en/contacts/">Contact</a>
+        </li>
+    </ul>
+</div>
+<div class="bg-light d-none" id="tab-list">
+    <div class="container">
+        <div class="row list-content">
+            
+        </div>
+    </div>
+</div>
+<div class="container h-100">
+    <div id="main_case" class="row bg-white">
+        
+    </div>
+</div>
+
+<div class="banner">
+    <div class="bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                <p class="banner-title">
+                    <b class="block">Compare and book!</b>
+                    Minibus rental prices, coach hire and bus with driver hire services!
+                </p>
+                <div class="row flex" style="justify-content: space-around;">
+    <div class="row" style="position: relative">
+        <div class="rating" style="font-size: 26px; margin: auto; width: 108.25px; height: 39px; position: relative; cursor: default; user-select: none;" data-rate-value="2.9"><div class="rate-base-layer" style="width: 100%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div><div class="rate-select-layer" style="width: 58%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rate-hover-layer" style="width: 0%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: none; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+        <span class="ratings">2.9/5</span>
+        <p class="position">Average rating</p>
+    </div>
+    <div class="row" style="position: relative">
+        <img src="/static/Shape.png" class="rating-img" style="height: 48px;" alt="SHape">
+        <p class="num">2500+</p>
+        <span class="position">Customers reviews</span>
+    </div>
+</div>
+
+            </div>
+            <div class="col-lg-7">
+                <div class="banner-form">
+                    <p class="text-dark font-bold center t-14 m-0">Receive quotes for mini-bus with driver rentals and coach hires. Compare price quotes and reviews for your day trip, tour or group transfers.</p>
+                    <p class="text-dark font-bold t-14 banner-hide">Is this One-way, Return Trip or multiple stops/destinations?</p>
+<div class="btn-group d-flex mb-3" role="group" aria-label="Basic example">
+    <button type="button" id="return_trip" class="btn btn-light border-width-1 p-3 btn-group-active" value="return_trip"><span class="circle"></span> Return trip
+    </button>
+    <button type="button" id="one_way" class="btn btn-light border-width-1 p-3" value="one_way"><span class="circle"></span> One-way
+    </button>
+    <button type="button" id="multi_trip" class="btn btn-light border-width-1 p-3" value="multi_trip"><span class="circle"></span> Multi stops
+    </button>
+</div>
+<script>
+    $('.btn-group button').on('click', function () {
+        let last_link = $('.btn-group-active').attr('id');
+        let first_data = request_from_routes_form(last_link);
+
+        $('.btn-group button').removeClass('btn-group-active');
+        $(this).addClass('btn-group-active');
+
+        if ($(this).attr('id') === 'multi_trip') {
+            $('#button_off').show();
+            $('#main_block_multi').show();
+            $('#main_block').hide();
+            $('#return_block').hide();
+            $('.right-block .rating.flex .flex').addClass('m-auto');
+            $(".aligne-right .btn").addClass('max-w-333');
+            $('.last-divider').show();
+            $('.page-request .add-destination').show();
+
+            $('#main_block_multi .from-multi').attr('id', 'from0');
+            $('#main_block .from').attr('id', 'fromS');
+            $('#return_block .from').attr('id', 'fromR');
+
+            $('#main_block_multi .to-multi').attr('id', 'to0');
+            $('#main_block .to').attr('id', 'toS');
+            $('#return_block .to').attr('id', 'toR');
+
+            $('#main_block_multi .from_date-multi').attr('id', 'from_date0');
+            $('#main_block .from_date').attr('id', 'from_dateS');
+            $('#return_block .from_date').attr('id', 'from_dateR');
+            $('#return_block .to_date').attr('id', 'to_dateR');
+
+            $('#main_block_multi .from_time-multi').attr('id', 'from_time-hour0');
+            $('#main_block .from_time').attr('id', 'from_time-hourS');
+            $('#return_block .from_time').attr('id', 'from_time-hourR');
+            $('#return_block .to-time').attr('id', 'to_time-hourR');
+
+            $('#main_block_multi .from-select-transfer').attr('id', 'from-select0');
+            $('#main_block .from-select-transfer').attr('id', 'from-selectS');
+            $('#return_block .from-select-transfer').attr('id', 'from-select0R');
+            $('#return_block .from-select-transfer-second').attr('id', 'from-select1R');
+
+            $('#main_block_multi .to-select-transfer').attr('id', 'to-select0');
+            $('#main_block .to-select-transfer').attr('id', 'to-selectS');
+            $('#return_block .to-select-transfer').attr('id', 'to-select0R');
+            $('#return_block .to-select-transfer-second').attr('id', 'to-select1R');
+
+            validDate(`from_date0`);
+            $('#main_block_multi .from-starts-time').attr('id', 'from_time-starts-hour0');
+            $('#main_block .from-starts-time').attr('id', 'from_time-starts-hourS');
+            $('#return_block .from-starts-time').attr('id', 'from_time-starts-hour0R');
+            $('#return_block .from-starts-time-second').attr('id', 'from_time-starts-hour1R');
+
+            $('#main_block_multi .to-starts-time').attr('id', 'to_time-starts-hour0');
+            $('#main_block .to-starts-time').attr('id', 'to_time-starts-hourS');
+            $('#return_block .to-starts-time').attr('id', 'to_time-starts0R');
+            $('#return_block .to-starts-time-second').attr('id', 'to_time-starts1R');
+
+            $('#main_block_multi .from-end-time').attr('id', 'from_time-ends-hour0');
+            $('#main_block .from-end-time').attr('id', 'from_time-ends-hourS');
+            $('#return_block .from-end-time').attr('id', 'from_time-ends0R');
+            $('#return_block .from-end-time-second').attr('id', 'from_time-ends1R');
+
+            $('#main_block_multi .to-end-time').attr('id', 'to_time-ends-hour0');
+            $('#main_block .to-end-time').attr('id', 'to_time-ends-hourS');
+            $('#return_block .to-end-time').attr('id', 'to_time-ends0R');
+            $('#return_block .to-end-time-second').attr('id', 'to_time-ends1R');
+
+            request_from_routes_display(first_data, $(this).attr('id'));
+        }
+        else if ($(this).attr('id') === 'return_trip') {
+            $('.page-request .add-destination').hide();
+            $('[data-toggle="tooltip"]').tooltip('enable');
+            $('#button_off').hide();
+            $('.add_step').html('');
+            $('.last-divider').hide();
+            $('#main_block_multi').hide();
+            $('#main_block').hide();
+            $('#return_block').show();
+            $('.right-block .rating.flex .flex').removeClass('m-auto');
+            $(".aligne-right .btn").removeClass('max-w-333');
+
+            $('#main_block_multi .from-multi').attr('id', 'fromT');
+            $('#main_block .from').attr('id', 'fromS');
+            $('#return_block .from').attr('id', 'from');
+
+            $('#main_block_multi .to-multi').attr('id', 'toT');
+            $('#main_block .to').attr('id', 'toS');
+            $('#return_block .to').attr('id', 'to');
+
+            $('#main_block_multi .from_date-multi').attr('id', 'from_dateY');
+            $('#main_block .from_date').attr('id', 'from_dateS');
+            $('#return_block .from_date').attr('id', 'from_date');
+            $('#return_block .to_date').attr('id', 'to_date');
+
+            $('#main_block_multi .from_time-multi').attr('id', 'from_time-hourT');
+            $('#main_block .from_time').attr('id', 'from_time-hourS');
+            $('#return_block .from_time').attr('id', 'from_time-hour');
+            $('#return_block .to-time').attr('id', 'to_time-hour');
+
+            $('#main_block_multi .from-select-transfer').attr('id', 'from-selectT');
+            $('#main_block .from-select-transfer').attr('id', 'from-selectS');
+            $('#return_block .from-select-transfer').attr('id', 'from-select0');
+            $('#return_block .from-select-transfer-second').attr('id', 'from-select1');
+
+            $('#main_block_multi .to-select-transfer').attr('id', 'to-selectT');
+            $('#main_block .to-select-transfer').attr('id', 'to-selectS');
+            $('#return_block .to-select-transfer').attr('id', 'to-select0');
+            $('#return_block .to-select-transfer-second').attr('id', 'to-select1');
+
+            validDate(`from_date`);
+            $('#main_block_multi .from-starts-time').attr('id', 'from_time-starts-hourT');
+            $('#main_block .from-starts-time').attr('id', 'from_time-starts-hourS');
+            $('#return_block .from-starts-time').attr('id', 'from_time-starts0');
+            $('#return_block .from-starts-time-second').attr('id', 'from_time-starts1');
+
+            $('#main_block_multi .to-starts-time').attr('id', 'to_time-starts-hourT');
+            $('#main_block .to-starts-time').attr('id', 'to_time-starts-hourS');
+            $('#return_block .to-starts-time').attr('id', 'to_time-starts0');
+            $('#return_block .to-starts-time-second').attr('id', 'to_time-starts1');
+
+            $('#main_block_multi .from-end-time').attr('id', 'from_time-ends-hourT');
+            $('#main_block .from-end-time').attr('id', 'from_time-ends-hourS');
+            $('#return_block .from-end-time').attr('id', 'from_time-ends0');
+            $('#return_block .from-end-time-second').attr('id', 'from_time-ends1');
+
+            $('#main_block_multi .to-end-time').attr('id', 'to_time-ends-hourT');
+            $('#main_block .to-end-time').attr('id', 'to_time-ends-hourS');
+            $('#return_block .to-end-time').attr('id', 'to_time-ends0');
+            $('#return_block .to-end-time-second').attr('id', 'to_time-ends1');
+
+            request_from_routes_display(first_data, $(this).attr('id'));
+        }
+        else {
+            $('.page-request .add-destination').hide();
+            $('[data-toggle="tooltip"]').tooltip('enable');
+            $('#button_off').hide();
+            $('.add_step').html('');
+            $('.last-divider').hide();
+            $('#main_block_multi').hide();
+            $('#return_block').hide();
+            $('#main_block').show();
+            $('.right-block .rating.flex .flex').removeClass('m-auto');
+            $(".aligne-right .btn").removeClass('max-w-333');
+            $('#main_block_multi #from').attr('id', 'fromT');
+            $('.last-divider').hide();
+            $('.rating.flex .flex').removeClass('m-auto');
+            $(".aligne-right .btn").removeClass('max-w-333');
+
+            $('#main_block_multi .from-multi').attr('id', 'fromT');
+            $('#main_block .from').attr('id', 'from');
+            $('#return_block .from').attr('id', 'fromR');
+
+            $('#main_block_multi .to-multi').attr('id', 'toT');
+            $('#main_block .to').attr('id', 'to');
+            $('#return_block .to').attr('id', 'toR');
+
+            $('#main_block_multi .from_date-multi').attr('id', 'from_dateT');
+            $('#main_block .from_date').attr('id', 'from_date');
+            $('#return_block .from_date').attr('id', 'from_dateR');
+            $('#return_block .to_date').attr('id', 'to_dateR');
+
+            $('#main_block_multi .from_time-multi').attr('id', 'from_time-hourT');
+            $('#main_block .from_time').attr('id', 'from_time-hour');
+            $('#return_block .from_time').attr('id', 'from_time-hourR');
+            $('#return_block .to-time').attr('id', 'to_time-hourR');
+
+            $('#main_block_multi .from-select-transfer').attr('id', 'from-selectT');
+            $('#main_block .from-select-transfer').attr('id', 'from-select');
+            $('#return_block .from-select-transfer').attr('id', 'from-select0R');
+            $('#return_block .from-select-transfer-second').attr('id', 'from-select1R');
+
+            $('#main_block_multi .to-select-transfer').attr('id', 'to-selectT');
+            $('#main_block .to-select-transfer').attr('id', 'to-select');
+            $('#return_block .to-select-transfer').attr('id', 'to-select0R');
+            $('#return_block .to-select-transfer-second').attr('id', 'to-select1R');
+
+            validDate(`from_date`);
+            $('#main_block_multi .from-starts-time').attr('id', 'from_time-starts-hourT');
+            $('#main_block .from-starts-time').attr('id', 'from_time-starts-hour');
+            $('#return_block .from-starts-time').attr('id', 'from_time-starts-hour0R');
+            $('#return_block .from-starts-time-second').attr('id', 'from_time-starts-hour1R');
+
+            $('#main_block_multi .to-starts-time').attr('id', 'to_time-starts-hourT');
+            $('#main_block .to-starts-time').attr('id', 'to_time-starts-hour');
+            $('#return_block .to-starts-time').attr('id', 'to_time-starts0R');
+            $('#return_block .to-starts-time-second').attr('id', 'to_time-starts1R');
+
+            $('#main_block_multi .from-end-time').attr('id', 'from_time-ends-hourT');
+            $('#main_block .from-end-time').attr('id', 'from_time-ends-hour');
+            $('#return_block .from-end-time').attr('id', 'from_time-ends0R');
+            $('#return_block .from-end-time-second').attr('id', 'from_time-ends1R');
+
+            $('#main_block_multi .to-end-time').attr('id', 'to_time-ends-hourT');
+            $('#main_block .to-end-time').attr('id', 'to_time-ends-hour');
+            $('#return_block .to-end-time').attr('id', 'to_time-ends0R');
+            $('#return_block .to-end-time-second').attr('id', 'to_time-ends1R');
+
+            request_from_routes_display(first_data, $(this).attr('id'));
+        }
+    });
+</script>
+
+                    <div id="return_block" class="flex-column">
+        <div class="row main-trip ">
+                <div class="col-lg-6 col-md-12">
+                    <div id="" style="" class="">
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">From</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name="from" class="rounded form-control   from autocomplete-added" placeholder="Enter, streetname, place or country" id="from" value="" required="">
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                </div>
+                <div class="col-lg-3">
+                    <div class="t-14 font-bold mob-width ">
+    <p class="t-14 m-0">Departure date</p>
+    <div class="input-group mb-3 ">
+        <input type="date" class="form-control from_date departure " aria-describedby="basic-addon1" id="from_date" title="from_date" value="" required="">
+    </div>
+</div>
+
+                </div>
+                <div class="col-lg-3">
+                    <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Departure time :</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker from_time" placeholder="00:00" id="from_time-hour" value="" required="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                </div>
+                <div style="width: 208px;" class="flex transfer col-lg-5 align-items-baseline">
+                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                        <div class="col-lg-8 t-14 font-bold pad-5 select">
+                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="from-select0" class="form-control tour-select from-select-transfer">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                        </div>
+                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                            <div class="starts pad-5">
+                                <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time from-starts-time" placeholder="00:00" id="from_time-starts0" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                            </div>
+                            <div class="ends pad-5 col-lg-5th-1">
+                                <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time from-end-time" placeholder="01:00" id="from_time-ends0" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 208px;" class="flex transfer col-lg-5 align-items-baseline">
+                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                        <div class="col-lg-8 t-14 font-bold pad-5 select">
+                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="to-select0" class="form-control tour-select to-select-transfer">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                        </div>
+                        <div class="starts pad-5">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time to-starts-time" placeholder="00:00" id="to_time-starts0" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                        <div class="ends pad-5 col-lg-5th-1">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time to-end-time" placeholder="01:00" id="to_time-ends0" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="row main-trip ">
+            <div class="col-lg-6 col-md-12">
+                <div id="" style="" class="">
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">To</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name="to" class="rounded form-control   to autocomplete-added" placeholder="Enter, streetname, place or country" id="to" value="" required="">
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+            </div>
+            <div class="col-lg-3">
+                <div class="t-14 font-bold mob-width ">
+    <p class="t-14 m-0">Departure date</p>
+    <div class="input-group mb-3 ">
+        <input type="date" class="form-control to_date departure " aria-describedby="basic-addon1" id="to_date" title="to_date" value="" required="">
+    </div>
+</div>
+
+            </div>
+            <div class="col-lg-3">
+                <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Departure time :</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker to_time" placeholder="00:00" id="to_time" value="" required="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+            </div>
+            <div style="width: 208px;" class="flex transfer col-lg-5 align-items-baseline">
+                <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                <div class="toggle-transfer col-12 row m-0 transfer-container">
+                    <div class="col-lg-8 t-14 font-bold pad-5 select">
+                        <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="from-select1" class="form-control tour-select from-select-transfer-second">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                    </div>
+                    <div class="d-flex justify-content-between pt-1 transfer-time">
+                        <div class="starts pad-5">
+                        <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time from-starts-time-second" placeholder="00:00" id="from_time-starts1" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                    </div>
+                        <div class="ends pad-5 col-lg-5th-1">
+                        <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time from-end-time-second" placeholder="01:00" id="from_time-ends1" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 208px;" class="flex transfer col-lg-5 align-items-baseline">
+                <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                <div class="toggle-transfer col-12 row m-0 transfer-container">
+                    <div class="col-lg-8 t-14 font-bold pad-5 select">
+                        <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="to-select1" class="form-control tour-select to-select-transfer-second">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                    </div>
+                    <div class="d-flex justify-content-between pt-1 transfer-time">
+                        <div class="starts pad-5">
+                        <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time to-starts-time-second" placeholder="00:00" id="to_time-starts1" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                    </div>
+                        <div class="ends pad-5 col-lg-5th-1">
+                        <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time to-end-time-second" placeholder="01:00" id="to_time-ends1" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<div id="main_block" class="flex-column" style="display: none;">
+        <div class="row main-trip ">
+            <div class="col-lg-6 col-md-12">
+                <div id="" style="" class="">
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">From</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name="from" class="rounded form-control   from autocomplete-added" placeholder="Enter, streetname, place or country" id="fromS" value="" required="">
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                <span class="swap1"></span>
+            </div>
+            <div class="col-lg-3">
+                <div class="t-14 font-bold mob-width ">
+    <p class="t-14 m-0">Departure date</p>
+    <div class="input-group mb-3 ">
+        <input type="date" class="form-control from_date departure " aria-describedby="basic-addon1" id="from_dateS" title="from_dateS" value="" required="">
+    </div>
+</div>
+
+            </div>
+            <div class="col-lg-3">
+                <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Departure time:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker from_time" placeholder="00:00" id="from_timeS" value="" required="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+            </div>
+            <div class="col-12 flex transfer">
+                <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                <div class="toggle-transfer col-12 row m-0 transfer-container align-items-baseline">
+                    <div class="col-lg-8 t-14 font-bold pad-5 select">
+                        <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="from-selectS" class="form-control tour-select from-select-transfer">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                    </div>
+                    <div class="d-flex justify-content-between pt-1 transfer-time">
+                        <div class="starts pad-5">
+                        <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time from-starts-time" placeholder="00:00" id="from_time-startsS" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                    </div>
+                        <div class="ends pad-5 col-lg-5th-1">
+                        <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time from-end-time" placeholder="01:00" id="from_time-endsS" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row main-trip ">
+                <div class="col-md-12">
+                    <div id="" style="" class="">
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">To</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name="to" class="rounded form-control   to autocomplete-added" placeholder="Enter, streetname, place or country" id="toS" value="" required="">
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                </div>
+                <div class="col-12 flex transfer">
+                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                    <div class="toggle-transfer col-12 row m-0 transfer-container align-items-baseline">
+                        <div class="col-lg-8 t-14 font-bold pad-5 select">
+                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="to-selectS" class="form-control tour-select to-select-transfer">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                        </div>
+                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                            <div class="starts pad-5">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time to-starts-time" placeholder="00:00" id="to_time-startsS" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                            <div class="ends pad-5 col-lg-5th-1">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time to-end-time" placeholder="01:00" id="to_time-endsS" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+<div id="main_block_multi" style="display: none;">
+        <div id="trip0" class="last-tab main-trip form-multi" index="0">
+            <div class="col-12 row">
+                <div class="align-items-baseline container first-row flex justify-content-between">
+                    <div id="" style="" class="">
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">From</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name="from" class="rounded form-control   from-multi autocomplete-added" placeholder="City,  place or country…" id="fromT" value="" required="">
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                    <div id="" style="" class="multi-to">
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">To</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name="to" class="rounded form-control   to-multi autocomplete-added" placeholder="City,  place or country…" id="toT" value="" required="">
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                    <div class="t-14 font-bold mob-width ">
+    <p class="t-14 m-0">Departure date</p>
+    <div class="input-group mb-3 ">
+        <input type="date" class="form-control from_date-multi departure " aria-describedby="basic-addon1" id="from_dateT" title="from_dateT" value="" required="">
+    </div>
+</div>
+
+                    <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Departure time :</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker from_time-multi" placeholder="00:00" id="from_timeT" value="" required="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                </div>
+                <div style="width: 208px;" class="flex transfer">
+                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                        <div class="col-lg-9 col-md-12 t-14 font-bold pad-5 select">
+                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="from-selectT" class="form-control tour-select from-select-transfer">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                        </div>
+                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                            <div class="starts pad-5">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time from-starts-time" placeholder="00:00" id="from_time-startsT" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                            <div class="ends pad-5">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time from-end-time" placeholder="01:00" id="from_time-endsT" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="width: 208px;" class="flex transfer">
+                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                        <div class="col-lg-9 col-md-12 t-14 font-bold pad-5 select">
+                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="to-selectT" class="form-control tour-select to-select-transfer">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                        </div>
+                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                            <div class="starts pad-5">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time to-starts-time" placeholder="00:00" id="to_time-startsT" value="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                            <div class="ends pad-5">
+                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time to-end-time" placeholder="01:00" id="to_time-endsT" value="" disabled="">
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="justify-content-center add-block" style="display: none;">
+                <button type="button" id="button_off" class="btn" index="0">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="delete-main d-none">
+                <button class="btn btn-outline-danger position_corner" id="delete_step_0" onclick="delete_step(0)">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+<div>
+    <button class="add-destination" style="display: none;" id="add-destination" index="0" onclick="add_part(this)">+ ADD DESTINATION</button>
+</div>
+
+<script>
+            let mulri_part = 1;
+            let return_trip = $('#return_trip');
+            let one_way = $('#one_way');
+            let multi_way = $('#multi_trip');
+            let input_type_text = $('input[class*=autocomplete-added]');
+            let elementLength = $('.form-multi').length;
+
+            function set_first_trash() {
+                let firstElement = $(`.form-multi`)[0];
+                if ($(`.form-multi`).length > 1) {
+                    $(firstElement).find('.delete-main').removeClass('d-none');
+                } else {
+                    $(firstElement).find('.delete-main').addClass('d-none');
+                }
+            }
+
+            $("select[class*='tour-select']").change(function () {
+                if ($(this).parents('.toggle-transfer').find('.from-time').val()  &&  $(this).children("option:selected").val()) {
+                    calculate_end_time(this);
+                }
+            });
+
+            $(".from-time").blur(function () {
+                if ($(this).parents('.toggle-transfer').find('.tour-select').children("option:selected").val() && $(this).val()) {
+                    calculate_end_time($(this).parents('.transfer-container').find('.tour-select')[0]);
+                }
+            });
+
+            setDate();
+
+            function add_part(elButton) {
+                elementLength++;
+                let last_parent = $('.form-multi').slice(-1)[0];
+                let last_trip = $(last_parent).find("input[name='to']").val();
+                let parent = $("#main_block_multi");
+                let indexButton = elButton.getAttribute('index');
+                let nextIndex = parseInt(indexButton) + 1;
+                elButton.setAttribute('index', nextIndex);
+                rebuildIndexes(nextIndex);
+                let html = `
+                <div id="trip${mulri_part}" class="last-tab main-trip form-multi" index='${nextIndex}'>
+                            <form class="col-12 row">
+                                <div class="align-items-baseline container first-row flex justify-content-between">
+                                    <div id='' style='' class=''>
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">From</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name='from' class="rounded form-control   autocomplete-added" placeholder='City,  place or country…' id='from${mulri_part}' value='${last_trip}' >
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                                    <div id='' style='' class='multi-to'>
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">To</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name='to' class="rounded form-control   autocomplete-added" placeholder='City,  place or country…' id='to${mulri_part}' value='' >
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                                    <div class="t-14 font-bold mob-width ">
+    <p class="t-14 m-0">Departure date</p>
+    <div class="input-group mb-3 ">
+        <input type="date" class="form-control departure " aria-describedby="basic-addon1" id=from_date${mulri_part} title=from_date${mulri_part} value='' >
+    </div>
+</div>
+
+                                    <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Departure time :</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker " placeholder='00:00' id="from_time-hour${mulri_part}" value='' >
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                </div>
+                                <div style="width: 208px;" class="flex transfer">
+                                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                                        <div class="col-9 t-14 font-bold pad-5 select">
+                                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="from-select${mulri_part}" class="form-control tour-select ">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                                        </div>
+                                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                                            <div class="starts pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time" placeholder='00:00' id="from_time-starts-hour${mulri_part}" value='' >
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                            <div class="ends pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time" placeholder='01:00' id="from_time-ends-hour${mulri_part}" value='' disabled>
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 208px;" class="flex transfer">
+                                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                                        <div class="col-9 t-14 font-bold pad-5 select">
+                                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="to-select${mulri_part}" class="form-control tour-select ">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                                        </div>
+                                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                                            <div class="starts pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time" placeholder='00:00' id="to_time-starts-hour${mulri_part}" value='' >
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                            <div class="ends pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time" placeholder='01:00' id="to_time-ends-hour${mulri_part}" value='' disabled>
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="justify-content-center add-block">
+                                <button type="button"
+                                        id="button_off"
+                                        class="btn"
+                                        index='${nextIndex}'>
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                    <div class="delete-main">
+                        <button class="btn btn-outline-danger position_corner" id="delete_step_${mulri_part}" onclick="delete_step(${mulri_part})">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>`;
+
+                $(parent).append(html);
+                set_first_trash();
+                $("select[class*='tour-select']").change(function () {
+                    if ($(this).parents('.toggle-transfer').find('.from-time').val()  &&  $(this).children("option:selected").val()) {
+                        calculate_end_time(this);
+                    }
+                });
+
+                $(".from-time").blur(function () {
+                    if ($(this).parents('.toggle-transfer').find('.tour-select').children("option:selected").val() && $(this).val()) {
+                        calculate_end_time($(this).parents('.transfer-container').find('.tour-select')[0]);
+                    }
+                });
+                $('.add-block').show();
+                validDate(`from_date${mulri_part}`);
+                setDate();
+                mulri_part++;
+                $('input[class*=autocomplete-added]').on('input', function () {
+                    if (this.value.length !== 0) {
+                        send_post("/autocomplete/", {'text': this.value}, false, (response) => {
+                            autocomplete(document.getElementById(this.id), response.data);
+                        });
+                    }
+                });
+
+                $(function () {
+                    $('.datetimepicker').datetimepicker({
+                        format: "HH:mm"
+                    });
+                });
+            }
+
+            $("#main_block_multi").on("click", ".add-block", function () {
+                elementLength++;
+                let last_trip = $(this).parent().find("input[name='to']").val();
+                let last_trip_second = $(this).parent().next().find("input[name='from']").val();
+                $(this).parent().find("input[name='from']");
+                let indexButton = $(this).find(`#button_off`).attr('index');
+                let rows = document.getElementsByClassName("form-multi");
+                let prevTrip = searchTripByIndex(rows, indexButton);
+                let nextIndex = parseInt(indexButton) + 1;
+                let addButton = document.getElementById("add-destination");
+                addButton.setAttribute('index', rows.length);
+                rebuildIndexes(nextIndex);
+                let html = `
+                <div id="trip${mulri_part}" class="last-tab main-trip form-multi" index='${nextIndex}'>
+                            <form class="col-12 row">
+                                <div class="align-items-baseline container first-row flex justify-content-between">
+                                    <div id='' style='' class=''>
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">From</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name='from' class="rounded form-control   autocomplete-added" placeholder='City,  place or country…' id='from${mulri_part}' value='${last_trip}' >
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                                    <div id='' style='' class='multi-to'>
+    <div class="col p-0 font-bold t-14">
+        <span class="t-14 ">To</span>
+        <div class="input-group mb-3 ">
+            
+                <input type="text" name='to' class="rounded form-control   autocomplete-added" placeholder='City,  place or country…' id='to${mulri_part}' value='${last_trip_second}' >
+            
+            <small class="form-text text-muted"></small>
+        </div>
+    </div>
+</div>
+
+                                    <div class="t-14 font-bold mob-width ">
+    <p class="t-14 m-0">Departure date</p>
+    <div class="input-group mb-3 ">
+        <input type="date" class="form-control departure " aria-describedby="basic-addon1" id=from_date${mulri_part} title=from_date${mulri_part} value='' >
+    </div>
+</div>
+
+                                    <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Departure time :</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker " placeholder='00:00' id="from_time-hour${mulri_part}" value='' >
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                </div>
+                                <div style="width: 208px;" class="flex transfer">
+                                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                                        <div class="col-9 t-14 font-bold pad-5 select">
+                                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="from-select${mulri_part}" class="form-control tour-select ">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                                        </div>
+                                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                                            <div class="starts pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time" placeholder='00:00' id="from_time-starts-hour${mulri_part}" value='' >
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                            <div class="ends pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time" placeholder='01:00' id="from_time-ends-hour${mulri_part}" value='' disabled>
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 208px;" class="flex transfer">
+                                    <label class="checkbox"><input type="checkbox"><i class="fa fa-check" aria-hidden="true"></i></label> I need tour or transfer
+                                    <div class="toggle-transfer col-12 row m-0 transfer-container">
+                                        <div class="col-9 t-14 font-bold pad-5 select">
+                                            <p class="t-14 m-0">Select a tour/ transfer</p>
+<select name="" id="to-select${mulri_part}" class="form-control tour-select ">
+    <option selected="selected" value=""></option>
+    
+</select>
+
+                                        </div>
+                                        <div class="d-flex justify-content-between pt-1 transfer-time">
+                                            <div class="starts pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Starts:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-2 from-time" placeholder='00:00' id="to_time-starts-hour${mulri_part}" value='' >
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                            <div class="ends pad-5">
+                                            <div class="t-14 font-bold mob-width-date ">
+    <p class="t-14 m-0">Ends:</p>
+    <div class="d-flex form-control justify-content-between ">
+        <input class="datetimepicker col-1 end-time" placeholder='01:00' id="to_time-ends-hour${mulri_part}" value='' disabled>
+        <span class="align-items-center d-flex input-group-addon">
+            <i class="fa fa-clock" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>
+
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="justify-content-center add-block">
+                                <button type="button" id="button_off"
+                                        class="btn"
+                                        index='${nextIndex}'>
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                    <div class="delete-main">
+                        <button class="btn btn-outline-danger position_corner" id="delete_step_${mulri_part}" onclick="delete_step(${mulri_part})">
+                            <i class="far fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>`;
+
+                $(prevTrip).after(html);
+                set_first_trash();
+
+                $("select[class*='tour-select']").change(function () {
+                    if ($(this).parents('.toggle-transfer').find('.from-time').val()  &&  $(this).children("option:selected").val()) {
+                        calculate_end_time(this);
+                    }
+                });
+
+                $(".from-time").blur(function () {
+                    if ($(this).parents('.toggle-transfer').find('.tour-select').children("option:selected").val() && $(this).val()) {
+                        calculate_end_time($(this).parents('.transfer-container').find('.tour-select')[0]);
+                    }
+                });
+                $('.add-block').show();
+                validDate(`from_date${mulri_part}`);
+                setDate();
+                mulri_part++;
+                $('input[class*=autocomplete-added]').on('input', function () {
+                    if (this.value.length !== 0) {
+                        send_post("/autocomplete/", {'text': this.value}, false, (response) => {
+                            autocomplete(document.getElementById(this.id), response.data);
+                        });
+                    }
+                });
+                $(function () {
+                    $('.datetimepicker').datetimepicker({
+                        format: "HH:mm"
+                    });
+                });
+            });
+
+            $('body').on('click', '.transfer input[type="checkbox"]', function() {
+                $(this).parents('.transfer').toggleClass('is-checked');
+            });
+
+
+            input_type_text.on('input', function () {
+                if (get_trip_type() === 1) {
+                    $('#from_disabled').val($('#to').val());
+                    $('#to_disabled').val($('#from').val());
+                }
+                if (this.value.length !== 0) {
+                    send_post("/autocomplete/", {'text': this.value}, spin_off = false, (response) => {
+                        autocomplete(document.getElementById(this.id), response.data);
+                    });
+                }
+            });
+
+            function get_type() {
+                if (return_trip.hasClass('btn-group-active')) return 1;
+                else if (one_way.hasClass('btn-group-active')) return 2;
+                else if (multi_way.hasClass('btn-group-active')) return 3;
+            }
+
+            function checkChanges () {
+                let parameters = [];
+
+                let point_1 = $('#from').val();
+                let point_2 = $('#to').val();
+                let from_date = $('#from_date').val();
+                let from_time = $('#from_time-hour').val();
+
+                if (get_type() === 1) {
+                    let to_date = $('#to_date').val();
+                    let to_time = $('#to_time').val();
+
+                    parameters.push(point_1, point_2, from_date, to_date, from_time, to_time);
+
+                } else if (get_type() === 2) {
+
+                    parameters.push(point_1, point_2, from_date, from_time);
+
+                } else {
+                    let routesLength = $('.form-multi').length;
+                    for (let i = 0; i < routesLength; i++) {
+                        let index = $(`.form-multi[index*=${i}]`).attr('id').replace('trip','');
+                        parameters.push($(`#from${index}`).val(),$(`#to${index}`).val(),$(`#from_date${index}`).val(), $(`#from_time-hour${index}`).val());
+                    }
+
+                }
+
+                function notEmpty(element) {
+                    return element !== "";
+                }
+
+                return parameters.every(notEmpty);
+            }
+
+            function get_quotes() {
+                if (checkChanges ()) {
+                let point_1 = $('#from').val();
+                let point_2 = $('#to').val();
+                let fromSelect = $('#from-select').val();
+                let fromSelectName = $('#from-select option:selected').text();
+                let toSelect = $('#to-select').val();
+                let toSelectName = $('#to-select option:selected').text();
+                let fromTimeStarts = $('#from_time-starts-hour').val();
+                let toTimeStarts = $('#to_time-starts-hour').val();
+                let fromEndTime = $('#from_time-ends-hour').val();
+                let toEndTime = $('#to_time-ends-hour').val();
+
+                let trip_type = get_type();
+                localStorage.setItem('type', trip_type);
+
+                if ('' !== 'None') data['duplicate'] = '';
+                if (trip_type === 1) {
+                    var data = [{
+                        point_1: point_1,
+                        point_2: point_2,
+                        date: $('#from_date').val(),
+                        time: $('#from_time-hour').val(),
+                        point_1_loco: $('#from-select0').val(),
+                        point_1_loco_name: $('#from-select0 option:selected').text(),
+                        point_2_loco: $('#to-select0').val(),
+                        point_2_loco_name: $('#to-select0 option:selected').text(),
+                        point_1_loco_time: $('#from_time-starts0').val(),
+                        point_2_loco_time: $('#to_time-starts0').val(),
+                        point_1_loco_time_end: $('#from_time-ends0').val(),
+                        point_2_loco_time_end: $('#to_time-ends0').val(),
+                    }];
+
+                    data.push({
+                        point_1:  point_2,
+                        point_2: point_1,
+                        date: $('#to_date').val(),
+                        time: $('#to_time').val(),
+                        point_1_loco: $('#from-select1').val(),
+                        point_1_loco_name: $('#from-select1 option:selected').text(),
+                        point_2_loco: $('#to-select1').val(),
+                        point_2_loco_name: $('#to-select1 option:selected').text(),
+                        point_1_loco_time: $('#from_time-starts1').val(),
+                        point_2_loco_time: $('#to_time-starts1').val(),
+                        point_1_loco_time_end: $('#from_time-ends1').val(),
+                        point_2_loco_time_end: $('#to_time-ends1').val(),
+                    })
+                } else if (trip_type === 3) {
+                    var data = [];
+                    let routesLength = $('.form-multi').length;
+                    for (let i = 0; i < routesLength; i++) {
+                        let index = $(`.form-multi[index*=${i}]`).attr('id').replace('trip','');
+                        if ($(`#to${index}`).val()) {
+                            data.push({
+                                point_1: $(`#from${index}`).val(),
+                                point_2: $(`#to${index}`).val(),
+                                date: $(`#from_date${index}`).val(),
+                                time: $(`#from_time-hour${index}`).val(),
+                                point_1_loco: $(`#from-select${index}`).val(),
+                                point_1_loco_name: $(`#from-select${index} option:selected`).text(),
+                                point_2_loco: $(`#to-select${index}`).val(),
+                                point_2_loco_name: $(`#to-select${index} option:selected`).text(),
+                                point_1_loco_time: $(`#from_time-starts-hour${index}`).val(),
+                                point_2_loco_time: $(`#to_time-starts-hour${index}`).val(),
+                                point_1_loco_time_end: $(`#from_time-ends-hour${index}`).val(),
+                                point_2_loco_time_end: $(`#to_time-ends-hour${index}`).val(),
+                            });
+                        }
+                    };
+                } else {
+                    var data = [{
+                        point_1: point_1,
+                        point_2: point_2,
+                        date: $('#from_date').val(),
+                        time: $('#from_time-hour').val(),
+                        point_1_loco: fromSelect,
+                        point_1_loco_name: fromSelectName,
+                        point_2_loco: toSelect,
+                        point_2_loco_name: toSelectName,
+                        point_1_loco_time: fromTimeStarts,
+                        point_2_loco_time: toTimeStarts,
+                        point_1_loco_time_end: fromEndTime,
+                        point_2_loco_time_end: toEndTime,
+                }];
+                }
+                    localStorage.setItem('data', JSON.stringify(data));
+                    window.location.href = `/en/get-transport-quote/details/`;
+                } else {
+                   validate_require();
+               }
+            }
+
+            function delete_step(id) {
+                $(`#trip${id}`).remove();
+                elementLength--;
+                set_first_trash();
+                let array = $(".form-multi");
+                for (let i=0; i< array.length; i++) {
+                    array[i].setAttribute("index", i);
+                }
+                let nextIndex = array.length - 1;
+                $(`.add-destination`).attr('index', nextIndex);
+            }
+
+            function duplicate_run_return_trip() {
+                $('#from').val('');
+                $('#to').val('');
+                $('#from_local').val('');
+                $('#to_local').val('');
+                $('#from_date').val('');
+                $('#from_time').val('');
+
+                $('#passengers').val('');
+
+                $('#from_disabled').val('');
+                $('#to_disabled').val('');
+                $('#from_local_return').val('');
+                $('#to_local_return').val('');
+                $('#to_date').val('');
+                $('#to_time').val('');
+            }
+
+            function duplicate_run_one_way() {
+                $('#from').val('');
+                $('#to').val('');
+                $('#from_local').val('');
+                $('#to_local').val('');
+                $('#from_date').val('');
+                $('#from_time-hour').val('');
+
+                $('#passengers').val('');
+            }
+
+            function duplicate_run_multi_way() {
+                $('#from').val('');
+                $('#to').val('');
+                $('#from_local').val('');
+                $('#to_local').val('');
+                $('#from_date').val('');
+                $('#from_time').val('');
+
+                $('#passengers').val('');
+                let c = 0;
+                
+            }
+
+            /*(function local_info() {
+                let click = localStorage.getItem("click_btn");
+                click;
+                $(`#${click}`).click();
+
+                if (click === 'multi_trip') {
+                    let inputFrom = document.getElementById("from0");
+                    inputFrom.value = localStorage.getItem("from0");
+                    let inputTo = document.getElementById("to0");
+                    inputTo.value = localStorage.getItem("to0");
+                    let inputDate = document.getElementById("from_date0");
+                    inputDate.value = localStorage.getItem("from_date0");
+                    let inputTime = document.getElementById("from_time-hour0");
+                    inputTime.value = localStorage.getItem("from_time-hour0");
+                } else if (click === 'return_trip') {
+                    let inputFrom = document.getElementById("from");
+                    inputFrom.value = localStorage.getItem("from");
+                    let inputTo = document.getElementById("to");
+                    inputTo.value = localStorage.getItem("to");
+                    let inputDate = document.getElementById("from_date");
+                    inputDate.value = localStorage.getItem("from_date");
+                    let inputTime = document.getElementById("from_time-hour");
+                    inputTime.value = localStorage.getItem("from_time-hour");
+                    let inputDateTO = document.getElementById("to_date");
+                    inputDateTO.value = localStorage.getItem("to_date");
+                    let inputTimeTO = document.getElementById("to_time");
+                    inputTimeTO.value = localStorage.getItem("to_time");
+                } else {
+                    let inputFrom = document.getElementById("from");
+                    inputFrom.value = localStorage.getItem("from");
+                    let inputTo = document.getElementById("to");
+                    inputTo.value = localStorage.getItem("to");
+                    let inputDate = document.getElementById("from_date");
+                    inputDate.value = localStorage.getItem("from_date");
+                    let inputTime = document.getElementById("from_time-hour");
+                    inputTime.value = localStorage.getItem("from_time-hour");
+                }
+            })();*/
+            setTimeout( function local_info_click(){
+                let click = localStorage.getItem("click_btn");
+                click;
+                $(`#${click}`).click();
+            }, 300);
+
+            function searchTripByIndex(rows, index) {
+                return $(".form-multi").filter(function() {
+                    return $(this).attr("index") === index;
+                }).get(0);
+            }
+
+            function rebuildIndexes(nextIndex) {
+                let newNextIndex = nextIndex;
+                $(".form-multi").filter(function() {
+                    return $(this).attr("index") >= nextIndex;
+                }).each(function() {
+                    newNextIndex = newNextIndex + 1;
+                    $(this).attr("index",newNextIndex);
+                })
+            }
+
+
+</script>
+
+                    <div class="aligne-right">
+                        <button class="btn btn-success w-100 p-3 text-uppercase" id="next-page" onclick="get_next_page()">Get free quotes!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container pb-3">
+    <div class="row mob-reverse">
+        <div class="col-lg-6 col-md-6">
+            
+            <h3>Bus, coach hire and minibus with driver rentals in Europe</h3>
+                <p>The travel agent’s favorite starting point for all minibus with driver rentals and chauffeured coach hire comparisons and bookings in European countries like Netherlands, Belgium, France, Spain, Portugal and Italy! Receive competing price quotes and compare quality for bus with driver rentals and motor coach hires. No need to e-mail or phone. Just start by filling out this bus rental quote form.</p> <p>Start to receive competing quotes for chauffeured mini bus rentals and motor coach hires. Let bus rental companies bid on your bus trip, group transfer or multiple day bus tour. Compare price, quality and read client reviews. Book your bus online knowing that you have the best deal!</p>
+            
+
+
+
+        </div>
+        <div class="col-lg-6 col-md-6">
+            
+                <h3>Why use Rent-Autobus?</h3> <ul> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>Get multiple bus with driver and coach hire quotes for your trip!</span> </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>100% Obligation free, no cost and anonymous</span> </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>Compare and chose the best price, bus and driver service</span> </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>Personal advice and assistance in booking your minibus and coach hire</span>   </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>Free translations and support in abroad dealings with minibus and coach hire operators</span>   </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>Manage your bus rental requests and reservations online</span>   </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>We check all client reviews and onlyW publish those which were booked via our site</span>   </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>We speak your language</span>   </li> <li class="flex">   <i class="fas fa-check-circle"></i>   <span>Save lots of time!</span>   </li> </ul>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+<div class="about">
+    <div class="bg-about"></div>
+    <div class="container">
+        <div class="row center col-12">
+            <p>Customers about Rentautobus service</p>
+            <h2>“I appreciate you and any service for coach bus in future I will book with you once again thanking you for your attitude and best service.”</h2>
+            <div class="col-12 links">
+                <a href="#">View travel plan »</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="review container">
+        <h3>Latest client review</h3>
+        <div class="row">
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="block-review center">
+                            <div class="rating " style="font-size: 26px; margin: auto; width: 108.25px; height: 39px; position: relative; cursor: default; user-select: none;" data-rate-value="2.8"><div class="rate-base-layer" style="width: 100%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div><div class="rate-select-layer" style="width: 56%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rate-hover-layer" style="width: 0%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: none; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+
+
+                                
+                                
+                                
+                                
+
+
+                        
+                            <h4>FlyBus</h4>
+                            <p class="info"></p><p class="info"> 2020/01/10 Rating by Lesha Afternoon from Ukraine </p><p></p>
+                            <p>Good company</p> <p>Bed driver</p><p> </p><p>Thancs for useful site</p>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="block-review center">
+                            <div class="rating " style="font-size: 26px; margin: auto; width: 108.25px; height: 39px; position: relative; cursor: default; user-select: none;" data-rate-value="0.0"><div class="rate-base-layer" style="width: 100%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div><div class="rate-select-layer" style="width: 0%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rate-hover-layer" style="width: 0%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: none; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+
+
+                                
+                                
+                                
+                                
+
+
+                        
+                            <h4>FlyBus</h4>
+                            <p class="info"></p><p class="info"> 2020/01/02 Rating by Lesha Afternoon from Ukraine </p><p></p>
+                            <p></p> <p></p><p> </p><p></p>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="block-review center">
+                            <div class="rating " style="font-size: 26px; margin: auto; width: 108.25px; height: 39px; position: relative; cursor: default; user-select: none;" data-rate-value="3.6"><div class="rate-base-layer" style="width: 100%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div><div class="rate-select-layer" style="width: 72%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: block; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div><div class="rate-hover-layer" style="width: 0%; height: 39px; overflow: hidden; position: absolute; top: 0px; display: none; white-space: nowrap;"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></div>
+
+
+                                
+                                
+                                
+                                
+
+
+                        
+                            <h4>FlyBus</h4>
+                            <p class="info"></p><p class="info"> 2019/12/05 Rating by Lesha Afternoon from Ukraine </p><p></p>
+                            <p>sdfgh</p> <p>sdfgh</p><p> </p><p>cvbnm</p>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </div>
+    <div class="plans container">
+        <h3>Latest submitted travel plans</h3>
+        <div class="row">
+            
+                
+                    <div class="col-lg-4">
+                        <div class="block-plan">
+                            <p>
+                                
+
+                                <b>Житомир</b>,Житомир, Zhytomyr Oblast, Ukraine
+                            </p>
+                            <p>
+                                
+                                
+                                <b>Dnipro</b>,Dnipro, Dnipropetrovsk Oblast, Ukraine
+                            </p>
+                        </div>
+                    </div>
+                
+            
+                
+                    <div class="col-lg-4">
+                        <div class="block-plan">
+                            <p>
+                                
+
+                                <b>Житомир</b>,Житомир, Zhytomyr Oblast, Ukraine
+                            </p>
+                            <p>
+                                
+                                
+                                <b>Dnipro</b>,Dnipro, Dnipropetrovsk Oblast, Ukraine
+                            </p>
+                        </div>
+                    </div>
+                
+            
+                
+                    <div class="col-lg-4">
+                        <div class="block-plan">
+                            <p>
+                                
+
+                                <b>Киев</b>,Киев, Ukraine
+                            </p>
+                            <p>
+                                
+                                
+                                <b>Житомир</b>,Житомир, Zhytomyr Oblast, Ukraine
+                            </p>
+                        </div>
+                    </div>
+                
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            </div>
+    </div>
+    <div class="container articles">
+        <div class="row">
+            <div class="col-lg-6">
+                
+                    
+                        <article>
+                            
+                             <h3>Minibus and coach hire arrangements are often made too late</h3>
+                            
+                            
+                            
+                            
+                            
+                            <p>Many travelers take care of hotel bookings and flight arrangements first, leaving bus rental                         reservations to the last minute of their planning. As the date of departure approaches, we often                         see that your plans are getting more detailed and sometimes change due to new insights on all                         the places, attractions, and sights you want to see on your journey. We advice you to, although                         your route or times might change, claim your reservation with the bus operator before to make                         sure you'll have a minibus or coach with driver available.</p>
+                        </article>
+                    
+                        <article>
+                            
+                            <h3>Your tool for free bus and coach hire comparisons in Europe</h3>
+                            
+                            
+                            
+                            
+                            
+                            <p>Maybe you’re an experienced travel planner or maybe this is your first time organizing a tour for                         your family or group of culture lovers. Either way, we’re here to help you and we hope that we                         can make your trip as amazing as it can possibly be, not only by helping you to select the best                         transportation partner in Europe but also by helping you to reduce the hassle, stress, and worry                         that many people face when planning bus and coach hires far away from home.</p>
+                        </article>
+                    
+                        <article>
+                            
+                            <h3>Two different types of bus and coach hires</h3>
+                            
+                            
+                            
+                            
+                            
+                            <b>Chauffeured motor coach hire</b>                     <p>Service for large groups travelling in a 50 seater bus and who are planning single or multi-day                         tours. The coach hire service can be around various countries or just around a city. Normally a                         fixed route and time schedule are planned. Coaches with drivers in Europe are also rented for                         days or half days without a fixed route for the purpose of city trips or day tours. In those                         cases a maximum distance per day is purchased and extra distance may be billed at a separate                         rate.</p>                     <b>Mini bus rental with driver</b>                     <p>Very similar to coach hires these are transfers or tour services with smaller vehicles with 9 to                         25 seats normally rented for a half day or full day.</p>
+                        </article>
+                    
+                        <article>
+                            
+                            <h3>Bus and coach hire services in European countries</h3>
+                            
+                            
+                            
+                            
+                            
+                             <p>Our service was created with the aim of providing direct access to local companies across Europe:                         coach hire companies and mini bus rental companies who provide local transfer and international                         tour services. Travel agents and tour operators can both use our system to compare and book bus                         rentals. Convention and event organizers can also use our system to post request for quotes and                         select partners for their group travel needs.</p>
+                        </article>
+                    
+            </div>
+            <div class="col-lg-6">
+                    
+                        <article>
+                            <h3>April, May, June and September are very busy in the European minibus and coach hire                             sector </h3> 
+                             <p>We know that planning a bus trip or a tour in a (faraway) continent like Europe can be a time                         consuming and sometimes difficult task. We make it easy for your by helping to get bus rental                         quotes and by helping you to compare them on both price and quality. Just be aware that during                         the busy months and during events and congresses minibuses and coaches tend to fully booked.</p>                 
+                        </article>
+                    
+                        <article>
+                            <h3>Start comparing European minibus with driver rentals and coach hire</h3> 
+                            <p>Your first step is to enter the details of your bus trip, transfer or tour in our quote form so                         you can start comparing options. </p>
+                        </article>
+                    
+                        <article>
+                            <h3>Do you help with coach hire and bus rental services in all European countries?</h3>
+                            <p>We hope to cover all European countries with our service in the next couple of years. In 2011 we                         started in by offering a bus rental comparison and quote service in Spain. In 2017 we plan to                         further expand our services to various European countries. If we don’t have any travel providers                         yet in the place where you need service, we’ll do our best to see that you get at least one                         quote or more if possible.</p>
+                        </article>
+                    
+                        <article>
+                             <h3>Join a European and worldwide network of coach hire and mini bus rental with driver                             companies </h3>
+                            <p>If you own or run a bus rental company anywhere in the world, you can list your company on our                         directory by submitting your company profile with written information, fleet data, and fleet                         pictures. List your services and exchange a back link to our site.</p>
+                        </article>
+                    
+                        <article>
+                            <h3>Inform yourself about minibus and coach hires before booking</h3> 
+                            <p>Get information about mini bus with driver and coach hires for both small and large groups                         traveling in Spain, Portugal, Netherlands, Belgium, the United Kingdom, France and Italy and                         around the world. Find various options like chauffeured coach rentals and mini bus with driver                         hires around Europe. On our portal you can compare bus rental quotes on both price and                         quality.</p>
+                        </article>
+                    
+                
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
+    </div>
+
+<footer class="footer">
+    <div class="container">
+        <p><a href="#">Contact</a><a href="#">Sitemap</a><a href="#">Submit bus company</a><a href="#">Countries</a><a href="#">Servizi</a><a href="#">Blog</a><a href="#">About us</a><a href="#">Travel Resources</a></p>
+        <p>2010-2020 © RentAutobus.com </p>
+    </div>
+</footer>
+<script>
+    $(document).ready(function () {
+        $('#tab-list .list-content').children().length > 0 ? $('#tab-list').removeClass('d-none') : $('#tab-list').addClass('d-none');
+
+        if ('' !== 'None') {
+            if ('' === '1') {
+                return_trip.click();
+                duplicate_run_return_trip();
+                validDate('from_date');
+                validDate('to_date');
+            }
+            else if ('' === '2') {
+                one_way.click();
+                duplicate_run_one_way();
+                validDate('from_date');
+            }
+            else if ('' === '3') {
+                multi_way.click();
+                duplicate_run_multi_way();
+                validDate('from_date0');
+            }
+        }
+        setDate();
+        window.localStorage.setItem('api_url', 'https://api.rab.dev19.splinestudio.com');
+        if (window.location.pathname.includes('/en/countries/')) {
+            $('a[href="/en/countries/"]').addClass('active');
+        } else if (window.location.pathname === '/en/contacts/') {
+            $('a[href="/en/contacts/"]').addClass('active');
+        } else if (window.location.pathname === '/en/') {
+            $('a[href="/en/"]').addClass('active');
+        } else if (window.location.pathname === `/en/get-transport-quote/`) {
+            $('a[href="/en/get-transport-quote/"]').addClass('active');
+        };
+
+        $("#return_trip").click(function() {
+            localStorage.setItem("click_btn", $("#return_trip").val());
+        });
+        $("#one_way").click(function() {
+            localStorage.setItem("click_btn", $("#one_way").val());
+        });
+        $("#multi_trip").click(function() {
+            localStorage.setItem("click_btn", $("#multi_trip").val());
+        });
+    });
+    $(document).on('keypress',function(e) {
+        if(e.which === 13 && $(`.banner-title`).length === 1) {
+            get_next_page();
+        }
+        if (e.which === 13 && $(`.banner-title`).length === 0) {
+            get_quotes();
+        }
+    });
+
+    let options = {
+        max_value: 5,
+        step_size: 1.0,
+        readonly: true,
+    };
+    $(".rating").rate(options);
+
+        function get_next_page(){
+            let ids = (localStorage.getItem('click_btn') === 'multi_trip') ? [
+                    "from0",
+                    "to0",
+                    "from_date0",
+                    "from_time-hour0",
+                ] : [
+                    "from",
+                    "to",
+                    "from_date",
+                    "to_date",
+                    "from_time-hour",
+                    "to_time",
+                ];
+
+                for (let id of ids) {
+                    let input = document.getElementById(id);
+                    if (input !== null) {
+                        input.value = $(input).val();
+                        localStorage.setItem(id, input.value);
+                    }
+                }
+                document.location.href = '/en/get-transport-quote/';
+    }
+</script>
+
+
+</body></html>

@@ -31,4 +31,9 @@ public class MainSteps {
   public void clickSignUpButtonConfirmation() {
     page.clickSignUpButtonConfirmation();
   }
+
+  @Step("User checks display user name")
+  public boolean isUserByTextVisible(String message) {
+    return page.isUserByTextVisible(message);
+  }
 }

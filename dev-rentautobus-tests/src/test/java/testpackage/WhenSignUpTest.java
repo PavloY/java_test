@@ -1,5 +1,5 @@
 package testpackage;
-
+/*
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import org.junit.Assert;
@@ -39,3 +39,4 @@ public class WhenSignUpTest {
     Assert.assertTrue(steps.isUserByTextVisible("Lesha Afternoon"));
   }
 }
+*/

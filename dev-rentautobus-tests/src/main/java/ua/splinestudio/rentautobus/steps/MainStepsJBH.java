@@ -21,22 +21,22 @@ public class MainStepsJBH {
     page.clickSignUpButton();
   }
 
-  @When("User set email address \"dev@splinestudio.com\"")
+  @When("User set email address \"<login>\"")
   public void setEmailAddress(String emailAddress) {
     page.setEmailAddress(emailAddress);
   }
 
-  @When("User set password field \"12345678\"")
+  @When("User set password field \"<pass>\"")
   public void setPasswordField (String passwordField) {
     page.setPasswordField(passwordField);
   }
 
-  @When("User click sign in button")
+  @When("User click sign in button confirmation")
   public void clickSignUpButtonConfirmation() {
     page.clickSignUpButtonConfirmation();
   }
 
-  @Then("User should see user name \"Lesha Afternoon\"")
+  @Then("User should see \"<user name>\"")
   public boolean isUserByTextVisible(String message) {
     return page.isUserByTextVisible(message);
   }

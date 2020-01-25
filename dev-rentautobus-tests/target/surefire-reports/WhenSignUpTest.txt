@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: WhenSignUpTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 24.286 s - in WhenSignUpTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 27.101 s - in WhenSignUpTest

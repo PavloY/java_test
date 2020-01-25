@@ -1,0 +1,3 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"When sign up test","Test sign in","PENDING","2020-01-25T14:43:57.428+02:00[Europe/Helsinki]","0.0","0.04"
+"When sign up test","When the user sign up","SUCCESS","2020-01-25T14:43:57.867+02:00[Europe/Helsinki]","0.0","20.22"

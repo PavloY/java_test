@@ -1,7 +1,5 @@
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
-import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
+import net.thucydides.core.annotations.*;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -20,7 +18,19 @@ public class WhenSignUpTest {
   WebDriver driver;
 
   @Test
+  @Title("When the user sign up")
   public void testSignUp() {
+    steps.openMainPage();
+    steps.clickSignUpButton();
+    steps.setEmailAddress("dev@splinestudio.com");
+    steps.setPasswordField("12345678");
+    steps.clickSignUpButtonConfirmation();
+    Assert.assertTrue(steps.isUserByTextVisible("Lesha Afternoon"));
+  }
+
+  @Test
+  @Pending
+  public void testSignIn() {
     steps.openMainPage();
     steps.clickSignUpButton();
     steps.setEmailAddress("dev@splinestudio.com");

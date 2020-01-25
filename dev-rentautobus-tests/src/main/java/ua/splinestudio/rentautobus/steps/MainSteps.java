@@ -1,8 +1,8 @@
-package steps;
+package ua.splinestudio.rentautobus.steps;
 
 
 import net.thucydides.core.annotations.Step;
-import pages.MainPage;
+import ua.splinestudio.rentautobus.pages.MainPage;
 
 public class MainSteps {
   MainPage page;

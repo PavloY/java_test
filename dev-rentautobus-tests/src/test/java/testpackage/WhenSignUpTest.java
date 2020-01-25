@@ -1,12 +1,12 @@
+package testpackage;
+
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import pages.MainPage;
-import steps.MainSteps;
+import ua.splinestudio.rentautobus.steps.MainSteps;
 
 @RunWith(SerenityRunner.class)
 public class WhenSignUpTest {

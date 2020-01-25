@@ -1,4 +1,4 @@
-package pages;
+package ua.splinestudio.rentautobus.pages;
 
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;

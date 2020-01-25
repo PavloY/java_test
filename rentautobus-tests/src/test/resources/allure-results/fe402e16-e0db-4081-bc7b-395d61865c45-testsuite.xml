@@ -11,7 +11,7 @@
             <labels>
                 <label name="testSuite" value="Gradle suite"/>
                 <label name="testGroup" value="Gradle test"/>
-                <label name="testClass" value="ua.splinestudio.rentautobus.tests.SignInTest"/>
+                <label name="testClass" value="testpackage.tests.SignInTest"/>
                 <label name="testMethod" value="testSignIn"/>
                 <label name="host" value="WIN-H3K2C979116"/>
                 <label name="thread" value="14168@WIN-H3K2C979116.Test worker(11)"/>

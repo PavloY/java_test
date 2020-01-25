@@ -11,48 +11,33 @@
 <div class="path">stories/main_page/MainPage.story</div>
 <div class="scenario">
 <h2>Scenario: test sign in function</h2>
-<div class="step pending">Given User open main page <span class="keyword pending">(PENDING)</span></div>
-<div class="step pending">When User click sign in button <span class="keyword pending">(PENDING)</span></div>
-<div class="step pending">And User set email address &quot;dev@splinestudio.com&quot; <span class="keyword pending">(PENDING)</span></div>
-<div class="step pending">And User set password field &quot;12345678&quot; <span class="keyword pending">(PENDING)</span></div>
-<div class="step pending">And User click sign in button <span class="keyword pending">(PENDING)</span></div>
-<div class="step pending">Then User should see user name &quot;Lesha Afternoon&quot; <span class="keyword pending">(PENDING)</span></div>
-<div><pre class="pending">@Given(&quot;User open main page&quot;)
-@Pending
-public void givenUserOpenMainPage() {
-  // PENDING
-}
-</pre></div>
-<div><pre class="pending">@When(&quot;User click sign in button&quot;)
-@Pending
-public void whenUserClickSignInButton() {
-  // PENDING
-}
-</pre></div>
-<div><pre class="pending">@When(&quot;User set email address \&quot;dev@splinestudio.com\&quot;&quot;)
-@Pending
-public void whenUserSetEmailAddressdevsplinestudiocom() {
-  // PENDING
-}
-</pre></div>
-<div><pre class="pending">@When(&quot;User set password field \&quot;12345678\&quot;&quot;)
-@Pending
-public void whenUserSetPasswordField12345678() {
-  // PENDING
-}
-</pre></div>
-<div><pre class="pending">@When(&quot;User click sign in button&quot;)
-@Pending
-public void whenUserClickSignInButton() {
-  // PENDING
-}
-</pre></div>
-<div><pre class="pending">@Then(&quot;User should see user name \&quot;Lesha Afternoon\&quot;&quot;)
-@Pending
-public void thenUserShouldSeeUserNameLeshaAfternoon() {
-  // PENDING
-}
-</pre></div>
+<div class="examples">
+<h3>Examples:</h3>
+<div class="step">Given User open main page</div>
+<div class="step">When User click sign in button</div>
+<div class="step">And User set email address &quot;&lt;emailAddress&gt;&quot;</div>
+<div class="step">And User set password field &quot;&lt;passwordField&gt;&quot;</div>
+<div class="step">And User click signin button confirmation</div>
+<div class="step">Then User should see &quot;&lt;message&gt;&quot;</div>
+<table>
+<thead>
+<tr>
+<th>emailAddress</th><th>passwordField</th><th>message</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>dev@splinestudio.com</td><td>12345678</td><td>Lesha Afternoon</td></tr>
+</tbody>
+</table>
+
+<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</h3>
+<div class="step successful">Given User open main page</div>
+<div class="step successful">When User click sign in button</div>
+<div class="step successful">And User set email address &quot;<span class="step parameter">dev@splinestudio.com</span>&quot;</div>
+<div class="step successful">And User set password field &quot;<span class="step parameter">12345678</span>&quot;</div>
+<div class="step successful">And User click signin button confirmation</div>
+<div class="step successful">Then User should see &quot;<span class="step parameter">Lesha Afternoon</span>&quot;</div>
+</div>
 </div>
 </div>
 

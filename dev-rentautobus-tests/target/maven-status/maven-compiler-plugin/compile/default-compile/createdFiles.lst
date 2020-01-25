@@ -1,3 +1,2 @@
-ua\splinestudio\rentautobus\steps\MainSteps.class
-ua\splinestudio\rentautobus\pages\MainPage.class
-ua\splinestudio\rentautobus\steps\MainStepsJBH.class
+testpackage\pages\MainPage.class
+testpackage\steps\MainSteps.class

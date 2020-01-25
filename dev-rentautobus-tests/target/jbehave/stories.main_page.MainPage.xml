@@ -1,46 +1,24 @@
 <story path="stories/main_page/MainPage.story" title="">
 <scenario keyword="Scenario:" title="test sign in function">
-<step outcome="pending" keyword="PENDING">Given User open main page</step>
-<step outcome="pending" keyword="PENDING">When User click sign in button</step>
-<step outcome="pending" keyword="PENDING">And User set email address &quot;dev@splinestudio.com&quot;</step>
-<step outcome="pending" keyword="PENDING">And User set password field &quot;12345678&quot;</step>
-<step outcome="pending" keyword="PENDING">And User click sign in button</step>
-<step outcome="pending" keyword="PENDING">Then User should see user name &quot;Lesha Afternoon&quot;</step>
-<pendingMethod>@Given(&quot;User open main page&quot;)
-@Pending
-public void givenUserOpenMainPage() {
-  // PENDING
-}
-</pendingMethod>
-<pendingMethod>@When(&quot;User click sign in button&quot;)
-@Pending
-public void whenUserClickSignInButton() {
-  // PENDING
-}
-</pendingMethod>
-<pendingMethod>@When(&quot;User set email address \&quot;dev@splinestudio.com\&quot;&quot;)
-@Pending
-public void whenUserSetEmailAddressdevsplinestudiocom() {
-  // PENDING
-}
-</pendingMethod>
-<pendingMethod>@When(&quot;User set password field \&quot;12345678\&quot;&quot;)
-@Pending
-public void whenUserSetPasswordField12345678() {
-  // PENDING
-}
-</pendingMethod>
-<pendingMethod>@When(&quot;User click sign in button&quot;)
-@Pending
-public void whenUserClickSignInButton() {
-  // PENDING
-}
-</pendingMethod>
-<pendingMethod>@Then(&quot;User should see user name \&quot;Lesha Afternoon\&quot;&quot;)
-@Pending
-public void thenUserShouldSeeUserNameLeshaAfternoon() {
-  // PENDING
-}
-</pendingMethod>
+<examples keyword="Examples:">
+<step>Given User open main page</step>
+<step>When User click sign in button</step>
+<step>And User set email address &quot;&lt;emailAddress&gt;&quot;</step>
+<step>And User set password field &quot;&lt;passwordField&gt;&quot;</step>
+<step>And User click signin button confirmation</step>
+<step>Then User should see &quot;&lt;message&gt;&quot;</step>
+<parameters>
+<names><name>emailAddress</name><name>passwordField</name><name>message</name></names>
+<values><value>dev@splinestudio.com</value><value>12345678</value><value>Lesha Afternoon</value></values>
+</parameters>
+
+<example keyword="Example:">{emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</example>
+<step outcome="successful">Given User open main page</step>
+<step outcome="successful">When User click sign in button</step>
+<step outcome="successful">And User set email address &quot;<parameter>dev@splinestudio.com</parameter>&quot;</step>
+<step outcome="successful">And User set password field &quot;<parameter>12345678</parameter>&quot;</step>
+<step outcome="successful">And User click signin button confirmation</step>
+<step outcome="successful">Then User should see &quot;<parameter>Lesha Afternoon</parameter>&quot;</step>
+</examples>
 </scenario>
 </story>

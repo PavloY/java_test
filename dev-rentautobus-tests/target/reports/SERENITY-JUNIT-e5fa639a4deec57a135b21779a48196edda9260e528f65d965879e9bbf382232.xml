@@ -1,1 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="testpackage.WhenSignUpTest" skipped="1" tests="2" time="25.72" timestamp="2020-01-25 09:08:52"><testcase classname="testpackage.WhenSignUpTest" name="Test sign in"><skipped/></testcase><testcase classname="testpackage.WhenSignUpTest" name="When the user sign up"/></testsuite>

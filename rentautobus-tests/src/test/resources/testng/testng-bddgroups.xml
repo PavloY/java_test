@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1" >
         <test name="bdd">
         <classes>
-            <class name="ua.splinestudio.rentautobus.tests.bdd.RunBddTests" />
+            <class name="testpackage.tests.bdd.RunBddTests" />
         </classes>
     </test>
 </suite>

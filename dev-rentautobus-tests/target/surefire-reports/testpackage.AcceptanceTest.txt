@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: testpackage.AcceptanceTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 5.411 s - in testpackage.AcceptanceTest

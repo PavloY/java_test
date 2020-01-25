@@ -1,0 +1,46 @@
+<story path="stories/main_page/MainPage.story" title="">
+<scenario keyword="Scenario:" title="test sign in function">
+<step outcome="pending" keyword="PENDING">Given User open main page</step>
+<step outcome="pending" keyword="PENDING">When User click sign in button</step>
+<step outcome="pending" keyword="PENDING">And User set email address &quot;dev@splinestudio.com&quot;</step>
+<step outcome="pending" keyword="PENDING">And User set password field &quot;12345678&quot;</step>
+<step outcome="pending" keyword="PENDING">And User click sign in button</step>
+<step outcome="pending" keyword="PENDING">Then User should see user name &quot;Lesha Afternoon&quot;</step>
+<pendingMethod>@Given(&quot;User open main page&quot;)
+@Pending
+public void givenUserOpenMainPage() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;User click sign in button&quot;)
+@Pending
+public void whenUserClickSignInButton() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;User set email address \&quot;dev@splinestudio.com\&quot;&quot;)
+@Pending
+public void whenUserSetEmailAddressdevsplinestudiocom() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;User set password field \&quot;12345678\&quot;&quot;)
+@Pending
+public void whenUserSetPasswordField12345678() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;User click sign in button&quot;)
+@Pending
+public void whenUserClickSignInButton() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@Then(&quot;User should see user name \&quot;Lesha Afternoon\&quot;&quot;)
+@Pending
+public void thenUserShouldSeeUserNameLeshaAfternoon() {
+  // PENDING
+}
+</pendingMethod>
+</scenario>
+</story>

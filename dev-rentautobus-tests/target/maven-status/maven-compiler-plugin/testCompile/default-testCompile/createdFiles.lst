@@ -1,1 +1,3 @@
-WhenSignUpTest.class
+testpackage\features\MainPageBasics.class
+testpackage\WhenSignUpTest.class
+testpackage\AcceptanceTest.class

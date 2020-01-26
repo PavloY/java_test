@@ -13,19 +13,9 @@ import java.net.URI;
 import static java.lang.String.format;
 import static org.openqa.selenium.By.xpath;
 
-@DefaultUrl("http://rab.dev19.splinestudio.com/")
+//@DefaultUrl("http://rab.dev19.splinestudio.com/")
+@DefaultUrl("http://google.com/")
 public class MainPage extends PageObject {
-
-  /*
-    private RemoteWebDriver driver;
-    final DesiredCapabilities browser = DesiredCapabilities.chrome();
-    browser.setCapability("enableVNC", true);
-    browser.setCapability("enableVideo", false);
-    driver =  new RemoteWebDriver(URI.create(properties.getProperty("selenium.server")).toURL(),capabilities);
-*/
-//  public MainPage(WebDriver driver) {
-//    this.driver = driver;
-//  }
 
     private By signUpButton = xpath("//button[@id='dLabel']");
     private By emailAddressField = xpath("//input[@id='email']");

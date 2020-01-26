@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1579622950131" stop="1579622968110" version="1.5.4" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Gradle suite : Gradle test</name>
+    <title>Gradle suite : Gradle test</title>
+    <test-cases>
+        <test-case start="1579622950528" stop="1579622968081" status="passed">
+            <name>testReturnTrip</name>
+            <description></description>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="testSuite" value="Gradle suite"/>
+                <label name="testGroup" value="Gradle test"/>
+                <label name="testClass" value="testpackage.tests.ReturnTripTest"/>
+                <label name="testMethod" value="testReturnTrip"/>
+                <label name="host" value="WIN-H3K2C979116"/>
+                <label name="thread" value="14664@WIN-H3K2C979116.Test worker(14)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

@@ -8,13 +8,15 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.BrowserType;
 import testpackage.appmanager.ApplicationManager;
+import testpackage.tests.TestBase;
+import testpackage.tests.bdd.RunBddTests;
 
 import java.io.IOException;
 
 import static org.testng.Assert.assertTrue;
 
-public class BddLogInTest {
-   protected ApplicationManager app;
+public class BddLogInTest  {
+    protected ApplicationManager app;
 
     @Before
     public void init() throws IOException {

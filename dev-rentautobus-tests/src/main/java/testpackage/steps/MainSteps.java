@@ -2,12 +2,13 @@ package testpackage.steps;
 
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.steps.ScenarioSteps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import testpackage.pages.MainPage;
 
-public class MainSteps {
+public class MainSteps extends ScenarioSteps {
   MainPage page;
 
   @Step

@@ -1,14 +1,31 @@
 package testpackage.pages;
 
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.webdriver.driverproviders.RemoteWebdriverStub;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URI;
 
 import static java.lang.String.format;
 import static org.openqa.selenium.By.xpath;
 
 @DefaultUrl("http://rab.dev19.splinestudio.com/")
 public class MainPage extends PageObject {
+
+  /*
+    private RemoteWebDriver driver;
+    final DesiredCapabilities browser = DesiredCapabilities.chrome();
+    browser.setCapability("enableVNC", true);
+    browser.setCapability("enableVideo", false);
+    driver =  new RemoteWebDriver(URI.create(properties.getProperty("selenium.server")).toURL(),capabilities);
+*/
+//  public MainPage(WebDriver driver) {
+//    this.driver = driver;
+//  }
 
     private By signUpButton = xpath("//button[@id='dLabel']");
     private By emailAddressField = xpath("//input[@id='email']");

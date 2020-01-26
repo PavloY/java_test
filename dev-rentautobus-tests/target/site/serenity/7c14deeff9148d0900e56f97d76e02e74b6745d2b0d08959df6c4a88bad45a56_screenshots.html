@@ -157,7 +157,7 @@
             <a href="2a4631d87648e59c428d4cf0e9247f9d286e4679f436ca2ce872e931eb4dfd58.html"><i class="fa fa-comments-o"></i> Stories</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 25-01-2020 22:15</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 26-01-2020 21:31</span>
     <br style="clear:left"/>
 </div>
 
@@ -192,9 +192,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-times-circle failure-icon fa-2x' title='FAILURE'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">test sign in function
+                                <span class="failing-color">test sign in function
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -215,20 +215,51 @@
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Element should be enabled exception: Expected enabled element was not enabledBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'System info: host: 'WIN-2KK8D6ESTAE', ip: '192.168.0.108', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'Driver info: driver.version: unknown</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall""
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="far fa-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>testpackage.pages.MainPage.clickSignUpButton(MainPage.java:37)<br />testpackage.steps.MainSteps.clickSignUpButton(MainSteps.java:23)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div class="panel-body">
+                    <a href="pagesource667590865104345446.html.txt" target="_blank" class="btn btn-info">HTML Source</a>
+                </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="e944d83fc59174edde211b3a4e23129b0689fec4435bdcb9378331ebf8de7214.png" title=" Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}" width="1284"/>
-                <img src="e944d83fc59174edde211b3a4e23129b0689fec4435bdcb9378331ebf8de7214.png" title=" Given User open main page" width="1284"/>
-                <img src="e944d83fc59174edde211b3a4e23129b0689fec4435bdcb9378331ebf8de7214.png" title=" When User click sign in button" width="1284"/>
-                <img src="8e0ceded438e28e0f08bcff15fe5ee3e8073a300f8ffa46472779893239e3588.png" title=" When User click sign in button (completed)" width="1284"/>
-                <img src="8e0ceded438e28e0f08bcff15fe5ee3e8073a300f8ffa46472779893239e3588.png" title=" And User set email address &quot;{dev@splinestudio.com}&quot;" width="1284"/>
-                <img src="bfa4851eb2ff24e83551325a1b6de467d11abe600d2947dfcd42ab286b9a6a1f.png" title=" And User set email address &quot;{dev@splinestudio.com}&quot; (completed)" width="1284"/>
-                <img src="bfa4851eb2ff24e83551325a1b6de467d11abe600d2947dfcd42ab286b9a6a1f.png" title=" And User set password field &quot;{12345678}&quot;" width="1284"/>
-                <img src="10b93afe4a4e70b602e9d4dba0c29631536e78caccc65de87b26929eb086dcc6.png" title=" And User set password field &quot;{12345678}&quot; (completed)" width="1284"/>
-                <img src="10b93afe4a4e70b602e9d4dba0c29631536e78caccc65de87b26929eb086dcc6.png" title=" And User click signin button confirmation" width="1284"/>
-                <img src="bb9e06626feb2215477c0b35f2fd57963111c3fbeea8e70c8510749be185ffe7.png" title=" And User click signin button confirmation (completed)" width="1284"/>
-                <img src="bb9e06626feb2215477c0b35f2fd57963111c3fbeea8e70c8510749be185ffe7.png" title=" Then User should see &quot;{Lesha Afternoon}&quot;" width="1284"/>
-                <img src="c2e299c834d955df1321b2921a178c1d31a7cbf35a5e82804765a6e4270c6b69.png" title=" Then User should see &quot;{Lesha Afternoon}&quot; (completed): <span class='success-color'>SUCCESS</span>" width="1284"/>
+                <img src="a2e3871972d86da5b106f40dba4c3f49d936e7afbdfbdc47f0b7d357974ff763.png" title=" Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}" width="1280"/>
+                <img src="a2e3871972d86da5b106f40dba4c3f49d936e7afbdfbdc47f0b7d357974ff763.png" title=" Given User open main page" width="1280"/>
+                <img src="a2e3871972d86da5b106f40dba4c3f49d936e7afbdfbdc47f0b7d357974ff763.png" title=" When User click sign in button" width="1280"/>
+                <img src="a2e3871972d86da5b106f40dba4c3f49d936e7afbdfbdc47f0b7d357974ff763.png" title=" When User click sign in button (completed): <span class='failing-color'>FAILURE</span>" width="1280"/>
             </div>
         </div>
 

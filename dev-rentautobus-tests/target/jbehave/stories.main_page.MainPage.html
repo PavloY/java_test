@@ -18,24 +18,23 @@
 </thead>
 <tbody>
 <tr>
-<td>dev@splinestudio.com</td><td>12345678</td><td>Lesha Afternoon</td></tr>
+<td>dev@splinestudio.com</td><td>1234567</td><td>Lesha Afternoon</td></tr>
 </tbody>
 </table>
 
-<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</h3>
+<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=1234567, message=Lesha Afternoon}</h3>
 <div class="step successful">Given User open main page</div>
-<div class="step failed">When User click sign in button <span class="keyword failed">(FAILED)</span><br/><span class="message failed">net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled</span></div>
-<div class="step notPerformed">And User set email address &quot;<span class="step parameter">dev@splinestudio.com</span>&quot; <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
-<div class="step notPerformed">And User set password field &quot;<span class="step parameter">12345678</span>&quot; <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
-<div class="step notPerformed">And User click signin button confirmation <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
-<div class="step notPerformed">Then User should see &quot;<span class="step parameter">Lesha Afternoon</span>&quot; <span class="keyword notPerformed">(NOT PERFORMED)</span></div>
+<div class="step successful">When User click sign in button</div>
+<div class="step successful">And User set email address &quot;<span class="step parameter">dev@splinestudio.com</span>&quot;</div>
+<div class="step successful">And User set password field &quot;<span class="step parameter">1234567</span>&quot;</div>
+<div class="step successful">And User click signin button confirmation</div>
+<div class="step failed">Then User should see &quot;<span class="step parameter">Lesha Afternoon</span>&quot; <span class="keyword failed">(FAILED)</span><br/><span class="message failed">java.lang.AssertionError</span></div>
 </div>
-<pre class="failure">net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilEnabled(WebElementFacadeImpl.java:1149)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilElementAvailable(WebElementFacadeImpl.java:954)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1229)
-	at testpackage.pages.MainPage.clickSignUpButton(MainPage.java:37)
-	at testpackage.steps.MainSteps.clickSignUpButton(MainSteps.java:23)
+<pre class="failure">java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at testpackage.steps.jbehave.MainPageSteps.isUserByTextVisible(MainPageSteps.java:51)
 	(reflection-invoke)
 	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:790)
 	at org.jbehave.core.embedder.PerformableTree$FineSoFar.run(PerformableTree.java:349)

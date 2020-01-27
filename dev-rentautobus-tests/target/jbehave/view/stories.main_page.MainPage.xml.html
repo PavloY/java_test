@@ -19,23 +19,22 @@
 <step>Then User should see &quot;&lt;message&gt;&quot;</step>
 <parameters>
 <names><name>emailAddress</name><name>passwordField</name><name>message</name></names>
-<values><value>dev@splinestudio.com</value><value>12345678</value><value>Lesha Afternoon</value></values>
+<values><value>dev@splinestudio.com</value><value>1234567</value><value>Lesha Afternoon</value></values>
 </parameters>
 
-<example keyword="Example:">{emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</example>
+<example keyword="Example:">{emailAddress=dev@splinestudio.com, passwordField=1234567, message=Lesha Afternoon}</example>
 <step outcome="successful">Given User open main page</step>
-<step outcome="failed" keyword="FAILED">When User click sign in button<failure>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled</failure></step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">And User set email address &quot;<parameter>dev@splinestudio.com</parameter>&quot;</step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">And User set password field &quot;<parameter>12345678</parameter>&quot;</step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">And User click signin button confirmation</step>
-<step outcome="notPerformed" keyword="NOT PERFORMED">Then User should see &quot;<parameter>Lesha Afternoon</parameter>&quot;</step>
+<step outcome="successful">When User click sign in button</step>
+<step outcome="successful">And User set email address &quot;<parameter>dev@splinestudio.com</parameter>&quot;</step>
+<step outcome="successful">And User set password field &quot;<parameter>1234567</parameter>&quot;</step>
+<step outcome="successful">And User click signin button confirmation</step>
+<step outcome="failed" keyword="FAILED">Then User should see &quot;<parameter>Lesha Afternoon</parameter>&quot;<failure>java.lang.AssertionError</failure></step>
 </examples>
-<failure>net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilEnabled(WebElementFacadeImpl.java:1149)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilElementAvailable(WebElementFacadeImpl.java:954)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1229)
-	at testpackage.pages.MainPage.clickSignUpButton(MainPage.java:37)
-	at testpackage.steps.MainSteps.clickSignUpButton(MainSteps.java:23)
+<failure>java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:87)
+	at org.junit.Assert.assertTrue(Assert.java:42)
+	at org.junit.Assert.assertTrue(Assert.java:53)
+	at testpackage.steps.jbehave.MainPageSteps.isUserByTextVisible(MainPageSteps.java:51)
 	(reflection-invoke)
 	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:790)
 	at org.jbehave.core.embedder.PerformableTree$FineSoFar.run(PerformableTree.java:349)

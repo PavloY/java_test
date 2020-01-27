@@ -13,8 +13,7 @@ import java.net.URI;
 import static java.lang.String.format;
 import static org.openqa.selenium.By.xpath;
 
-//@DefaultUrl("http://rab.dev19.splinestudio.com/")
-@DefaultUrl("http://google.com/")
+@DefaultUrl("http://rab.dev19.splinestudio.com/")
 public class MainPage extends PageObject {
 
     private By signUpButton = xpath("//button[@id='dLabel']");

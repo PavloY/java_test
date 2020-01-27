@@ -10,4 +10,4 @@ And User click signin button confirmation
 Then User should see "<message>"
 Examples:
 | emailAddress         | passwordField           | message          |
-| dev@splinestudio.com | 12345678                | Lesha Afternoo  |
+| dev@splinestudio.com | 1234567                 | Lesha Afternoon  |

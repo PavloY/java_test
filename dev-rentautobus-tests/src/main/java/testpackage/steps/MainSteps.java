@@ -8,32 +8,32 @@ import testpackage.pages.MainPage;
 public class MainSteps extends ScenarioSteps {
   MainPage page;
 
-  @Step("User open main page")
+  @Step
   public void openMainPage() {
   page.open();
   }
 
-  @Step("User click sign in button")
+  @Step
   public void clickSignUpButton() {
     page.clickSignUpButton();
   }
 
-  @Step("User set email address [0]")
+  @Step
   public void setEmailAddress(String emailAddress) {
     page.setEmailAddress(emailAddress);
   }
 
-  @Step("User set password field [0]")
+  @Step
   public void setPasswordField (String passwordField) {
     page.setPasswordField(passwordField);
   }
 
-  @Step("User click signin button confirmation")
+  @Step
   public void clickSignUpButtonConfirmation() {
     page.clickSignUpButtonConfirmation();
   }
 
-  @Step("User should see [0]")
+  @Step
   public boolean isUserByTextVisible(String message) {
     return page.isUserByTextVisible(message);}
 

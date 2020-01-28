@@ -24,7 +24,7 @@
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertTrue(Assert.java:53)
-	at testpackage.steps.jbehave.MainPageSteps.isUserByTextVisible(MainPageSteps.java:51)
+	at testpackage.steps.MainSteps.isUserByTextVisible(MainSteps.java:48)
 	(reflection-invoke)
 	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:790)
 	at org.jbehave.core.embedder.PerformableTree$FineSoFar.run(PerformableTree.java:349)

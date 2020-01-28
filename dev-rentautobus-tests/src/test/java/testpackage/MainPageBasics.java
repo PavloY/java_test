@@ -1,4 +1,4 @@
-package testpackage.features;
+package testpackage;
 
 import net.serenitybdd.jbehave.SerenityStory;
 

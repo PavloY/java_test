@@ -1,14 +1,8 @@
 package testpackage.pages;
 
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.webdriver.driverproviders.RemoteWebdriverStub;
 import net.thucydides.core.annotations.DefaultUrl;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.URI;
 
 import static java.lang.String.format;
 import static org.openqa.selenium.By.xpath;

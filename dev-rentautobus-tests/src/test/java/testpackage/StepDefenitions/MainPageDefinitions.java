@@ -8,7 +8,7 @@ import org.jbehave.core.annotations.When;
 import org.junit.Assert;
 import rentbus.steps.MainSteps;
 
-public class MainPageSteps {
+public class MainPageDefinitions {
 
   @Steps
   MainSteps steps;

@@ -1,3 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Main page" skipped="0" tests="1" time="23.01" timestamp="2020-01-29 09:03:34"><testcase name="test sign in function"><failure type="java.lang.AssertionError"/><system-err>null&#13;
-testpackage.StepDefenitions.MainPageSteps.isUserByTextVisible(MainPageSteps.java:43)&#13;
-</system-err></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Main page" skipped="0" tests="1" time="92.87" timestamp="2020-01-29 09:23:02"><testcase name="test sign in function"/></testsuite>

@@ -18,16 +18,7 @@
 <step outcome="successful">And User set email address &apos;<parameter>dev@splinestudio.com</parameter>&apos;</step>
 <step outcome="successful">And User set password field &apos;<parameter>12345678</parameter>&apos;</step>
 <step outcome="successful">And User click signin button confirmation</step>
-<step outcome="failed" keyword="FAILED">Then User should see &apos;<parameter>Lesha Afternoon</parameter>&apos;<failure>java.lang.AssertionError</failure></step>
+<step outcome="successful">Then User should see &apos;<parameter>Lesha Afternoon</parameter>&apos;</step>
 </examples>
-<failure>java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:87)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertTrue(Assert.java:53)
-	at testpackage.StepDefenitions.MainPageSteps.isUserByTextVisible(MainPageSteps.java:43)
-	(reflection-invoke)
-	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:790)
-	at org.jbehave.core.embedder.PerformableTree$FineSoFar.run(PerformableTree.java:349)
-...</failure>
 </scenario>
 </story>

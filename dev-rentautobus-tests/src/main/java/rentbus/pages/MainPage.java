@@ -1,37 +1,53 @@
 package rentbus.pages;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.WhenPageOpens;
 import org.openqa.selenium.By;
 
 import static java.lang.String.format;
-import static org.openqa.selenium.By.xpath;
+
 
 @DefaultUrl("http://rab.dev19.splinestudio.com/")
 public class MainPage extends PageObject {
 
-    private By signUpButton = xpath("//button[@id='dLabel']");
-    private By emailAddressField = xpath("//input[@id='email']");
-    private By passwordField = xpath("//input[@id='password']");
-    private By signUpButtonConfirmation = xpath ("//button[@onclick='sign_in()']");
+    @FindBy(xpath = "//button[@id='dLabel']")
+    private WebElementFacade signUpButton;
+
+    @FindBy(xpath = "//input[@id='email']")
+    private WebElementFacade emailAddressField;
+
+    @FindBy(xpath = "//input[@id='password']")
+    private WebElementFacade passwordField;
+
+    @FindBy(xpath = "//button[@onclick='sign_in()']")
+    private WebElementFacade  signUpButtonConfirmation;
+
     String userByText = ("//a[text()[contains(.,'%s')]]");
 
+    @WhenPageOpens
+    public void maximiseScreen() {
+    getDriver().manage().window().maximize();
+  }
+
     public void clickSignUpButton() {
-      find(signUpButton).click();
+      signUpButton.click();
     }
 
     public MainPage setEmailAddress(String emailAddress){
-      find(emailAddressField).sendKeys(emailAddress);
+      emailAddressField.sendKeys(emailAddress);
       return this;
     }
 
     public MainPage setPasswordField(String password){
-      find(passwordField).sendKeys(password);
+      passwordField.sendKeys(password);
       return this;
     }
 
     public void clickSignUpButtonConfirmation() {
-      find(signUpButtonConfirmation).click();
+      signUpButtonConfirmation.click();
     }
 
     public boolean isUserByTextVisible(String message){

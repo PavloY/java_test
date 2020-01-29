@@ -1,9 +1,9 @@
-package testpackage.steps;
+package rentbus.steps;
 
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
-import testpackage.pages.MainPage;
+import rentbus.pages.MainPage;
 
 public class MainSteps extends ScenarioSteps {
   MainPage page;

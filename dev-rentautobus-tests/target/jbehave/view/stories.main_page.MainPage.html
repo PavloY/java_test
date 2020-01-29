@@ -15,10 +15,10 @@
 <h3>Examples:</h3>
 <div class="step">Given User open main page</div>
 <div class="step">When User click sign in button</div>
-<div class="step">And User set email address &quot;&lt;emailAddress&gt;&quot;</div>
-<div class="step">And User set password field &quot;&lt;passwordField&gt;&quot;</div>
+<div class="step">And User set email address '&lt;emailAddress&gt;'</div>
+<div class="step">And User set password field '&lt;passwordField&gt;'</div>
 <div class="step">And User click signin button confirmation</div>
-<div class="step">Then User should see &quot;&lt;message&gt;&quot;</div>
+<div class="step">Then User should see '&lt;message&gt;'</div>
 <table>
 <thead>
 <tr>
@@ -26,23 +26,23 @@
 </thead>
 <tbody>
 <tr>
-<td>dev@splinestudio.com</td><td>1234567</td><td>Lesha Afternoon</td></tr>
+<td>dev@splinestudio.com</td><td>12345678</td><td>Lesha Afternoon</td></tr>
 </tbody>
 </table>
 
-<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=1234567, message=Lesha Afternoon}</h3>
+<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</h3>
 <div class="step successful">Given User open main page</div>
 <div class="step successful">When User click sign in button</div>
-<div class="step successful">And User set email address &quot;<span class="step parameter">dev@splinestudio.com</span>&quot;</div>
-<div class="step successful">And User set password field &quot;<span class="step parameter">1234567</span>&quot;</div>
+<div class="step successful">And User set email address '<span class="step parameter">dev@splinestudio.com</span>'</div>
+<div class="step successful">And User set password field '<span class="step parameter">12345678</span>'</div>
 <div class="step successful">And User click signin button confirmation</div>
-<div class="step failed">Then User should see &quot;<span class="step parameter">Lesha Afternoon</span>&quot; <span class="keyword failed">(FAILED)</span><br/><span class="message failed">java.lang.AssertionError</span></div>
+<div class="step failed">Then User should see '<span class="step parameter">Lesha Afternoon</span>' <span class="keyword failed">(FAILED)</span><br/><span class="message failed">java.lang.AssertionError</span></div>
 </div>
 <pre class="failure">java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:87)
 	at org.junit.Assert.assertTrue(Assert.java:42)
 	at org.junit.Assert.assertTrue(Assert.java:53)
-	at testpackage.StepDefenitions.MainPageSteps.isUserByTextVisible(MainPageSteps.java:49)
+	at testpackage.StepDefenitions.MainPageSteps.isUserByTextVisible(MainPageSteps.java:43)
 	(reflection-invoke)
 	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:790)
 	at org.jbehave.core.embedder.PerformableTree$FineSoFar.run(PerformableTree.java:349)

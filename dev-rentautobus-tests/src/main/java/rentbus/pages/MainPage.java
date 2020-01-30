@@ -25,6 +25,9 @@ public class MainPage extends PageObject {
     @FindBy(xpath = "//button[@onclick='sign_in()']")
     private WebElementFacade  signUpButtonConfirmation;
 
+    @FindBy(xpath = "//a[text()[contains(.,'FOR BUSINESS')]]")
+    private WebElementFacade forBusinessButton;
+
     String userByText = ("//a[text()[contains(.,'%s')]]");
 
     @WhenPageOpens
@@ -54,5 +57,11 @@ public class MainPage extends PageObject {
      return findAll(By.xpath(format(userByText, message))).size() > 0
             && findAll(By.xpath(format(userByText, message))).get(0).isDisplayed();
   }
+
+    public MainPage clickForBusinessButton(){
+      forBusinessButton.click();
+      return this;
+  }
+
 }
 

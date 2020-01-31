@@ -1,0 +1,38 @@
+<story path="stories/CompanySignUpPage.story" title="">
+<scenario keyword="Scenario:" title="test sign in function">
+<examples keyword="Examples:">
+<step>Given User open main page</step>
+<step>When User click FOR BUSINESS button</step>
+<step>And User set first name field &apos;&lt;firstName&gt;&apos;</step>
+<step>And User set last name field &apos;&lt;lastName&gt;&apos;</step>
+<parameters>
+<names><name>firstName</name><name>lastName</name></names>
+<values><value>Test name</value><value>Test last name</value></values>
+</parameters>
+
+<example keyword="Example:">{firstName=Test name, lastName=Test last name}</example>
+<step outcome="successful">Given User open main page</step>
+<step outcome="pending" keyword="PENDING">When User click FOR BUSINESS button</step>
+<step outcome="pending" keyword="PENDING">And User set first name field &apos;&lt;firstName&gt;&apos;</step>
+<step outcome="pending" keyword="PENDING">And User set last name field &apos;&lt;lastName&gt;&apos;</step>
+<pendingMethod>@When(&quot;User click FOR BUSINESS button&quot;)
+@Pending
+public void whenUserClickFORBUSINESSButton() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;User set first name field &apos;&lt;firstName&gt;&apos;&quot;)
+@Pending
+public void whenUserSetFirstNameFieldfirstName() {
+  // PENDING
+}
+</pendingMethod>
+<pendingMethod>@When(&quot;User set last name field &apos;&lt;lastName&gt;&apos;&quot;)
+@Pending
+public void whenUserSetLastNameFieldlastName() {
+  // PENDING
+}
+</pendingMethod>
+</examples>
+</scenario>
+</story>

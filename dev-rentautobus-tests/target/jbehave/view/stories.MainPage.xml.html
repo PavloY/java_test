@@ -1,36 +1,37 @@
 <html>
 <head>
-<title>BeforeStories</title>
+<title>stories.MainPage</title>
 <style type="text/css" media="all">
 @import url( "./style/jbehave-core.css" );
 </style>
 </head>
 <body>
-  
-<script type="syntaxhighlighter" class="brush: plain"><![CDATA[
-#org.jbehave.core.reporters.PostStoryStatisticsCollector
-#Fri Jan 31 16:51:44 EET 2020
-notAllowed=0
-examples=0
-scenariosNotAllowed=0
-pending=0
-stepsPending=0
-stepsNotPerformed=0
-scenariosSuccessful=0
-comments=0
-givenStoryScenarios=0
-givenStoryScenariosFailed=0
-stepsFailed=0
-scenarios=0
-givenStories=0
-stepsSuccessful=0
-steps=0
-givenStoryScenariosPending=0
-scenariosPending=0
-stepsIgnorable=0
-givenStoryScenariosNotAllowed=0
-scenariosFailed=0
-givenStoryScenariosSuccessful=0
+ 
+<script type="syntaxhighlighter" class="brush: xml"><![CDATA[
+<story path="stories/MainPage.story" title="">
+<scenario keyword="Scenario:" title="test sign in function">
+<examples keyword="Examples:">
+<step>Given User open main page</step>
+<step>When User click sign in button</step>
+<step>And User set email address &apos;&lt;emailAddress&gt;&apos;</step>
+<step>And User set password field &apos;&lt;passwordField&gt;&apos;</step>
+<step>And User click signin button confirmation</step>
+<step>Then User should see &apos;&lt;message&gt;&apos;</step>
+<parameters>
+<names><name>emailAddress</name><name>passwordField</name><name>message</name></names>
+<values><value>dev@splinestudio.com</value><value>12345678</value><value>Lesha Afternoon</value></values>
+</parameters>
+
+<example keyword="Example:">{emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</example>
+<step outcome="successful">Given User open main page</step>
+<step outcome="successful">When User click sign in button</step>
+<step outcome="successful">And User set email address &apos;<parameter>dev@splinestudio.com</parameter>&apos;</step>
+<step outcome="successful">And User set password field &apos;<parameter>12345678</parameter>&apos;</step>
+<step outcome="successful">And User click signin button confirmation</step>
+<step outcome="successful">Then User should see &apos;<parameter>Lesha Afternoon</parameter>&apos;</step>
+</examples>
+</scenario>
+</story>
 
 ]]></script>
 </body>

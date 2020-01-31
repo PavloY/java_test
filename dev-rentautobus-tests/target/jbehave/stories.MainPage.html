@@ -1,0 +1,34 @@
+<div class="story">
+<h1></h1>
+<div class="path">stories/MainPage.story</div>
+<div class="scenario">
+<h2>Scenario: test sign in function</h2>
+<div class="examples">
+<h3>Examples:</h3>
+<div class="step">Given User open main page</div>
+<div class="step">When User click sign in button</div>
+<div class="step">And User set email address '&lt;emailAddress&gt;'</div>
+<div class="step">And User set password field '&lt;passwordField&gt;'</div>
+<div class="step">And User click signin button confirmation</div>
+<div class="step">Then User should see '&lt;message&gt;'</div>
+<table>
+<thead>
+<tr>
+<th>emailAddress</th><th>passwordField</th><th>message</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>dev@splinestudio.com</td><td>12345678</td><td>Lesha Afternoon</td></tr>
+</tbody>
+</table>
+
+<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</h3>
+<div class="step successful">Given User open main page</div>
+<div class="step successful">When User click sign in button</div>
+<div class="step successful">And User set email address '<span class="step parameter">dev@splinestudio.com</span>'</div>
+<div class="step successful">And User set password field '<span class="step parameter">12345678</span>'</div>
+<div class="step successful">And User click signin button confirmation</div>
+<div class="step successful">Then User should see '<span class="step parameter">Lesha Afternoon</span>'</div>
+</div>
+</div>
+</div>

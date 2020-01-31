@@ -11,3 +11,6 @@ Then User should see '<message>'
 Examples:
 | emailAddress         | passwordField           | message          |
 | dev@splinestudio.com | 12345678                | Lesha Afternoon  |
+
+
+

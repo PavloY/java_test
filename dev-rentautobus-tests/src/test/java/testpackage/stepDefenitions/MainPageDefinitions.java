@@ -1,4 +1,4 @@
-package testpackage.StepDefenitions;
+package testpackage.stepDefenitions;
 
 
 import net.thucydides.core.annotations.Steps;

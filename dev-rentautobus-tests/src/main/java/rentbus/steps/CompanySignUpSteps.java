@@ -10,7 +10,7 @@ public class CompanySignUpSteps extends ScenarioSteps {
   CompanySignUpPage page;
 
   @Step
-  public void openMainPage() {
+  public void openCompanySignUpPage() {
   page.open();
   }
 

@@ -37,5 +37,8 @@ public class MainSteps extends ScenarioSteps {
   public boolean isUserByTextVisible(String message) {
     return page.isUserByTextVisible(message);}
 
-
+  @Step
+  public void clickForBusinessButton() {
+    page.clickForBusinessButton();
+  }
 }

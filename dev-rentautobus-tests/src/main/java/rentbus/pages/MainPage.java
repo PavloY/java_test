@@ -16,6 +16,9 @@ public class MainPage extends PageObject {
     @FindBy(xpath = "//button[@id='dLabel']")
     private WebElementFacade signUpButton;
 
+    @FindBy(xpath = "//a[text()[contains(.,'FOR BUSINESS')]]")
+    private WebElementFacade forBusinessButton;
+
     @FindBy(xpath = "//input[@id='email']")
     private WebElementFacade emailAddressField;
 
@@ -25,9 +28,6 @@ public class MainPage extends PageObject {
     @FindBy(xpath = "//button[@onclick='sign_in()']")
     private WebElementFacade  signUpButtonConfirmation;
 
-    @FindBy(xpath = "//a[text()[contains(.,'FOR BUSINESS')]]")
-    private WebElementFacade forBusinessButton;
-
     String userByText = ("//a[text()[contains(.,'%s')]]");
 
     @WhenPageOpens
@@ -35,8 +35,13 @@ public class MainPage extends PageObject {
     getDriver().manage().window().maximize();
   }
 
+
     public void clickSignUpButton() {
       signUpButton.click();
+    }
+
+    public void clickForBusinessButton(){
+      forBusinessButton.click();
     }
 
     public MainPage setEmailAddress(String emailAddress){
@@ -58,10 +63,6 @@ public class MainPage extends PageObject {
             && findAll(By.xpath(format(userByText, message))).get(0).isDisplayed();
   }
 
-    public MainPage clickForBusinessButton(){
-      forBusinessButton.click();
-      return this;
-  }
 
 }
 

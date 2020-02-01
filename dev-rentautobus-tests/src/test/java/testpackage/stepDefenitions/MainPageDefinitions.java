@@ -23,6 +23,12 @@ public class MainPageDefinitions {
     steps.clickSignUpButton();
   }
 
+  @Then("User click button")
+  public void clickForBusinessButton() {
+    steps.clickForBusinessButton();
+  }
+
+  /*
   @When("User set email address '$emailAddress'")
   public void setEmailAddress(String emailAddress) {
     steps.setEmailAddress(emailAddress);
@@ -42,5 +48,5 @@ public class MainPageDefinitions {
   public void isUserByTextVisible(String message) {
     Assert.assertTrue(steps.isUserByTextVisible(message));}
 
-
+*/
 }

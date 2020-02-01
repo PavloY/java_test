@@ -1,7 +1,6 @@
 #org.jbehave.core.embedder.StoryManager
-#Fri Jan 31 16:54:55 EET 2020
-stories/CompanySignUpPage.story=115000
+#Sat Feb 01 15:04:24 EET 2020
 threads=1
-total=190000
-threadAverage=190000
-stories/MainPage.story=75000
+total=47000
+threadAverage=47000
+stories/MainPage.story=47000

@@ -10,12 +10,17 @@ public class MainSteps extends ScenarioSteps {
 
   @Step
   public void openMainPage() {
-  page.open();
+    page.open();
   }
 
   @Step
   public void clickSignUpButton() {
     page.clickSignUpButton();
+  }
+
+  @Step
+  public void clickForBusinessButton() {
+    page.clickForBusinessButton();
   }
 
   @Step
@@ -37,8 +42,5 @@ public class MainSteps extends ScenarioSteps {
   public boolean isUserByTextVisible(String message) {
     return page.isUserByTextVisible(message);}
 
-  @Step
-  public void clickForBusinessButton() {
-    page.clickForBusinessButton();
-  }
+
 }

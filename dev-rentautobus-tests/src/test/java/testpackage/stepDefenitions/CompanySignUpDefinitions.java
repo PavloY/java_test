@@ -10,7 +10,7 @@ import rentbus.steps.CompanySignUpSteps;
 import rentbus.steps.MainSteps;
 
 public class CompanySignUpDefinitions {
-
+/*
   @Steps
   MainSteps step;
   CompanySignUpSteps steps;
@@ -35,7 +35,7 @@ public class CompanySignUpDefinitions {
     steps.setLastNameField(lastName);
   }
 
-
+*/
 
 
 }

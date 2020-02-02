@@ -30,6 +30,29 @@ public class MainPage extends PageObject {
 
     String userByText = ("//a[text()[contains(.,'%s')]]");
 
+    @FindBy(xpath = "//button[@id='return_trip']")
+    private WebElementFacade returnTripButton;
+
+    @FindBy(xpath = "//button[@id='one_way']")
+    private WebElementFacade oneWayButton;
+
+    @FindBy(xpath = "//button[@id='multi_trip']")
+    private WebElementFacade multiStopsButton;
+
+    @FindBy(xpath = "//input[@id='from']")
+    private WebElementFacade fromField;
+
+    private By toField = By.id("to");
+    private By fromDateField = By.id("from_date");
+    private By toDateField = By.id("to_date");
+    private By fromTimeField = By.id("from_time-hour");
+    private By toTimeField = By.id("to_time");
+    private By fromFieldMultiStops = By.id("from0");
+    private By toFieldMultiStops = By.id("to0");
+    private By fromDateMultiStops = By.id("from_date0");
+    private By fromTimeMultiStops = By.id("from_time-hour0");
+    private By getFreeQuotesButton = By.xpath("//button[@id='next-page']");
+
     @WhenPageOpens
     public void maximiseScreen() {
     getDriver().manage().window().maximize();

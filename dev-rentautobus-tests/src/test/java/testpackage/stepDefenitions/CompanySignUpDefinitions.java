@@ -10,9 +10,10 @@ import rentbus.steps.CompanySignUpSteps;
 import rentbus.steps.MainSteps;
 
 public class CompanySignUpDefinitions {
-/*
+
   @Steps
   MainSteps step;
+  @Steps
   CompanySignUpSteps steps;
 
   @Given("User open main page")
@@ -34,8 +35,4 @@ public class CompanySignUpDefinitions {
   public void setLastNameField(String lastName){
     steps.setLastNameField(lastName);
   }
-
-*/
-
-
 }

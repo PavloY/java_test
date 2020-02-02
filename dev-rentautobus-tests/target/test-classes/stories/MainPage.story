@@ -2,12 +2,6 @@ Narrative:
 This story covers basic tests of sign in
 
 Scenario: test sign in function
-Given User open main page
-When User click sign in button
-Then User click button
-
-
-Scenario: test sign in function
 Meta: @skip
 Given User open main page
 When User click sign in button
@@ -21,7 +15,6 @@ Examples:
 
 
 Scenario: test sign in function
-Meta: @skip
 Given User open main page
 When User click FOR BUSINESS button
 And User set first name field '<firstName>'

@@ -3,41 +3,6 @@
 <div class="path">stories/MainPage.story</div>
 <div class="scenario">
 <h2>Scenario: test sign in function</h2>
-<div class="step successful">Given User open main page</div>
-<div class="step failed">When User click sign in button <span class="keyword failed">(FAILED)</span><br/><span class="message failed">net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled</span></div>
-<div class="step pending">Then User click button <span class="keyword pending">(PENDING)</span></div>
-<div><pre class="pending">@Then(&quot;User click button&quot;)
-@Pending
-public void thenUserClickButton() {
-  // PENDING
-}
-</pre></div>
-<pre class="failure">net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException: Expected enabled element was not enabled
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilEnabled(WebElementFacadeImpl.java:1149)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.waitUntilElementAvailable(WebElementFacadeImpl.java:954)
-	at net.serenitybdd.core.pages.WebElementFacadeImpl.click(WebElementFacadeImpl.java:1229)
-	(reflection-invoke)
-	at net.thucydides.core.annotations.locators.AbstractSingleItemHandler.invoke(AbstractSingleItemHandler.java:45)
-	at com.sun.proxy.$Proxy28.click(Unknown Source)
-	at rentbus.pages.MainPage.clickSignUpButton(MainPage.java:40)
-	at rentbus.steps.MainSteps.clickSignUpButton(MainSteps.java:18)
-	at rentbus.steps.MainSteps$ByteBuddy$CUkvQaCU.clickSignUpButton$accessor$L0n3HbxS(Unknown Source)
-	(reflection-invoke)
-	at net.thucydides.core.steps.StepInterceptor.invokeMethod(StepInterceptor.java:471)
-	at net.thucydides.core.steps.StepInterceptor.executeTestStepMethod(StepInterceptor.java:451)
-	at net.thucydides.core.steps.StepInterceptor.runTestStep(StepInterceptor.java:424)
-	at net.thucydides.core.steps.StepInterceptor.runOrSkipMethod(StepInterceptor.java:180)
-	at net.thucydides.core.steps.StepInterceptor.testStepResult(StepInterceptor.java:167)
-	at net.thucydides.core.steps.StepInterceptor.intercept(StepInterceptor.java:75)
-	at rentbus.steps.MainSteps$ByteBuddy$CUkvQaCU.clickSignUpButton(Unknown Source)
-	at testpackage.StepDefenitions.MainPageSteps.clickSignUpButton(MainPageSteps.java:23)
-	(reflection-invoke)
-	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:790)
-	at org.jbehave.core.embedder.PerformableTree$FineSoFar.run(PerformableTree.java:349)
-...</pre>
-</div>
-<div class="scenario">
-<h2>Scenario: test sign in function</h2>
 <div class="meta">
 <div class="keyword">Meta:</div>
 <div class="property">@skip </div>
@@ -81,10 +46,6 @@ public void thenUserClickButton() {
 </div>
 <div class="scenario">
 <h2>Scenario: test sign in function</h2>
-<div class="meta">
-<div class="keyword">Meta:</div>
-<div class="property">@skip </div>
-</div>
 <div class="examples">
 <h3>Examples:</h3>
 <div class="step">Given User open main page</div>
@@ -102,7 +63,7 @@ public void thenUserClickButton() {
 </tbody>
 </table>
 
-<h3 class="example">Example: {firstName=Test name, lastName=Test last name, skip=}</h3>
+<h3 class="example">Example: {firstName=Test name, lastName=Test last name}</h3>
 <div class="step successful">Given User open main page</div>
 <div class="step pending">When User click FOR BUSINESS button <span class="keyword pending">(PENDING)</span></div>
 <div class="step pending">And User set first name field '&lt;firstName&gt;' <span class="keyword pending">(PENDING)</span></div>

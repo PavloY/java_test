@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Main page" skipped="2" tests="3" time="45.52" timestamp="2020-02-01 03:03:36"><testcase name="test sign in function"><failure message="Expected enabled element was not enabled" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled</failure><system-err>Expected enabled element was not enabled&#13;
-rentbus.pages.MainPage.clickSignUpButton(MainPage.java:40)&#13;
-rentbus.steps.MainSteps.clickSignUpButton(MainSteps.java:18)&#13;
-testpackage.StepDefenitions.MainPageSteps.clickSignUpButton(MainPageSteps.java:23)&#13;
-</system-err></testcase><testcase name="test sign in function"><skipped/></testcase><testcase name="test sign in function"><skipped/></testcase></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Main page" skipped="2" tests="2" time="17.63" timestamp="2020-02-02 04:25:40"><testcase name="test sign in function"><skipped/></testcase><testcase name="test sign in function"><skipped/></testcase></testsuite>

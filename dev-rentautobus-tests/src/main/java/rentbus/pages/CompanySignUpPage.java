@@ -52,11 +52,10 @@ public class CompanySignUpPage extends PageObject {
   @FindBy(xpath = "//button[@onclick='register()']")
   private WebElementFacade buttonRegister;
 
-  String allertByText = ("//div[text()[contains(.,'Check your Email')]]");
+  String allertByText = ("//div[text()[contains(.,'%s')]]");
 
-  @FindBy(xpath = "//div[text()[contains(.,'Check your Email')]]")
+  @FindBy(xpath = "//div[text()[contains(.,'%s')]]")
   private WebElementFacade allertByLabel;
-
 
   public CompanySignUpPage setFirstNameField(String firstName){
     firstNameField.sendKeys(firstName);
@@ -99,9 +98,9 @@ public class CompanySignUpPage extends PageObject {
     return this;
   }
 
-  public CompanySignUpPage setCountryCodeField(String country){
+  public CompanySignUpPage setCountryCodeField(String countryCode){
     countryCodeDropDown.click();
-    find(xpath(String.format(countryCodeDropDownOption, country))).waitUntilVisible().click();
+    find(xpath(String.format(countryCodeDropDownOption, countryCode))).waitUntilVisible().click();
     return this;
   }
 
@@ -118,7 +117,7 @@ public class CompanySignUpPage extends PageObject {
     return findAll(xpath(format(allertByText, message))).size() > 0
             && findAll(xpath(format(allertByText, message))).get(0).isDisplayed();
   }
-
+/*
   public List<WebElement> getAllert(){
     return $(allertByLabel);
   }
@@ -126,9 +125,11 @@ public class CompanySignUpPage extends PageObject {
   public String getAllertByNumber(int number){
     return getAllert().get(number -1).getText();
   }
+*/
+/*
+  public void  getAllertText(String text) {
+  return find(xpath(String.format(allertByLabel, text)));
 
-  public String getAllertText() {
-  return allertByLabel.getText();
 }
-
+*/
 }

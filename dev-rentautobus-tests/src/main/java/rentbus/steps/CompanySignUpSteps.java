@@ -3,18 +3,14 @@ package rentbus.steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import org.assertj.core.api.Assertions;
 import rentbus.pages.CompanySignUpPage;
 import rentbus.pages.MainPage;
 
 public class CompanySignUpSteps extends ScenarioSteps {
   CompanySignUpPage page;
 
-  @Step
-  public void openCompanySignUpPage() {
-  page.open();
-  }
-
-  @Step
+   @Step
   public void setFirstNameField(String firstName){
     page.setFirstNameField(firstName);
   }
@@ -40,11 +36,41 @@ public class CompanySignUpSteps extends ScenarioSteps {
   }
 
   @Step
-  public void setCityField(String city){
+  public void setCityField(String city) {
     page.setCityField(city);
+    }
 
+   @Step
+   public void setCountryField(String country){
+      page.setCountryField(country);
+    }
+
+    @Step
+    public void setEmailFormField(String emailForm){
+    page.setEmailFormField(emailForm);
+  }
+
+  @Step
+    public void setCountryCodeField(String countryCode){
+    page.setCountryCodeField(countryCode);
   }
 
 
+  @Step
+  public void setPhoneField(String phone){
+    page.setPhoneField(phone);
+  }
+
+  @Step
+  public void clickButtonRegister() {
+    page.clickButtonRegister();
+  }
+
+  @Step
+  public void isAllertVisible(String message) {
+    Assertions.assertThat(page.isAllertVisible(message))
+            .as("User did not see message")
+            .isTrue();
+  }
 
 }

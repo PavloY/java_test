@@ -11,10 +11,6 @@
 <div class="path">stories/MainPage.story</div>
 <div class="scenario">
 <h2>Scenario: test sign in function</h2>
-<div class="meta">
-<div class="keyword">Meta:</div>
-<div class="property">@skip </div>
-</div>
 <div class="examples">
 <h3>Examples:</h3>
 <div class="step">Given User open main page</div>
@@ -34,66 +30,13 @@
 </tbody>
 </table>
 
-<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon, skip=}</h3>
+<h3 class="example">Example: {emailAddress=dev@splinestudio.com, passwordField=12345678, message=Lesha Afternoon}</h3>
 <div class="step successful">Given User open main page</div>
 <div class="step successful">When User click sign in button</div>
 <div class="step successful">And User set email address '<span class="step parameter">dev@splinestudio.com</span>'</div>
 <div class="step successful">And User set password field '<span class="step parameter">12345678</span>'</div>
 <div class="step successful">And User click signin button confirmation</div>
-<div class="step failed">Then User should see '<span class="step parameter">Lesha Afternoon</span>' <span class="keyword failed">(FAILED)</span><br/><span class="message failed">java.lang.AssertionError</span></div>
-</div>
-<pre class="failure">java.lang.AssertionError
-	at org.junit.Assert.fail(Assert.java:87)
-	at org.junit.Assert.assertTrue(Assert.java:42)
-	at org.junit.Assert.assertTrue(Assert.java:53)
-	at testpackage.StepDefenitions.MainPageSteps.isUserByTextVisible(MainPageSteps.java:43)
-	(reflection-invoke)
-	at org.jbehave.core.steps.StepCreator$ParametrisedStep.perform(StepCreator.java:790)
-	at org.jbehave.core.embedder.PerformableTree$FineSoFar.run(PerformableTree.java:349)
-...</pre>
-</div>
-<div class="scenario">
-<h2>Scenario: test sign in function</h2>
-<div class="examples">
-<h3>Examples:</h3>
-<div class="step">Given User open main page</div>
-<div class="step">When User click FOR BUSINESS button</div>
-<div class="step">And User set first name field '&lt;firstName&gt;'</div>
-<div class="step">And User set last name field '&lt;lastName&gt;'</div>
-<table>
-<thead>
-<tr>
-<th>firstName</th><th>lastName</th></tr>
-</thead>
-<tbody>
-<tr>
-<td>Test name</td><td>Test last name</td></tr>
-</tbody>
-</table>
-
-<h3 class="example">Example: {firstName=Test name, lastName=Test last name}</h3>
-<div class="step successful">Given User open main page</div>
-<div class="step pending">When User click FOR BUSINESS button <span class="keyword pending">(PENDING)</span></div>
-<div class="step pending">And User set first name field '&lt;firstName&gt;' <span class="keyword pending">(PENDING)</span></div>
-<div class="step pending">And User set last name field '&lt;lastName&gt;' <span class="keyword pending">(PENDING)</span></div>
-<div><pre class="pending">@When(&quot;User click FOR BUSINESS button&quot;)
-@Pending
-public void whenUserClickFORBUSINESSButton() {
-  // PENDING
-}
-</pre></div>
-<div><pre class="pending">@When(&quot;User set first name field '&lt;firstName&gt;'&quot;)
-@Pending
-public void whenUserSetFirstNameFieldfirstName() {
-  // PENDING
-}
-</pre></div>
-<div><pre class="pending">@When(&quot;User set last name field '&lt;lastName&gt;'&quot;)
-@Pending
-public void whenUserSetLastNameFieldlastName() {
-  // PENDING
-}
-</pre></div>
+<div class="step successful">Then User should see '<span class="step parameter">Lesha Afternoon</span>'</div>
 </div>
 </div>
 </div>
